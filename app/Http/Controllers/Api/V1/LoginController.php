@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 /**
  * @group login
- * 第三方登陆
+ * 第三方登陆guojie
  */
 class LoginController extends BaseController
 {
