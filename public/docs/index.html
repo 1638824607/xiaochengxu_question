@@ -1,0 +1,4246 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript","php"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                                  <a href="#" data-language-name="php">php</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference.
+<a href="http://sns.shenruxiang.com/docs/collection.json">Get Postman Collection</a></p>
+<!-- END_INFO -->
+<h1>adv</h1>
+<p>广告</p>
+<!-- START_089aaccc14b2040430885631f1ece7e0 -->
+<h2>cateAdvList</h2>
+<p>分类广告列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/cateAdvList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"cate_id":12}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/cateAdvList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "cate_id": 12
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/cateAdvList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'cate_id' =&gt; 12,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 5,
+            "cate_id": "2",
+            "src": "http:\/\/daodao.shenruxiang.com\/storage\/CateAdv\/2020-04-13\/U1lHNWXWFgbVtdWX96um5xJAB1Cfq5E00JoRwPEd.jpeg",
+            "position": 2,
+            "status": 1,
+            "created_at": "2020-03-05 21:52:19",
+            "updated_at": "2020-04-13 20:13:06",
+            "href": ""
+        },
+        {
+            "id": 6,
+            "cate_id": "2",
+            "src": "http:\/\/daodao.shenruxiang.com\/storage\/CateAdv\/2020-04-13\/esb4rMeYbEUvMIkn8rQapuPG7e9P2LLvCWBnxwbq.jpeg",
+            "position": 1,
+            "status": 1,
+            "created_at": "2020-03-05 21:57:39",
+            "updated_at": "2020-04-13 20:12:29",
+            "href": ""
+        },
+        {
+            "id": 7,
+            "cate_id": "2",
+            "src": "http:\/\/daodao.shenruxiang.com\/storage\/CateAdv\/2020-04-13\/fu0hMXsRcSp210177pmZywPrS7RDm1tWJNAnax9L.jpeg",
+            "position": 0,
+            "status": 1,
+            "created_at": "2020-03-05 22:00:19",
+            "updated_at": "2020-04-13 20:11:10",
+            "href": ""
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/cateAdvList</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cate_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>分类id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_089aaccc14b2040430885631f1ece7e0 -->
+<!-- START_5b6bdc6a1e80b1855270345878dcd030 -->
+<h2>catePostAdvList</h2>
+<p>分类帖子详情广告列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/catePostAdvList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"post_id":17}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/catePostAdvList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "post_id": 17
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/catePostAdvList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'post_id' =&gt; 17,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 8,
+            "cate_id": "2",
+            "src": "http:\/\/daodao.shenruxiang.com\/adv_test\/6af1e3ed0f3111d54da3d71cc42c28b6.jpg",
+            "status": 1,
+            "created_at": "2020-03-06 08:38:57",
+            "updated_at": "2020-04-06 20:38:10",
+            "href": ""
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/catePostAdvList</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>post_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>帖子id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_5b6bdc6a1e80b1855270345878dcd030 -->
+<!-- START_8b6a1e495c3ac8277cb397d83bc122aa -->
+<h2>advList</h2>
+<p>便民广告列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/advList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/advList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/advList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 8,
+            "src": "http:\/\/daodao.shenruxiang.com\/storage\/PostAdv\/2020-03-18\/YGAXhOLdiPRabO2mH7FUwvyB3SxvZmVSuKsKLG22.jpeg",
+            "status": 1,
+            "href": "",
+            "created_at": "2020-03-07 09:39:33",
+            "updated_at": "2020-03-18 19:07:20"
+        },
+        {
+            "id": 6,
+            "src": "http:\/\/daodao.shenruxiang.com\/storage\/PostAdv\/2020-03-18\/YGAXhOLdiPRabO2mH7FUwvyB3SxvZmVSuKsKLG22.jpeg",
+            "status": 1,
+            "href": "",
+            "created_at": "2020-03-05 21:57:39",
+            "updated_at": "2020-04-06 14:58:23"
+        },
+        {
+            "id": 5,
+            "src": "http:\/\/daodao.shenruxiang.com\/storage\/PostAdv\/2020-03-18\/YGAXhOLdiPRabO2mH7FUwvyB3SxvZmVSuKsKLG22.jpeg",
+            "status": 1,
+            "href": "",
+            "created_at": "2020-03-05 21:52:19",
+            "updated_at": "2020-04-06 14:58:58"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/advList</code></p>
+<!-- END_8b6a1e495c3ac8277cb397d83bc122aa -->
+<h1>login</h1>
+<p>第三方登陆</p>
+<!-- START_89ab4d2e68c02976da4a993a2a2733db -->
+<h2>loginByOauth</h2>
+<p>第三方登陆注册</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/loginByOauth" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"openid":"delectus","login_type":"perspiciatis","login_device_type":"esse","login_device":"cumque","nickname":"voluptatem","avatar":"cum","province":"iusto","city":"blanditiis"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/loginByOauth"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "openid": "delectus",
+    "login_type": "perspiciatis",
+    "login_device_type": "esse",
+    "login_device": "cumque",
+    "nickname": "voluptatem",
+    "avatar": "cum",
+    "province": "iusto",
+    "city": "blanditiis"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/loginByOauth',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'openid' =&gt; 'delectus',
+            'login_type' =&gt; 'perspiciatis',
+            'login_device_type' =&gt; 'esse',
+            'login_device' =&gt; 'cumque',
+            'nickname' =&gt; 'voluptatem',
+            'avatar' =&gt; 'cum',
+            'province' =&gt; 'iusto',
+            'city' =&gt; 'blanditiis',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "id": 2,
+        "openid": "123456-dsf-21321312",
+        "name": "wx_1595156242730",
+        "nick_name": "",
+        "sex": "男",
+        "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+        "desc": "简介",
+        "status": 1,
+        "is_super": 1,
+        "grade": 1,
+        "login_type": "wx",
+        "login_device_type": "android",
+        "login_device": "",
+        "login_time": "2020-07-23 12:22:37",
+        "expire_time": 1604146957,
+        "register_ip": "114.249.135.32",
+        "token": "8f8c0682dae88f9426729e63be8af3a3",
+        "province": "",
+        "city": "",
+        "birthday": "",
+        "feeling": "",
+        "job": "",
+        "created_at": "2020-07-19 10:57:22"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/loginByOauth</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>openid</code></td>
+<td>string</td>
+<td>required</td>
+<td>第三方标示openid</td>
+</tr>
+<tr>
+<td><code>login_type</code></td>
+<td>string</td>
+<td>required</td>
+<td>第三方登陆类型（wx/qq）</td>
+</tr>
+<tr>
+<td><code>login_device_type</code></td>
+<td>string</td>
+<td>required</td>
+<td>登陆设备类型（android/ios）</td>
+</tr>
+<tr>
+<td><code>login_device</code></td>
+<td>string</td>
+<td>optional</td>
+<td>登陆设备(小米10)</td>
+</tr>
+<tr>
+<td><code>nickname</code></td>
+<td>string</td>
+<td>optional</td>
+<td>昵称</td>
+</tr>
+<tr>
+<td><code>avatar</code></td>
+<td>string</td>
+<td>optional</td>
+<td>头像</td>
+</tr>
+<tr>
+<td><code>province</code></td>
+<td>string</td>
+<td>optional</td>
+<td>省份</td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td>string</td>
+<td>optional</td>
+<td>城市</td>
+</tr>
+</tbody>
+</table>
+<!-- END_89ab4d2e68c02976da4a993a2a2733db -->
+<!-- START_bb7aca107272785daf791426242c6a54 -->
+<h2>appStartList</h2>
+<p>启动页列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/appStartList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/appStartList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/appStartList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 1,
+            "name": "1112",
+            "src": "http:\/\/daodao.shenruxiang.com\/storage\/AppStart\/2020-05-16\/ncK9jKGRXccfr8BfQrh2lOQIRrULbYMCoWJ0XSlN.jpeg",
+            "type": 1,
+            "status": 1,
+            "created_at": "2020-03-05 12:40:24",
+            "sort": 0,
+            "href": ""
+        },
+        {
+            "id": 2,
+            "name": "222",
+            "src": "http:\/\/daodao.shenruxiang.com\/storage\/AppStart\/2020-03-27\/SAPvGr1z6X9nNg5tdaJPIgz6xtMiZRvIuDayIJAO.mp4",
+            "type": 2,
+            "status": 1,
+            "created_at": "2020-03-05 13:05:23",
+            "sort": 0,
+            "href": ""
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/appStartList</code></p>
+<!-- END_bb7aca107272785daf791426242c6a54 -->
+<h1>post</h1>
+<p>帖子</p>
+<!-- START_86e98b473cf2e428508bd9315b3de885 -->
+<h2>postList</h2>
+<p>帖子列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/postList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"cate_id":19}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/postList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "cate_id": 19
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/postList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'cate_id' =&gt; 19,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 110,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "哦哟上找也软用",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 1,
+                "praise_num": 0,
+                "view_num": 2,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-05-17 22:07:57",
+                "updated_at": "2020-05-17 23:02:01",
+                "is_adv": 0,
+                "source": "[{\"source_src\":\"http:\\\/\\\/daodao.shenruxiang.com\\\/android_39309_20200402_203525_0114400.mp4\",\"source_thumb_src\":\"http:\\\/\\\/daodao.shenruxiang.com\\\/android_39309_20200402_203525_0114400.mp4?vframe\\\/png\\\/offset\\\/1\\\/w\\\/600\\\/h\\\/600\"}]",
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": {
+                    "id": 210,
+                    "post_id": 110,
+                    "user_id": 1
+                }
+            },
+            {
+                "id": 109,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "21321321312",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 0,
+                "view_num": 0,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-05-15 21:36:40",
+                "updated_at": "2020-05-15 21:36:40",
+                "is_adv": 0,
+                "source": "",
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 67,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "侧睡侧睡侧睡侧睡侧睡侧睡",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 18,
+                "praise_num": 2,
+                "view_num": 50,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-04-14 21:27:44",
+                "updated_at": "2020-05-17 23:02:23",
+                "is_adv": 0,
+                "source": "",
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 66,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "null",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 0,
+                "view_num": 0,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-04-14 20:59:18",
+                "updated_at": "2020-04-14 20:59:18",
+                "is_adv": 0,
+                "source": "",
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 43,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "2",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 2,
+                "praise_num": 3,
+                "view_num": 8,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-04-11 23:38:48",
+                "updated_at": "2020-05-12 01:48:24",
+                "is_adv": 0,
+                "source": "",
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 22,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "11111111",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 7,
+                "praise_num": 0,
+                "view_num": 13,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-03-20 18:50:16",
+                "updated_at": "2020-05-12 01:42:32",
+                "is_adv": 0,
+                "source": null,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 21,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "11",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 1,
+                "view_num": 0,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-03-20 18:46:21",
+                "updated_at": "2020-04-14 17:24:55",
+                "is_adv": 0,
+                "source": null,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 17,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "11",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 9,
+                "praise_num": 4,
+                "view_num": 4,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-03-20 17:22:18",
+                "updated_at": "2020-05-15 21:34:03",
+                "is_adv": 0,
+                "source": null,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 16,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "11",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 0,
+                "view_num": 3,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-03-20 17:21:57",
+                "updated_at": "2020-05-12 00:11:46",
+                "is_adv": 0,
+                "source": null,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 15,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "11",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 1,
+                "view_num": 0,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-03-20 17:21:52",
+                "updated_at": "2020-05-12 01:52:34",
+                "is_adv": 0,
+                "source": null,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            }
+        ],
+        "first_page_url": "http:\/\/sns.shenruxiang.com\/api\/v1\/postList?page=1",
+        "from": 1,
+        "next_page_url": "http:\/\/sns.shenruxiang.com\/api\/v1\/postList?page=2",
+        "path": "http:\/\/sns.shenruxiang.com\/api\/v1\/postList",
+        "per_page": 10,
+        "prev_page_url": null,
+        "to": 10
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/postList</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cate_id</code></td>
+<td>integer</td>
+<td>optional</td>
+<td>分类id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_86e98b473cf2e428508bd9315b3de885 -->
+<!-- START_e2d2fdc79f20f56c48d8ad5caf329da7 -->
+<h2>cateList</h2>
+<p>帖子分类列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/cateList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/cateList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/cateList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 2,
+            "name": "健康",
+            "color": "#90ee90",
+            "sort": 1111
+        },
+        {
+            "id": 6,
+            "name": "电竞",
+            "color": "#e9f4e8",
+            "sort": 6
+        },
+        {
+            "id": 5,
+            "name": "金融",
+            "color": "#f21b1b",
+            "sort": 5
+        },
+        {
+            "id": 3,
+            "name": "房产",
+            "color": "#f4e9e9",
+            "sort": 1
+        },
+        {
+            "id": 4,
+            "name": "汽车",
+            "color": "#ef1515",
+            "sort": 0
+        },
+        {
+            "id": 7,
+            "name": "足球",
+            "color": "#de1f1f",
+            "sort": 0
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/cateList</code></p>
+<!-- END_e2d2fdc79f20f56c48d8ad5caf329da7 -->
+<!-- START_fe981f6ff32b1e28d50e6e77628ef157 -->
+<h2>postHotList</h2>
+<p>帖子热点列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/postHotList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/postHotList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/postHotList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 112,
+                "cate_id": 2,
+                "user_id": 1,
+                "post_content": "22222",
+                "phone_model": "mini",
+                "post_position": "北京",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 0,
+                "view_num": 0,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-07-24 12:12:29",
+                "updated_at": "2020-07-24 12:12:29",
+                "is_adv": 0,
+                "source": "2",
+                "is_hot": 1,
+                "user": {
+                    "id": 1,
+                    "nick_name": "哈哈",
+                    "avatar": "http:\/\/sns.com:8888\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 110,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "哦哟上找也软用",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 4,
+                "praise_num": 1,
+                "view_num": 3,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-05-17 22:07:57",
+                "updated_at": "2020-07-23 13:38:23",
+                "is_adv": 0,
+                "source": "[{\"source_src\":\"http:\\\/\\\/daodao.shenruxiang.com\\\/android_39309_20200402_203525_0114400.mp4\",\"source_thumb_src\":\"http:\\\/\\\/daodao.shenruxiang.com\\\/android_39309_20200402_203525_0114400.mp4?vframe\\\/png\\\/offset\\\/1\\\/w\\\/600\\\/h\\\/600\"}]",
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": {
+                    "id": 213,
+                    "post_id": 110,
+                    "user_id": 1
+                }
+            },
+            {
+                "id": 109,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "21321321312",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 0,
+                "view_num": 0,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-05-15 21:36:40",
+                "updated_at": "2020-05-15 21:36:40",
+                "is_adv": 0,
+                "source": "",
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 67,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "侧睡侧睡侧睡侧睡侧睡侧睡",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 18,
+                "praise_num": 2,
+                "view_num": 50,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-04-14 21:27:44",
+                "updated_at": "2020-05-17 23:02:23",
+                "is_adv": 0,
+                "source": "",
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 66,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "null",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 0,
+                "view_num": 0,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-04-14 20:59:18",
+                "updated_at": "2020-04-14 20:59:18",
+                "is_adv": 0,
+                "source": "",
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 54,
+                "cate_id": 4,
+                "user_id": 2,
+                "post_content": "苏打粉是非得失隋东风",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 0,
+                "view_num": 0,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-04-13 20:19:24",
+                "updated_at": "2020-04-13 20:19:24",
+                "is_adv": 0,
+                "source": "",
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 53,
+                "cate_id": 4,
+                "user_id": 2,
+                "post_content": "321321321321",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 0,
+                "view_num": 1,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-04-13 20:14:36",
+                "updated_at": "2020-05-05 00:22:31",
+                "is_adv": 0,
+                "source": "",
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 43,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "2",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 2,
+                "praise_num": 3,
+                "view_num": 8,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-04-11 23:38:48",
+                "updated_at": "2020-05-12 01:48:24",
+                "is_adv": 0,
+                "source": "",
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 22,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "11111111",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 7,
+                "praise_num": 0,
+                "view_num": 13,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-03-20 18:50:16",
+                "updated_at": "2020-05-12 01:42:32",
+                "is_adv": 0,
+                "source": null,
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 21,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "11",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 1,
+                "view_num": 0,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-03-20 18:46:21",
+                "updated_at": "2020-04-14 17:24:55",
+                "is_adv": 0,
+                "source": null,
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            }
+        ],
+        "first_page_url": "http:\/\/sns.shenruxiang.com\/api\/v1\/postHotList?page=1",
+        "from": 1,
+        "next_page_url": "http:\/\/sns.shenruxiang.com\/api\/v1\/postHotList?page=2",
+        "path": "http:\/\/sns.shenruxiang.com\/api\/v1\/postHotList",
+        "per_page": 10,
+        "prev_page_url": null,
+        "to": 10
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/postHotList</code></p>
+<!-- END_fe981f6ff32b1e28d50e6e77628ef157 -->
+<!-- START_6c10f1c2e30fbb1d387c32e5616b4f8f -->
+<h2>postDetail</h2>
+<p>帖子详情</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/postDetail" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"post_id":2}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/postDetail"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "post_id": 2
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/postDetail',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'post_id' =&gt; 2,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "id": 110,
+        "cate_id": 2,
+        "user_id": 2,
+        "post_content": "哦哟上找也软用",
+        "phone_model": "小米10",
+        "post_position": "北京市 朝阳区",
+        "share_num": 0,
+        "comment_num": 1,
+        "praise_num": 0,
+        "view_num": 2,
+        "status": 1,
+        "sort": 0,
+        "is_top": 1,
+        "post_type": 1,
+        "created_at": "2020-05-17 22:07:57",
+        "updated_at": "2020-05-17 23:02:01",
+        "is_adv": 0,
+        "source": "[{\"source_src\":\"http:\\\/\\\/daodao.shenruxiang.com\\\/android_39309_20200402_203525_0114400.mp4\",\"source_thumb_src\":\"http:\\\/\\\/daodao.shenruxiang.com\\\/android_39309_20200402_203525_0114400.mp4?vframe\\\/png\\\/offset\\\/1\\\/w\\\/600\\\/h\\\/600\"}]",
+        "user": {
+            "id": 2,
+            "nick_name": "",
+            "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+            "sex": "男",
+            "desc": "简介"
+        },
+        "user_praise": {
+            "id": 210,
+            "post_id": 110,
+            "user_id": 1
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/postDetail</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>post_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>帖子id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_6c10f1c2e30fbb1d387c32e5616b4f8f -->
+<!-- START_51d8ede32cc4c916427afc23b88469b0 -->
+<h2>postCommentList</h2>
+<p>帖子评论列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/postCommentList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"post_id":10}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/postCommentList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "post_id": 10
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/postCommentList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'post_id' =&gt; 10,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 62,
+                "post_id": 110,
+                "user_id": 2,
+                "to_user_id": 1,
+                "comment_id": 0,
+                "content": "发评论",
+                "praise_num": 111,
+                "status": 1,
+                "created_at": "2020-05-17 22:08:13",
+                "updated_at": "2020-05-17 22:08:13",
+                "read_status": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg"
+                },
+                "to_user": {
+                    "id": 1,
+                    "nick_name": "哈哈",
+                    "avatar": "http:\/\/sns.com:8888\/img\/default_avatar.jpg"
+                },
+                "comment_priase": {
+                    "comment_id": 62,
+                    "user_id": 1
+                },
+                "reply_list": [
+                    {
+                        "id": 63,
+                        "post_id": 110,
+                        "user_id": 1,
+                        "to_user_id": 2,
+                        "comment_id": 62,
+                        "content": "回复",
+                        "praise_num": 22,
+                        "status": 1,
+                        "created_at": "2020-05-17 23:02:15",
+                        "updated_at": "2020-05-17 23:02:15",
+                        "read_status": 1,
+                        "user": {
+                            "id": 1,
+                            "nick_name": "哈哈",
+                            "avatar": "http:\/\/sns.com:8888\/img\/default_avatar.jpg"
+                        },
+                        "to_user": {
+                            "id": 2,
+                            "nick_name": "",
+                            "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg"
+                        },
+                        "comment_priase": null
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/sns.shenruxiang.com\/api\/v1\/postCommentList?page=1",
+        "from": 1,
+        "next_page_url": null,
+        "path": "http:\/\/sns.shenruxiang.com\/api\/v1\/postCommentList",
+        "per_page": 10,
+        "prev_page_url": null,
+        "to": 1
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/postCommentList</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>post_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>帖子id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_51d8ede32cc4c916427afc23b88469b0 -->
+<!-- START_96819fc79dbe9fe8fe12281adf32876b -->
+<h2>sendPostComment</h2>
+<p>发送帖子评论</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/sendPostComment" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"post_id":1,"comment_id":9,"comment_content":"adipisci","to_user_id":17}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/sendPostComment"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "post_id": 1,
+    "comment_id": 9,
+    "comment_content": "adipisci",
+    "to_user_id": 17
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/sendPostComment',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'post_id' =&gt; 1,
+            'comment_id' =&gt; 9,
+            'comment_content' =&gt; 'adipisci',
+            'to_user_id' =&gt; 17,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "发送评论成功",
+    "data": []
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/sendPostComment</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>post_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>帖子id</td>
+</tr>
+<tr>
+<td><code>comment_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>帖子评论id</td>
+</tr>
+<tr>
+<td><code>comment_content</code></td>
+<td>string</td>
+<td>required</td>
+<td>帖子评论内容</td>
+</tr>
+<tr>
+<td><code>to_user_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>对方用户id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_96819fc79dbe9fe8fe12281adf32876b -->
+<!-- START_3139c362b85d6ca8e5a801fa36000163 -->
+<h2>praisePost</h2>
+<p>帖子点赞</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/praisePost" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"post_id":13}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/praisePost"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "post_id": 13
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/praisePost',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'post_id' =&gt; 13,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "帖子点赞成功",
+    "data": []
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/praisePost</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>post_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>帖子id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_3139c362b85d6ca8e5a801fa36000163 -->
+<!-- START_22fb9352b12bddc87302a63d1a1aba10 -->
+<h2>praisePostComment</h2>
+<p>帖子评论/回复点赞</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/praisePostComment" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"post_id":4,"comment_id":17}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/praisePostComment"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "post_id": 4,
+    "comment_id": 17
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/praisePostComment',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'post_id' =&gt; 4,
+            'comment_id' =&gt; 17,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "评论点赞成功",
+    "data": []
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/praisePostComment</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>post_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>帖子id</td>
+</tr>
+<tr>
+<td><code>comment_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>帖子评论/回复id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_22fb9352b12bddc87302a63d1a1aba10 -->
+<!-- START_6aacc62d5c6024c5a80f67582f267042 -->
+<h2>reportPost</h2>
+<p>帖子举报</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/reportPost" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"post_id":8,"report_content":"omnis"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/reportPost"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "post_id": 8,
+    "report_content": "omnis"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/reportPost',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'post_id' =&gt; 8,
+            'report_content' =&gt; 'omnis',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "举报成功",
+    "data": []
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/reportPost</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>post_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>帖子id</td>
+</tr>
+<tr>
+<td><code>report_content</code></td>
+<td>string</td>
+<td>required</td>
+<td>举报内容</td>
+</tr>
+</tbody>
+</table>
+<!-- END_6aacc62d5c6024c5a80f67582f267042 -->
+<!-- START_db09800fa922a67f94cac90dba7a7d6b -->
+<h2>sharePost</h2>
+<p>帖子分享</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/sharePost" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"post_id":4,"share_type":20}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/sharePost"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "post_id": 4,
+    "share_type": 20
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/sharePost',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'post_id' =&gt; 4,
+            'share_type' =&gt; 20,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "分享成功",
+    "data": []
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/sharePost</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>post_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>帖子id</td>
+</tr>
+<tr>
+<td><code>share_type</code></td>
+<td>integer</td>
+<td>required</td>
+<td>分享方式 1-微信 2-微博 3-QQ</td>
+</tr>
+</tbody>
+</table>
+<!-- END_db09800fa922a67f94cac90dba7a7d6b -->
+<!-- START_b140c81a7b29d208c3efade11ac1385b -->
+<h2>sendPost</h2>
+<p>发帖</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/sendPost" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"cate_id":20,"post_content":"voluptates","post_type":3,"source":"quae","phone_model":"sit","post_position":"a"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/sendPost"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "cate_id": 20,
+    "post_content": "voluptates",
+    "post_type": 3,
+    "source": "quae",
+    "phone_model": "sit",
+    "post_position": "a"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/sendPost',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'cate_id' =&gt; 20,
+            'post_content' =&gt; 'voluptates',
+            'post_type' =&gt; 3,
+            'source' =&gt; 'quae',
+            'phone_model' =&gt; 'sit',
+            'post_position' =&gt; 'a',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "发帖成功",
+    "data": []
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/sendPost</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cate_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>分类id</td>
+</tr>
+<tr>
+<td><code>post_content</code></td>
+<td>string</td>
+<td>required</td>
+<td>帖子内容</td>
+</tr>
+<tr>
+<td><code>post_type</code></td>
+<td>integer</td>
+<td>required</td>
+<td>帖子类型 1-图片 2-视频</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td>string</td>
+<td>required</td>
+<td>帖子图片/视频地址json source_src source_thumb_src</td>
+</tr>
+<tr>
+<td><code>phone_model</code></td>
+<td>string</td>
+<td>optional</td>
+<td>手机型号</td>
+</tr>
+<tr>
+<td><code>post_position</code></td>
+<td>string</td>
+<td>optional</td>
+<td>发帖位置</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b140c81a7b29d208c3efade11ac1385b -->
+<!-- START_f4a777906e5764c1f984cfa7348edbef -->
+<h2>searchList</h2>
+<p>搜索列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/searchList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"search":"veniam"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/searchList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "search": "veniam"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/searchList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'search' =&gt; 'veniam',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "type": 1,
+            "name": "用户",
+            "list": {
+                "current_page": 1,
+                "data": [
+                    {
+                        "id": 3,
+                        "openid": "oC-6xv7yC8Hf4_1xskuWi6eF1gsI",
+                        "name": "wx_11595156255113",
+                        "nick_name": "哈哈11",
+                        "sex": "",
+                        "avatar": "null",
+                        "desc": "简介",
+                        "status": 1,
+                        "is_super": 1,
+                        "grade": 1,
+                        "login_type": "wx",
+                        "login_device_type": "ios",
+                        "login_device": "小米10",
+                        "login_time": "2020-07-19 10:57:35",
+                        "expire_time": 1603796255,
+                        "register_ip": "120.244.120.193",
+                        "token": "6a7677576dda741d1a8ff042dae99bb3",
+                        "province": "",
+                        "city": "",
+                        "birthday": "",
+                        "feeling": "",
+                        "job": "",
+                        "created_at": "2020-07-19 10:57:35"
+                    }
+                ],
+                "first_page_url": "http:\/\/sns.shenruxiang.com\/api\/v1\/searchList?page=1",
+                "from": 1,
+                "next_page_url": null,
+                "path": "http:\/\/sns.shenruxiang.com\/api\/v1\/searchList",
+                "per_page": 10,
+                "prev_page_url": null,
+                "to": 1
+            }
+        },
+        {
+            "type": 2,
+            "name": "帖子",
+            "list": {
+                "current_page": 1,
+                "data": [
+                    {
+                        "id": 109,
+                        "cate_id": 2,
+                        "user_id": 2,
+                        "post_content": "21321321312",
+                        "phone_model": "小米10",
+                        "post_position": "北京市 朝阳区",
+                        "share_num": 0,
+                        "comment_num": 0,
+                        "praise_num": 0,
+                        "view_num": 0,
+                        "status": 1,
+                        "sort": 0,
+                        "is_top": 1,
+                        "post_type": 1,
+                        "created_at": "2020-05-15 21:36:40",
+                        "updated_at": "2020-05-15 21:36:40",
+                        "is_adv": 0,
+                        "source": "",
+                        "is_hot": 1,
+                        "user": {
+                            "id": 2,
+                            "nick_name": "",
+                            "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                            "sex": "男",
+                            "desc": "简介"
+                        }
+                    },
+                    {
+                        "id": 53,
+                        "cate_id": 4,
+                        "user_id": 2,
+                        "post_content": "321321321321",
+                        "phone_model": "小米10",
+                        "post_position": "北京市 朝阳区",
+                        "share_num": 0,
+                        "comment_num": 0,
+                        "praise_num": 0,
+                        "view_num": 1,
+                        "status": 1,
+                        "sort": 0,
+                        "is_top": 1,
+                        "post_type": 1,
+                        "created_at": "2020-04-13 20:14:36",
+                        "updated_at": "2020-05-05 00:22:31",
+                        "is_adv": 0,
+                        "source": "",
+                        "is_hot": 1,
+                        "user": {
+                            "id": 2,
+                            "nick_name": "",
+                            "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                            "sex": "男",
+                            "desc": "简介"
+                        }
+                    },
+                    {
+                        "id": 22,
+                        "cate_id": 2,
+                        "user_id": 2,
+                        "post_content": "11111111",
+                        "phone_model": "小米10",
+                        "post_position": "北京市 朝阳区",
+                        "share_num": 0,
+                        "comment_num": 7,
+                        "praise_num": 0,
+                        "view_num": 13,
+                        "status": 1,
+                        "sort": 0,
+                        "is_top": 1,
+                        "post_type": 1,
+                        "created_at": "2020-03-20 18:50:16",
+                        "updated_at": "2020-05-12 01:42:32",
+                        "is_adv": 0,
+                        "source": null,
+                        "is_hot": 1,
+                        "user": {
+                            "id": 2,
+                            "nick_name": "",
+                            "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                            "sex": "男",
+                            "desc": "简介"
+                        }
+                    },
+                    {
+                        "id": 21,
+                        "cate_id": 2,
+                        "user_id": 2,
+                        "post_content": "11",
+                        "phone_model": "小米10",
+                        "post_position": "北京市 朝阳区",
+                        "share_num": 0,
+                        "comment_num": 0,
+                        "praise_num": 1,
+                        "view_num": 0,
+                        "status": 1,
+                        "sort": 0,
+                        "is_top": 1,
+                        "post_type": 1,
+                        "created_at": "2020-03-20 18:46:21",
+                        "updated_at": "2020-04-14 17:24:55",
+                        "is_adv": 0,
+                        "source": null,
+                        "is_hot": 1,
+                        "user": {
+                            "id": 2,
+                            "nick_name": "",
+                            "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                            "sex": "男",
+                            "desc": "简介"
+                        }
+                    },
+                    {
+                        "id": 17,
+                        "cate_id": 2,
+                        "user_id": 2,
+                        "post_content": "11",
+                        "phone_model": "小米10",
+                        "post_position": "北京市 朝阳区",
+                        "share_num": 0,
+                        "comment_num": 9,
+                        "praise_num": 4,
+                        "view_num": 4,
+                        "status": 1,
+                        "sort": 0,
+                        "is_top": 1,
+                        "post_type": 1,
+                        "created_at": "2020-03-20 17:22:18",
+                        "updated_at": "2020-05-15 21:34:03",
+                        "is_adv": 0,
+                        "source": null,
+                        "is_hot": 1,
+                        "user": {
+                            "id": 2,
+                            "nick_name": "",
+                            "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                            "sex": "男",
+                            "desc": "简介"
+                        }
+                    },
+                    {
+                        "id": 16,
+                        "cate_id": 2,
+                        "user_id": 2,
+                        "post_content": "11",
+                        "phone_model": "小米10",
+                        "post_position": "北京市 朝阳区",
+                        "share_num": 0,
+                        "comment_num": 0,
+                        "praise_num": 0,
+                        "view_num": 3,
+                        "status": 1,
+                        "sort": 0,
+                        "is_top": 1,
+                        "post_type": 1,
+                        "created_at": "2020-03-20 17:21:57",
+                        "updated_at": "2020-05-12 00:11:46",
+                        "is_adv": 0,
+                        "source": null,
+                        "is_hot": 1,
+                        "user": {
+                            "id": 2,
+                            "nick_name": "",
+                            "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                            "sex": "男",
+                            "desc": "简介"
+                        }
+                    },
+                    {
+                        "id": 15,
+                        "cate_id": 2,
+                        "user_id": 2,
+                        "post_content": "11",
+                        "phone_model": "小米10",
+                        "post_position": "北京市 朝阳区",
+                        "share_num": 0,
+                        "comment_num": 0,
+                        "praise_num": 1,
+                        "view_num": 0,
+                        "status": 1,
+                        "sort": 0,
+                        "is_top": 1,
+                        "post_type": 1,
+                        "created_at": "2020-03-20 17:21:52",
+                        "updated_at": "2020-05-12 01:52:34",
+                        "is_adv": 0,
+                        "source": null,
+                        "is_hot": 1,
+                        "user": {
+                            "id": 2,
+                            "nick_name": "",
+                            "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                            "sex": "男",
+                            "desc": "简介"
+                        }
+                    },
+                    {
+                        "id": 14,
+                        "cate_id": 2,
+                        "user_id": 2,
+                        "post_content": "11",
+                        "phone_model": "小米10",
+                        "post_position": "北京市 朝阳区",
+                        "share_num": 0,
+                        "comment_num": 0,
+                        "praise_num": 1,
+                        "view_num": 4,
+                        "status": 1,
+                        "sort": 0,
+                        "is_top": 1,
+                        "post_type": 1,
+                        "created_at": "2020-03-20 17:20:57",
+                        "updated_at": "2020-05-12 00:10:55",
+                        "is_adv": 0,
+                        "source": null,
+                        "is_hot": 1,
+                        "user": {
+                            "id": 2,
+                            "nick_name": "",
+                            "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                            "sex": "男",
+                            "desc": "简介"
+                        }
+                    },
+                    {
+                        "id": 13,
+                        "cate_id": 2,
+                        "user_id": 2,
+                        "post_content": "11",
+                        "phone_model": "小米10",
+                        "post_position": "北京市 朝阳区",
+                        "share_num": 0,
+                        "comment_num": 1,
+                        "praise_num": 0,
+                        "view_num": 2,
+                        "status": 1,
+                        "sort": 0,
+                        "is_top": 1,
+                        "post_type": 1,
+                        "created_at": "2020-03-20 17:20:29",
+                        "updated_at": "2020-05-11 22:47:26",
+                        "is_adv": 0,
+                        "source": null,
+                        "is_hot": 1,
+                        "user": {
+                            "id": 2,
+                            "nick_name": "",
+                            "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                            "sex": "男",
+                            "desc": "简介"
+                        }
+                    },
+                    {
+                        "id": 12,
+                        "cate_id": 2,
+                        "user_id": 2,
+                        "post_content": "11",
+                        "phone_model": "小米10",
+                        "post_position": "北京市 朝阳区",
+                        "share_num": 0,
+                        "comment_num": 0,
+                        "praise_num": 1,
+                        "view_num": 0,
+                        "status": 1,
+                        "sort": 0,
+                        "is_top": 1,
+                        "post_type": 1,
+                        "created_at": "2020-03-20 17:19:54",
+                        "updated_at": "2020-05-12 00:10:58",
+                        "is_adv": 0,
+                        "source": null,
+                        "is_hot": 1,
+                        "user": {
+                            "id": 2,
+                            "nick_name": "",
+                            "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                            "sex": "男",
+                            "desc": "简介"
+                        }
+                    }
+                ],
+                "first_page_url": "http:\/\/sns.shenruxiang.com\/api\/v1\/searchList?page=1",
+                "from": 1,
+                "next_page_url": "http:\/\/sns.shenruxiang.com\/api\/v1\/searchList?page=2",
+                "path": "http:\/\/sns.shenruxiang.com\/api\/v1\/searchList",
+                "per_page": 10,
+                "prev_page_url": null,
+                "to": 10
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/searchList</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>search</code></td>
+<td>string</td>
+<td>required</td>
+<td>搜索内容</td>
+</tr>
+</tbody>
+</table>
+<!-- END_f4a777906e5764c1f984cfa7348edbef -->
+<!-- START_00c4ebfc2fb0f1403bfa5493ee798adf -->
+<h2>searchTypeList</h2>
+<p>搜索分类列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/searchTypeList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"search":"est","type":12,"page":2}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/searchTypeList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "search": "est",
+    "type": 12,
+    "page": 2
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/searchTypeList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'search' =&gt; 'est',
+            'type' =&gt; 12,
+            'page' =&gt; 2,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 3,
+                "openid": "oC-6xv7yC8Hf4_1xskuWi6eF1gsI",
+                "name": "wx_11595156255113",
+                "nick_name": "哈哈11",
+                "sex": "",
+                "avatar": "null",
+                "desc": "简介",
+                "status": 1,
+                "is_super": 1,
+                "grade": 1,
+                "login_type": "wx",
+                "login_device_type": "ios",
+                "login_device": "小米10",
+                "login_time": "2020-07-19 10:57:35",
+                "expire_time": 1603796255,
+                "register_ip": "120.244.120.193",
+                "token": "6a7677576dda741d1a8ff042dae99bb3",
+                "province": "",
+                "city": "",
+                "birthday": "",
+                "feeling": "",
+                "job": "",
+                "created_at": "2020-07-19 10:57:35"
+            }
+        ],
+        "first_page_url": "http:\/\/sns.shenruxiang.com\/api\/v1\/searchTypeList?page=1",
+        "from": 1,
+        "next_page_url": null,
+        "path": "http:\/\/sns.shenruxiang.com\/api\/v1\/searchTypeList",
+        "per_page": 10,
+        "prev_page_url": null,
+        "to": 1
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/searchTypeList</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>search</code></td>
+<td>string</td>
+<td>required</td>
+<td>搜索内容</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>integer</td>
+<td>required</td>
+<td>搜索类型 1用户 2帖子</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td>integer</td>
+<td>required</td>
+<td>页数</td>
+</tr>
+</tbody>
+</table>
+<!-- END_00c4ebfc2fb0f1403bfa5493ee798adf -->
+<h1>upload</h1>
+<p>文件上传</p>
+<!-- START_5b769578a2c7d2ab8e61aa5fe83d95d7 -->
+<h2>uploadPost</h2>
+<p>帖子图片/视频上传</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/uploadPost" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"file":{"":"nihil"},"type":11}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/uploadPost"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "file": {
+        "": "nihil"
+    },
+    "type": 11
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/uploadPost',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'file' =&gt; [
+                '' =&gt; 'nihil',
+            ],
+            'type' =&gt; 11,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "source_src": "http:\/\/daodao.shenruxiang.com\/sns\/post\/5e0914ce14ff1ef5de15a5a708629a66.jpeg",
+            "source_thumb_src": "http:\/\/daodao.shenruxiang.com\/\/sns\/post\/5e0914ce14ff1ef5de15a5a708629a66.jpeg?vframe\/png\/offset\/1\/w\/600\/h\/600"
+        },
+        {
+            "source_src": "http:\/\/daodao.shenruxiang.com\/sns\/post\/dc60a911dfc8de01232e53bbf4a0482b.png",
+            "source_thumb_src": "http:\/\/daodao.shenruxiang.com\/\/sns\/post\/dc60a911dfc8de01232e53bbf4a0482b.png?vframe\/png\/offset\/1\/w\/600\/h\/600"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/uploadPost</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file[]</code></td>
+<td>file</td>
+<td>required</td>
+<td>图片/视频文件列表</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>integer</td>
+<td>required</td>
+<td>图片/视频类型 1图片 2视频</td>
+</tr>
+</tbody>
+</table>
+<!-- END_5b769578a2c7d2ab8e61aa5fe83d95d7 -->
+<!-- START_4fd7150162aee9a668c3b210b9f77e9a -->
+<h2>uploadUserCert</h2>
+<p>用户认证图片上传</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/uploadUserCert" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"file":{"":"reiciendis"}}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/uploadUserCert"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "file": {
+        "": "reiciendis"
+    }
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/uploadUserCert',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'file' =&gt; [
+                '' =&gt; 'reiciendis',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        "http:\/\/daodao.shenruxiang.com\/sns\/cert\/70e285883f49f89d08ec483becc9a769.jpg"
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/uploadUserCert</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file[]</code></td>
+<td>file</td>
+<td>required</td>
+<td>手持身份证图片</td>
+</tr>
+</tbody>
+</table>
+<!-- END_4fd7150162aee9a668c3b210b9f77e9a -->
+<!-- START_aed041481fd822870d685374244e7c99 -->
+<h2>uploadUserAvatar</h2>
+<p>用户头像上传</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/uploadUserAvatar" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"file":{"":"corrupti"}}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/uploadUserAvatar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "file": {
+        "": "corrupti"
+    }
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/uploadUserAvatar',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'file' =&gt; [
+                '' =&gt; 'corrupti',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        "http:\/\/daodao.shenruxiang.com\/sns\/avatar\/afc213b7e586b712be7ae60036f41113.jpg"
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/uploadUserAvatar</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file[]</code></td>
+<td>file</td>
+<td>required</td>
+<td>用户头像</td>
+</tr>
+</tbody>
+</table>
+<!-- END_aed041481fd822870d685374244e7c99 -->
+<h1>user</h1>
+<p>用户</p>
+<!-- START_6806312eaa89291596ad73d46920aedf -->
+<h2>userInfo</h2>
+<p>用户个人信息</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/userInfo" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"user_id":17}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/userInfo"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": 17
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/userInfo',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'user_id' =&gt; 17,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "id": 2,
+        "openid": "123456-dsf-21321312",
+        "name": "wx_1595156242730",
+        "nick_name": "",
+        "sex": "男",
+        "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+        "desc": "简介",
+        "status": 1,
+        "is_super": 1,
+        "grade": 1,
+        "login_type": "wx",
+        "login_device_type": "android",
+        "login_device": "",
+        "login_time": "2020-07-23 12:22:37",
+        "expire_time": 1604146957,
+        "register_ip": "114.249.135.32",
+        "token": "8f8c0682dae88f9426729e63be8af3a3",
+        "province": "",
+        "city": "",
+        "birthday": "",
+        "feeling": "",
+        "job": "",
+        "created_at": "2020-07-19 10:57:22"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/userInfo</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>用户id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_6806312eaa89291596ad73d46920aedf -->
+<!-- START_5f26518965d969d5d275bc20e1ac9f4b -->
+<h2>userInfoEdit</h2>
+<p>用户信息修改</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/userInfoEdit" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"nick_name":"sed","sex":"porro","avatar":"reiciendis","desc":"et","province":"et","city":"neque","birthday":"omnis","feeling":"dolorum","job":"iste"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/userInfoEdit"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "nick_name": "sed",
+    "sex": "porro",
+    "avatar": "reiciendis",
+    "desc": "et",
+    "province": "et",
+    "city": "neque",
+    "birthday": "omnis",
+    "feeling": "dolorum",
+    "job": "iste"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/userInfoEdit',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'nick_name' =&gt; 'sed',
+            'sex' =&gt; 'porro',
+            'avatar' =&gt; 'reiciendis',
+            'desc' =&gt; 'et',
+            'province' =&gt; 'et',
+            'city' =&gt; 'neque',
+            'birthday' =&gt; 'omnis',
+            'feeling' =&gt; 'dolorum',
+            'job' =&gt; 'iste',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "编辑资料成功",
+    "data": []
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/userInfoEdit</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nick_name</code></td>
+<td>string</td>
+<td>required</td>
+<td>昵称</td>
+</tr>
+<tr>
+<td><code>sex</code></td>
+<td>string</td>
+<td>required</td>
+<td>性别 男</td>
+<td>女</td>
+</tr>
+<tr>
+<td><code>avatar</code></td>
+<td>string</td>
+<td>required</td>
+<td>头像</td>
+</tr>
+<tr>
+<td><code>desc</code></td>
+<td>string</td>
+<td>required</td>
+<td>简介</td>
+</tr>
+<tr>
+<td><code>province</code></td>
+<td>string</td>
+<td>required</td>
+<td>省份</td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td>string</td>
+<td>required</td>
+<td>城市</td>
+</tr>
+<tr>
+<td><code>birthday</code></td>
+<td>string</td>
+<td>required</td>
+<td>生日</td>
+</tr>
+<tr>
+<td><code>feeling</code></td>
+<td>string</td>
+<td>required</td>
+<td>感情状态</td>
+</tr>
+<tr>
+<td><code>job</code></td>
+<td>string</td>
+<td>required</td>
+<td>职业</td>
+</tr>
+</tbody>
+</table>
+<!-- END_5f26518965d969d5d275bc20e1ac9f4b -->
+<!-- START_5e842c0c8f214e4abdc53a0280c7fc5c -->
+<h2>userPostList</h2>
+<p>用户帖子列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/userPostList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"user_id":17}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/userPostList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": 17
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/userPostList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'user_id' =&gt; 17,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 110,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "哦哟上找也软用",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 4,
+                "praise_num": 1,
+                "view_num": 3,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-05-17 22:07:57",
+                "updated_at": "2020-07-23 13:38:23",
+                "is_adv": 0,
+                "source": "[{\"source_src\":\"http:\\\/\\\/daodao.shenruxiang.com\\\/android_39309_20200402_203525_0114400.mp4\",\"source_thumb_src\":\"http:\\\/\\\/daodao.shenruxiang.com\\\/android_39309_20200402_203525_0114400.mp4?vframe\\\/png\\\/offset\\\/1\\\/w\\\/600\\\/h\\\/600\"}]",
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": {
+                    "id": 213,
+                    "post_id": 110,
+                    "user_id": 1
+                }
+            },
+            {
+                "id": 109,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "21321321312",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 0,
+                "view_num": 0,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-05-15 21:36:40",
+                "updated_at": "2020-05-15 21:36:40",
+                "is_adv": 0,
+                "source": "",
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 67,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "侧睡侧睡侧睡侧睡侧睡侧睡",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 18,
+                "praise_num": 2,
+                "view_num": 50,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-04-14 21:27:44",
+                "updated_at": "2020-05-17 23:02:23",
+                "is_adv": 0,
+                "source": "",
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 66,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "null",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 0,
+                "view_num": 0,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-04-14 20:59:18",
+                "updated_at": "2020-04-14 20:59:18",
+                "is_adv": 0,
+                "source": "",
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 54,
+                "cate_id": 4,
+                "user_id": 2,
+                "post_content": "苏打粉是非得失隋东风",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 0,
+                "view_num": 0,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-04-13 20:19:24",
+                "updated_at": "2020-04-13 20:19:24",
+                "is_adv": 0,
+                "source": "",
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 53,
+                "cate_id": 4,
+                "user_id": 2,
+                "post_content": "321321321321",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 0,
+                "view_num": 1,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-04-13 20:14:36",
+                "updated_at": "2020-05-05 00:22:31",
+                "is_adv": 0,
+                "source": "",
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 43,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "2",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 2,
+                "praise_num": 3,
+                "view_num": 8,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-04-11 23:38:48",
+                "updated_at": "2020-05-12 01:48:24",
+                "is_adv": 0,
+                "source": "",
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 22,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "11111111",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 7,
+                "praise_num": 0,
+                "view_num": 13,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-03-20 18:50:16",
+                "updated_at": "2020-05-12 01:42:32",
+                "is_adv": 0,
+                "source": null,
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 21,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "11",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 0,
+                "praise_num": 1,
+                "view_num": 0,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-03-20 18:46:21",
+                "updated_at": "2020-04-14 17:24:55",
+                "is_adv": 0,
+                "source": null,
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            },
+            {
+                "id": 17,
+                "cate_id": 2,
+                "user_id": 2,
+                "post_content": "11",
+                "phone_model": "小米10",
+                "post_position": "北京市 朝阳区",
+                "share_num": 0,
+                "comment_num": 9,
+                "praise_num": 4,
+                "view_num": 4,
+                "status": 1,
+                "sort": 0,
+                "is_top": 1,
+                "post_type": 1,
+                "created_at": "2020-03-20 17:22:18",
+                "updated_at": "2020-05-15 21:34:03",
+                "is_adv": 0,
+                "source": null,
+                "is_hot": 1,
+                "user": {
+                    "id": 2,
+                    "nick_name": "",
+                    "avatar": "http:\/\/sns.shenruxiang.com\/img\/default_avatar.jpg",
+                    "sex": "男",
+                    "desc": "简介"
+                },
+                "user_praise": null
+            }
+        ],
+        "first_page_url": "http:\/\/sns.shenruxiang.com\/api\/v1\/userPostList?page=1",
+        "from": 1,
+        "next_page_url": "http:\/\/sns.shenruxiang.com\/api\/v1\/userPostList?page=2",
+        "path": "http:\/\/sns.shenruxiang.com\/api\/v1\/userPostList",
+        "per_page": 10,
+        "prev_page_url": null,
+        "to": 10
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/userPostList</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>用户id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_5e842c0c8f214e4abdc53a0280c7fc5c -->
+<!-- START_54815e2f8fc404fb7ce4482c426f28ac -->
+<h2>userFollowStatus</h2>
+<p>用户关注状态</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/userFollowStatus" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"to_user_id":6}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/userFollowStatus"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "to_user_id": 6
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/userFollowStatus',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'to_user_id' =&gt; 6,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "未关注",
+    "data": {
+        "status": 0
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/userFollowStatus</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>to_user_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>对方用户id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_54815e2f8fc404fb7ce4482c426f28ac -->
+<!-- START_da0a6da903fdbe527a1022e1b98aac61 -->
+<h2>userFollow</h2>
+<p>用户关注</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/userFollow" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"to_user_id":20}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/userFollow"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "to_user_id": 20
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/userFollow',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'to_user_id' =&gt; 20,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "关注成功",
+    "data": []
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/userFollow</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>to_user_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>对方用户id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_da0a6da903fdbe527a1022e1b98aac61 -->
+<!-- START_c56710dc829c0af61393e6020a42eba1 -->
+<h2>userPostSourceList</h2>
+<p>用户相册列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/userPostSourceList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"user_id":11}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/userPostSourceList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": 11
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/userPostSourceList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'user_id' =&gt; 11,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "2020-07-25": [
+            {
+                "source_src": "http:\/\/daodao.shenruxiang.com\/android_39309_20200402_203525_0114400.mp4",
+                "source_thumb_src": "http:\/\/daodao.shenruxiang.com\/android_39309_20200402_203525_0114400.mp4?vframe\/png\/offset\/1\/w\/600\/h\/600"
+            },
+            {
+                "source_src": "http:\/\/daodao.shenruxiang.com\/android_39309_20200402_203525_0114400.mp4",
+                "source_thumb_src": "http:\/\/daodao.shenruxiang.com\/android_39309_20200402_203525_0114400.mp4?vframe\/png\/offset\/1\/w\/600\/h\/600"
+            },
+            {
+                "source_src": "http:\/\/daodao.shenruxiang.com\/android_39309_20200402_203525_0114400.mp4",
+                "source_thumb_src": "http:\/\/daodao.shenruxiang.com\/android_39309_20200402_203525_0114400.mp4?vframe\/png\/offset\/1\/w\/600\/h\/600"
+            }
+        ],
+        "2020-07-24": [
+            {
+                "source_src": "http:\/\/daodao.shenruxiang.com\/android_39309_20200402_203525_0114400.mp4",
+                "source_thumb_src": "http:\/\/daodao.shenruxiang.com\/android_39309_20200402_203525_0114400.mp4?vframe\/png\/offset\/1\/w\/600\/h\/600"
+            },
+            {
+                "source_src": "http:\/\/daodao.shenruxiang.com\/android_39309_20200402_203525_0114400.mp4",
+                "source_thumb_src": "http:\/\/daodao.shenruxiang.com\/android_39309_20200402_203525_0114400.mp4?vframe\/png\/offset\/1\/w\/600\/h\/600"
+            }
+        ],
+        "2020-07-23": [
+            {
+                "source_src": "http:\/\/daodao.shenruxiang.com\/android_39309_20200402_203525_0114400.mp4",
+                "source_thumb_src": "http:\/\/daodao.shenruxiang.com\/android_39309_20200402_203525_0114400.mp4?vframe\/png\/offset\/1\/w\/600\/h\/600"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/userPostSourceList</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>用户id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_c56710dc829c0af61393e6020a42eba1 -->
+<!-- START_9d868f79659f6e8a2294145108f8d744 -->
+<h2>userCert</h2>
+<p>用户认证</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/userCert" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"truename":"excepturi","tel":"eligendi","id_card":"voluptas","img_zheng":"assumenda","img_fan":"ut"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/userCert"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "truename": "excepturi",
+    "tel": "eligendi",
+    "id_card": "voluptas",
+    "img_zheng": "assumenda",
+    "img_fan": "ut"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/userCert',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'truename' =&gt; 'excepturi',
+            'tel' =&gt; 'eligendi',
+            'id_card' =&gt; 'voluptas',
+            'img_zheng' =&gt; 'assumenda',
+            'img_fan' =&gt; 'ut',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "审核中",
+    "data": []
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/userCert</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>truename</code></td>
+<td>string</td>
+<td>required</td>
+<td>姓名</td>
+</tr>
+<tr>
+<td><code>tel</code></td>
+<td>string</td>
+<td>required</td>
+<td>手机号码</td>
+</tr>
+<tr>
+<td><code>id_card</code></td>
+<td>string</td>
+<td>required</td>
+<td>身份证号码</td>
+</tr>
+<tr>
+<td><code>img_zheng</code></td>
+<td>string</td>
+<td>required</td>
+<td>身份证正面</td>
+</tr>
+<tr>
+<td><code>img_fan</code></td>
+<td>string</td>
+<td>required</td>
+<td>身份证反面</td>
+</tr>
+</tbody>
+</table>
+<!-- END_9d868f79659f6e8a2294145108f8d744 -->
+<!-- START_d8d901316a6888d76eff18ccac1d85ab -->
+<h2>userCertStatus</h2>
+<p>用户认证状态</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/userCertStatus" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/userCertStatus"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/userCertStatus',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 201,
+    "msg": "审核中",
+    "data": []
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/userCertStatus</code></p>
+<!-- END_d8d901316a6888d76eff18ccac1d85ab -->
+<!-- START_c1ebff130674988b256e46b658df54d1 -->
+<h2>userSuggest</h2>
+<p>用户反馈</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/userSuggest" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"content":"vel"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/userSuggest"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "content": "vel"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/userSuggest',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'content' =&gt; 'vel',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "反馈成功",
+    "data": []
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/userSuggest</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td>string</td>
+<td>required</td>
+<td>反馈内容</td>
+</tr>
+</tbody>
+</table>
+<!-- END_c1ebff130674988b256e46b658df54d1 -->
+<!-- START_ab77b871b749d330d17fb22fe615bcf1 -->
+<h2>help</h2>
+<p>帮助中心</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/help" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/help"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/help',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "id": 3,
+        "type": "help",
+        "content": "&lt;p style=\"text-align: center;\"&gt;我们&lt;\/p&gt;&lt;p style=\"text-align: left;\"&gt;一、我们&lt;\/p&gt;&lt;p style=\"text-align: center;\"&gt;&lt;img src=\"http:\/\/daodao.shenruxiang.com\/storage\/Help\/2020-05-16\/z0ODKkUyLpWYOiLn1rw9278LWKrKuQRMmNbRpaz3.jpeg\" alt=\"图片\"&gt;&lt;br&gt;&lt;\/p&gt;&lt;p style=\"text-align: left;\"&gt;对方说的发送到发送到发送&lt;\/p&gt;&lt;p style=\"text-align: left;\"&gt;&lt;br&gt;&lt;\/p&gt;&lt;p style=\"text-align: left;\"&gt;&lt;br&gt;&lt;\/p&gt;&lt;p style=\"text-align: left;\"&gt;&lt;br&gt;&lt;\/p&gt;&lt;p style=\"text-align: left;\"&gt;&lt;br&gt;&lt;\/p&gt;&lt;p style=\"text-align: left;\"&gt;&lt;br&gt;&lt;\/p&gt;",
+        "created_at": "2020-03-10 12:08:50",
+        "updated_at": "2020-05-16 20:12:25"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/help</code></p>
+<!-- END_ab77b871b749d330d17fb22fe615bcf1 -->
+<!-- START_e6893755bad6b97127dc4bc2e2217dfe -->
+<h2>about</h2>
+<p>关于我们</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/about" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/about"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/about',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "id": 4,
+        "type": "about",
+        "content": "&lt;p style=\"text-align: center;\"&gt;2222211fdsfsd&lt;\/p&gt;",
+        "created_at": "2020-03-10 12:08:54",
+        "updated_at": "2020-05-16 20:00:55"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/about</code></p>
+<!-- END_e6893755bad6b97127dc4bc2e2217dfe -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                                    <a href="#" data-language-name="php">php</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>
