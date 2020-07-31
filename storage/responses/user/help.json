@@ -1,0 +1,11 @@
+{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "id": 3,
+        "type": "help",
+        "content": "<p style=\"text-align: center;\">我们</p><p style=\"text-align: left;\">一、我们</p><p style=\"text-align: center;\"><img src=\"http://daodao.shenruxiang.com/storage/Help/2020-05-16/z0ODKkUyLpWYOiLn1rw9278LWKrKuQRMmNbRpaz3.jpeg\" alt=\"图片\"><br></p><p style=\"text-align: left;\">对方说的发送到发送到发送</p><p style=\"text-align: left;\"><br></p><p style=\"text-align: left;\"><br></p><p style=\"text-align: left;\"><br></p><p style=\"text-align: left;\"><br></p><p style=\"text-align: left;\"><br></p>",
+        "created_at": "2020-03-10 12:08:50",
+        "updated_at": "2020-05-16 20:12:25"
+    }
+}

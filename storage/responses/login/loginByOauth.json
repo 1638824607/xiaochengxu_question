@@ -1,0 +1,29 @@
+{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "id": 2,
+        "openid": "123456-dsf-21321312",
+        "name": "wx_1595156242730",
+        "nick_name": "",
+        "sex": "男",
+        "avatar": "http://sns.shenruxiang.com/img/default_avatar.jpg",
+        "desc": "简介",
+        "status": 1,
+        "is_super": 1,
+        "grade": 1,
+        "login_type": "wx",
+        "login_device_type": "android",
+        "login_device": "",
+        "login_time": "2020-07-23 12:22:37",
+        "expire_time": 1604146957,
+        "register_ip": "114.249.135.32",
+        "token": "8f8c0682dae88f9426729e63be8af3a3",
+        "province": "",
+        "city": "",
+        "birthday": "",
+        "feeling": "",
+        "job": "",
+        "created_at": "2020-07-19 10:57:22"
+    }
+}

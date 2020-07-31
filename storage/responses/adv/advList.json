@@ -1,0 +1,30 @@
+{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 8,
+            "src": "http://daodao.shenruxiang.com/storage/PostAdv/2020-03-18/YGAXhOLdiPRabO2mH7FUwvyB3SxvZmVSuKsKLG22.jpeg",
+            "status": 1,
+            "href": "",
+            "created_at": "2020-03-07 09:39:33",
+            "updated_at": "2020-03-18 19:07:20"
+        },
+        {
+            "id": 6,
+            "src": "http://daodao.shenruxiang.com/storage/PostAdv/2020-03-18/YGAXhOLdiPRabO2mH7FUwvyB3SxvZmVSuKsKLG22.jpeg",
+            "status": 1,
+            "href": "",
+            "created_at": "2020-03-05 21:57:39",
+            "updated_at": "2020-04-06 14:58:23"
+        },
+        {
+            "id": 5,
+            "src": "http://daodao.shenruxiang.com/storage/PostAdv/2020-03-18/YGAXhOLdiPRabO2mH7FUwvyB3SxvZmVSuKsKLG22.jpeg",
+            "status": 1,
+            "href": "",
+            "created_at": "2020-03-05 21:52:19",
+            "updated_at": "2020-04-06 14:58:58"
+        }
+    ]
+}

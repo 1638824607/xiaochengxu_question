@@ -1,0 +1,11 @@
+{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "id": 4,
+        "type": "about",
+        "content": "<p style=\"text-align: center;\">2222211fdsfsd</p>",
+        "created_at": "2020-03-10 12:08:54",
+        "updated_at": "2020-05-16 20:00:55"
+    }
+}
