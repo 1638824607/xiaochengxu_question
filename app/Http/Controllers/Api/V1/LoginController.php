@@ -80,16 +80,4 @@ class LoginController extends BaseController
 
         return $this->retData($userInfo);
     }
-
-    /**
-     * appStartList
-     * 启动页列表
-     * @responseFile responses/login/appStartList.json
-     */
-    public function appStartList()
-    {
-        $appStartList = AppStart::where('status', 1)->orderBy('sort', 'desc')->get();
-
-        return $this->retData($appStartList);
-    }
 }
