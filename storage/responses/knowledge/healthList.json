@@ -1,0 +1,57 @@
+{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 3,
+            "cate_id": 1,
+            "title": "测评三",
+            "sort": 3,
+            "hot": 0,
+            "desc": "疫情心理健康自评量表描述",
+            "introduce": "疫情心理健康自评量表介绍",
+            "introduce_src": "http://daodao.shenruxiang.com/fangao_about.png",
+            "introduce_src_type": "1",
+            "src": "http://daodao.shenruxiang.com/fangao_about.png",
+            "src_type": 1,
+            "join_num": 33,
+            "duration": 180,
+            "created_at": "2020-08-01 15:13:48",
+            "updated_at": "2020-08-01 15:13:48"
+        },
+        {
+            "id": 2,
+            "cate_id": 1,
+            "title": "测评二",
+            "sort": 2,
+            "hot": 0,
+            "desc": "疫情心理健康自评量表描述",
+            "introduce": "疫情心理健康自评量表介绍",
+            "introduce_src": "http://daodao.shenruxiang.com/fangao_about.png",
+            "introduce_src_type": "1",
+            "src": "http://daodao.shenruxiang.com/fangao_about.png",
+            "src_type": 1,
+            "join_num": 22,
+            "duration": 120,
+            "created_at": "2020-08-01 15:13:48",
+            "updated_at": "2020-08-01 15:13:48"
+        },
+        {
+            "id": 1,
+            "cate_id": 1,
+            "title": "测评一",
+            "sort": 1,
+            "hot": 0,
+            "desc": "疫情心理健康自评量表描述",
+            "introduce": "疫情心理健康自评量表介绍",
+            "introduce_src": "http://daodao.shenruxiang.com/fangao_about.png",
+            "introduce_src_type": "1",
+            "src": "http://daodao.shenruxiang.com/fangao_about.png",
+            "src_type": 1,
+            "join_num": 11,
+            "duration": 60,
+            "created_at": "2020-08-01 15:13:48",
+            "updated_at": "2020-08-01 15:13:48"
+        }
+    ]
+}

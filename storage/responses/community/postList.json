@@ -1,0 +1,44 @@
+{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "title": "帖子标题",
+                "content": "帖子内容",
+                "images": [
+                    {
+                        "src": "http://daodao.shenruxiang.com/sns/post/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+                        "thumb_src": "http://daodao.shenruxiang.com//sns/post/cd28b7505f3d539879ea2dda5a9b121d.jpg?imageView2/2/w/600/h/600/q/75"
+                    },
+                    {
+                        "src": "http://daodao.shenruxiang.com/sns/post/d80a95beede76095240e053890b3a086.jpg",
+                        "thumb_src": "http://daodao.shenruxiang.com//sns/post/d80a95beede76095240e053890b3a086.jpg?imageView2/2/w/600/h/600/q/75"
+                    }
+                ],
+                "user_id": 1,
+                "praise_num": 0,
+                "comment_num": 0,
+                "share_num": 0,
+                "collect_num": 0,
+                "view_num": 0,
+                "created_at": "2020-08-01 19:34:33",
+                "updated_at": "2020-08-01 19:35:32",
+                "user": {
+                    "id": 1,
+                    "nick": "来日方长",
+                    "avatar": "http://daodao.shenruxiang.com/sns/post/cd28b7505f3d539879ea2dda5a9b121d.jpg"
+                }
+            }
+        ],
+        "first_page_url": "http://www.questionapi.com:8888/api/v1/community/postList?page=1",
+        "from": 1,
+        "next_page_url": null,
+        "path": "http://www.questionapi.com:8888/api/v1/community/postList",
+        "per_page": 10,
+        "prev_page_url": null,
+        "to": 1
+    }
+}

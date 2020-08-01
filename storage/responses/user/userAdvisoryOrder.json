@@ -1,0 +1,37 @@
+{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "user_id": 1,
+                "advisory_id": 1,
+                "status": 1,
+                "created_at": "2020-08-01 12:47:04",
+                "updated_at": "2020-08-01 12:47:41",
+                "order_at": "2020-08-01 20:31:40",
+                "advisory": {
+                    "id": 1,
+                    "user_id": 1,
+                    "name": "沈老师",
+                    "avatar": "http://daodao.shenruxiang.com/sns/post/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+                    "job": "心理工作者",
+                    "org": "王者联盟",
+                    "tel": "13012796666",
+                    "desc": "这是老师的描述",
+                    "created_at": "2020-08-01 20:31:40",
+                    "updated_at": "2020-08-01 20:31:40"
+                }
+            }
+        ],
+        "first_page_url": "http://www.questionapi.com:8888/api/v1/user/userAdvisoryOrder?page=1",
+        "from": 1,
+        "next_page_url": null,
+        "path": "http://www.questionapi.com:8888/api/v1/user/userAdvisoryOrder",
+        "per_page": 10,
+        "prev_page_url": null,
+        "to": 1
+    }
+}

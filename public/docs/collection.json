@@ -2,22 +2,22 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "eb05fd4a-a2c0-4fb4-adab-5c0b4a339572",
+        "_postman_id": "321d5828-b543-457c-9435-728d0e25e1d6",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
     "item": [
         {
-            "name": "adv",
-            "description": "\u5e7f\u544a",
+            "name": "Community",
+            "description": "\u4e92\u52a8\u793e\u533a",
             "item": [
                 {
-                    "name": "cateAdvList\n\u5206\u7c7b\u5e7f\u544a\u5217\u8868",
+                    "name": "postList\n\u5e16\u5b50\u5217\u8868",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/cateAdvList",
+                            "path": "api\/v1\/community\/postList",
                             "query": []
                         },
                         "method": "POST",
@@ -33,19 +33,19 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"cate_id\": 12\n}"
+                            "raw": "{\n    \"user_id\": 3,\n    \"token\": 12,\n    \"page\": 17,\n    \"cate_id\": 9\n}"
                         },
                         "description": "",
                         "response": []
                     }
                 },
                 {
-                    "name": "catePostAdvList\n\u5206\u7c7b\u5e16\u5b50\u8be6\u60c5\u5e7f\u544a\u5217\u8868",
+                    "name": "postDetail\n\u5e16\u5b50\u8be6\u60c5",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/catePostAdvList",
+                            "path": "api\/v1\/community\/postDetail",
                             "query": []
                         },
                         "method": "POST",
@@ -61,19 +61,215 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"post_id\": 17\n}"
+                            "raw": "{\n    \"user_id\": 1,\n    \"token\": 7,\n    \"post_id\": 13\n}"
                         },
                         "description": "",
                         "response": []
                     }
                 },
                 {
-                    "name": "advList\n\u4fbf\u6c11\u5e7f\u544a\u5217\u8868",
+                    "name": "postCommentList\n\u5e16\u5b50\u8bc4\u8bba\u5217\u8868",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/advList",
+                            "path": "api\/v1\/community\/postCommentList",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": 13,\n    \"token\": 11,\n    \"post_id\": 12,\n    \"page\": 16\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "sendPostComment\n\u53d1\u9001\u5e16\u5b50\u8bc4\u8bba",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/community\/sendPostComment",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": 2,\n    \"token\": 13,\n    \"post_id\": 8,\n    \"comment_id\": 12,\n    \"comment_content\": \"et\",\n    \"to_user_id\": 11\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "praisePost\n\u5e16\u5b50\u70b9\u8d5e",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/community\/praisePost",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": 4,\n    \"token\": 18,\n    \"post_id\": 3\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "praisePostComment\n\u5e16\u5b50\u8bc4\u8bba\/\u56de\u590d\u70b9\u8d5e",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/community\/praisePostComment",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": 9,\n    \"token\": 16,\n    \"post_id\": 2,\n    \"comment_id\": 4\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "sharePost\n\u5e16\u5b50\u5206\u4eab",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/community\/sharePost",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": 14,\n    \"token\": 15,\n    \"post_id\": 11\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "collectPost\n\u5e16\u5b50\u6536\u85cf\/\u53d6\u6d88\u6536\u85cf",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/community\/collectPost",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": 7,\n    \"token\": 4,\n    \"post_id\": 13\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "sendPost\n\u53d1\u5e16",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/community\/sendPost",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": 6,\n    \"token\": 4,\n    \"title\": \"aut\",\n    \"content\": \"aut\",\n    \"images\": \"saepe\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "advisoryList\n\u54a8\u8be2\u6c42\u52a9\u5217\u8868",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/community\/advisoryList",
                             "query": []
                         },
                         "method": "POST",
@@ -94,11 +290,465 @@
                         "description": "",
                         "response": []
                     }
+                },
+                {
+                    "name": "advisoryOrder\n\u54a8\u8be2\u9884\u7ea6",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/community\/advisoryOrder",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": 1,\n    \"advisory_id\": 5,\n    \"order_at\": \"earum\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "advisoryOrderEdit\n\u54a8\u8be2\u9884\u7ea6\u4fee\u6539",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/community\/advisoryOrderEdit",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": 2,\n    \"user_id\": 18,\n    \"order_at\": \"autem\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
                 }
             ]
         },
         {
-            "name": "login",
+            "name": "Knowledge",
+            "description": "\u77e5\u8bc6\u79d1\u666e",
+            "item": [
+                {
+                    "name": "bannerList\n\u8f6e\u64ad\u56fe\u5217\u8868",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/knowledge\/bannerList",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "cateList\n\u5206\u7c7b\u5217\u8868",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/knowledge\/cateList",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "readCateList\n\u77e5\u8bc6\u9605\u8bfb\u5206\u7c7b\u5217\u8868",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/knowledge\/readCateList",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "readList\n\u77e5\u8bc6\u9605\u8bfb\u6587\u7ae0\u5217\u8868",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/knowledge\/readList",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"cate_id\": 14,\n    \"sort\": \"consequatur\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "readInfo\n\u77e5\u8bc6\u9605\u8bfb\u6587\u7ae0\u8be6\u60c5",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/knowledge\/readInfo",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": 15\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "matchList\n\u77e5\u8bc6\u7ade\u8d5b\u6d4b\u8bc4\u5217\u8868",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/knowledge\/matchList",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"sort\": \"tempore\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "matchInfo\n\u77e5\u8bc6\u7ade\u8d5b\u6d4b\u8bc4\u8be6\u60c5",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/knowledge\/matchInfo",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": 15\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "matchRecordStart\n\u77e5\u8bc6\u7ade\u8d5b\u6d4b\u8bc4\u5f00\u59cb",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/knowledge\/matchRecordStart",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"match_id\": 3,\n    \"user_id\": 15\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "matchRecordEnd\n\u77e5\u8bc6\u7ade\u8d5b\u6d4b\u8bc4\u7ed3\u675f",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/knowledge\/matchRecordEnd",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"record_id\": 11,\n    \"user_id\": 17,\n    \"score\": 18\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "healthCateList\n\u5065\u5eb7\u81ea\u6d4b\u5206\u7c7b\u5217\u8868",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/knowledge\/healthCateList",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "healthList\n\u5065\u5eb7\u81ea\u6d4b\u6d4b\u8bc4\u5217\u8868",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/knowledge\/healthList",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"cate_id\": 12,\n    \"sort\": \"voluptatem\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "healthInfo\n\u5065\u5eb7\u81ea\u6d4b\u6d4b\u8bc4\u8be6\u60c5",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/knowledge\/healthInfo",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": 15\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "healthRecordStart\n\u5065\u5eb7\u81ea\u6d4b\u6d4b\u8bc4\u5f00\u59cb",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/knowledge\/healthRecordStart",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"health_id\": 18,\n    \"user_id\": 19\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "healthRecordEnd\n\u5065\u5eb7\u81ea\u6d4b\u6d4b\u8bc4\u7ed3\u675f",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/knowledge\/healthRecordEnd",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"record_id\": 8,\n    \"user_id\": 3,\n    \"score\": 19\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Login",
             "description": "\u7b2c\u4e09\u65b9\u767b\u9646",
             "item": [
                 {
@@ -123,35 +773,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"openid\": \"delectus\",\n    \"login_type\": \"perspiciatis\",\n    \"login_device_type\": \"esse\",\n    \"login_device\": \"cumque\",\n    \"nickname\": \"voluptatem\",\n    \"avatar\": \"cum\",\n    \"province\": \"iusto\",\n    \"city\": \"blanditiis\"\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "appStartList\n\u542f\u52a8\u9875\u5217\u8868",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/appStartList",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"openid\": \"placeat\",\n    \"login_type\": \"ipsa\",\n    \"login_device_type\": \"fugiat\",\n    \"login_device\": \"possimus\",\n    \"nickname\": \"non\",\n    \"avatar\": \"incidunt\",\n    \"province\": \"omnis\",\n    \"city\": \"qui\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -160,381 +782,11 @@
             ]
         },
         {
-            "name": "post",
-            "description": "\u5e16\u5b50",
+            "name": "Upload",
+            "description": "",
             "item": [
                 {
-                    "name": "postList\n\u5e16\u5b50\u5217\u8868",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/postList",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"cate_id\": 19\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "cateList\n\u5e16\u5b50\u5206\u7c7b\u5217\u8868",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/cateList",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "postHotList\n\u5e16\u5b50\u70ed\u70b9\u5217\u8868",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/postHotList",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "postDetail\n\u5e16\u5b50\u8be6\u60c5",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/postDetail",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"post_id\": 2\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "postCommentList\n\u5e16\u5b50\u8bc4\u8bba\u5217\u8868",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/postCommentList",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"post_id\": 10\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "sendPostComment\n\u53d1\u9001\u5e16\u5b50\u8bc4\u8bba",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/sendPostComment",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"post_id\": 1,\n    \"comment_id\": 9,\n    \"comment_content\": \"adipisci\",\n    \"to_user_id\": 17\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "praisePost\n\u5e16\u5b50\u70b9\u8d5e",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/praisePost",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"post_id\": 13\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "praisePostComment\n\u5e16\u5b50\u8bc4\u8bba\/\u56de\u590d\u70b9\u8d5e",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/praisePostComment",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"post_id\": 4,\n    \"comment_id\": 17\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "reportPost\n\u5e16\u5b50\u4e3e\u62a5",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/reportPost",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"post_id\": 8,\n    \"report_content\": \"omnis\"\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "sharePost\n\u5e16\u5b50\u5206\u4eab",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/sharePost",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"post_id\": 4,\n    \"share_type\": 20\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "sendPost\n\u53d1\u5e16",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/sendPost",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"cate_id\": 20,\n    \"post_content\": \"voluptates\",\n    \"post_type\": 3,\n    \"source\": \"quae\",\n    \"phone_model\": \"sit\",\n    \"post_position\": \"a\"\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "searchList\n\u641c\u7d22\u5217\u8868",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/searchList",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"search\": \"veniam\"\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "searchTypeList\n\u641c\u7d22\u5206\u7c7b\u5217\u8868",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/searchTypeList",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"search\": \"est\",\n    \"type\": 12,\n    \"page\": 2\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                }
-            ]
-        },
-        {
-            "name": "upload",
-            "description": "\u6587\u4ef6\u4e0a\u4f20",
-            "item": [
-                {
-                    "name": "uploadPost\n\u5e16\u5b50\u56fe\u7247\/\u89c6\u9891\u4e0a\u4f20",
+                    "name": "uploadPost\n\u5e16\u5b50\u56fe\u7247\u4e0a\u4f20",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -555,35 +807,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"file\": {\n        \"\": \"nihil\"\n    },\n    \"type\": 11\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "uploadUserCert\n\u7528\u6237\u8ba4\u8bc1\u56fe\u7247\u4e0a\u4f20",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/uploadUserCert",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"file\": {\n        \"\": \"reiciendis\"\n    }\n}"
+                            "raw": "{\n    \"user_id\": 12,\n    \"token\": 4,\n    \"file\": {\n        \"\": \"iure\"\n    }\n}"
                         },
                         "description": "",
                         "response": []
@@ -611,7 +835,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"file\": {\n        \"\": \"corrupti\"\n    }\n}"
+                            "raw": "{\n    \"user_id\": 1,\n    \"token\": 16,\n    \"file\": {\n        \"\": \"nam\"\n    }\n}"
                         },
                         "description": "",
                         "response": []
@@ -620,8 +844,8 @@
             ]
         },
         {
-            "name": "user",
-            "description": "\u7528\u6237",
+            "name": "User",
+            "description": "",
             "item": [
                 {
                     "name": "userInfo\n\u7528\u6237\u4e2a\u4eba\u4fe1\u606f",
@@ -629,7 +853,7 @@
                         "url": {
                             "protocol": "http",
                             "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/userInfo",
+                            "path": "api\/v1\/user\/userInfo",
                             "query": []
                         },
                         "method": "POST",
@@ -645,7 +869,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 17\n}"
+                            "raw": "{\n    \"user_id\": 4\n}"
                         },
                         "description": "",
                         "response": []
@@ -657,7 +881,7 @@
                         "url": {
                             "protocol": "http",
                             "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/userInfoEdit",
+                            "path": "api\/v1\/user\/userInfoEdit",
                             "query": []
                         },
                         "method": "POST",
@@ -673,7 +897,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nick_name\": \"sed\",\n    \"sex\": \"porro\",\n    \"avatar\": \"reiciendis\",\n    \"desc\": \"et\",\n    \"province\": \"et\",\n    \"city\": \"neque\",\n    \"birthday\": \"omnis\",\n    \"feeling\": \"dolorum\",\n    \"job\": \"iste\"\n}"
+                            "raw": "{\n    \"nick_name\": \"harum\",\n    \"sex\": \"magnam\",\n    \"avatar\": \"pariatur\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -685,7 +909,7 @@
                         "url": {
                             "protocol": "http",
                             "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/userPostList",
+                            "path": "api\/v1\/user\/userPostList",
                             "query": []
                         },
                         "method": "POST",
@@ -701,19 +925,19 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 17\n}"
+                            "raw": "{\n    \"user_id\": 14\n}"
                         },
                         "description": "",
                         "response": []
                     }
                 },
                 {
-                    "name": "userFollowStatus\n\u7528\u6237\u5173\u6ce8\u72b6\u6001",
+                    "name": "userCommentedList\n\u7528\u6237\u56de\u5e16\u5217\u8868",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/userFollowStatus",
+                            "path": "api\/v1\/user\/userCommentedList",
                             "query": []
                         },
                         "method": "POST",
@@ -729,19 +953,19 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"to_user_id\": 6\n}"
+                            "raw": "{\n    \"user_id\": 6,\n    \"page\": 4\n}"
                         },
                         "description": "",
                         "response": []
                     }
                 },
                 {
-                    "name": "userFollow\n\u7528\u6237\u5173\u6ce8",
+                    "name": "matchRecordList\n\u77e5\u8bc6\u7ade\u8d5b\u81ea\u6d4b\u8bb0\u5f55",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/userFollow",
+                            "path": "api\/v1\/user\/matchRecordList",
                             "query": []
                         },
                         "method": "POST",
@@ -757,19 +981,19 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"to_user_id\": 20\n}"
+                            "raw": "{\n    \"user_id\": 7,\n    \"page\": 19\n}"
                         },
                         "description": "",
                         "response": []
                     }
                 },
                 {
-                    "name": "userPostSourceList\n\u7528\u6237\u76f8\u518c\u5217\u8868",
+                    "name": "healthRecordList\n\u5065\u5eb7\u81ea\u6d4b\u81ea\u6d4b\u8bb0\u5f55",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/userPostSourceList",
+                            "path": "api\/v1\/user\/healthRecordList",
                             "query": []
                         },
                         "method": "POST",
@@ -785,19 +1009,19 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 11\n}"
+                            "raw": "{\n    \"user_id\": 19,\n    \"page\": 9\n}"
                         },
                         "description": "",
                         "response": []
                     }
                 },
                 {
-                    "name": "userCert\n\u7528\u6237\u8ba4\u8bc1",
+                    "name": "userPraiseList\n\u7528\u6237\u70b9\u8d5e\u5217\u8868",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/userCert",
+                            "path": "api\/v1\/user\/userPraiseList",
                             "query": []
                         },
                         "method": "POST",
@@ -813,19 +1037,19 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"truename\": \"excepturi\",\n    \"tel\": \"eligendi\",\n    \"id_card\": \"voluptas\",\n    \"img_zheng\": \"assumenda\",\n    \"img_fan\": \"ut\"\n}"
+                            "raw": "{\n    \"user_id\": 19,\n    \"token\": 8,\n    \"page\": 20\n}"
                         },
                         "description": "",
                         "response": []
                     }
                 },
                 {
-                    "name": "userCertStatus\n\u7528\u6237\u8ba4\u8bc1\u72b6\u6001",
+                    "name": "userAdvisoryOrder\n\u7528\u6237\u9884\u7ea6\u5217\u8868",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/userCertStatus",
+                            "path": "api\/v1\/user\/userAdvisoryOrder",
                             "query": []
                         },
                         "method": "POST",
@@ -841,19 +1065,19 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"user_id\": 11,\n    \"page\": 14\n}"
                         },
                         "description": "",
                         "response": []
                     }
                 },
                 {
-                    "name": "userSuggest\n\u7528\u6237\u53cd\u9988",
+                    "name": "userCollectList\n\u7528\u6237\u6536\u85cf\u5217\u8868",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/userSuggest",
+                            "path": "api\/v1\/user\/userCollectList",
                             "query": []
                         },
                         "method": "POST",
@@ -869,63 +1093,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"content\": \"vel\"\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "help\n\u5e2e\u52a9\u4e2d\u5fc3",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/help",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "about\n\u5173\u4e8e\u6211\u4eec",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "sns.shenruxiang.com\/",
-                            "path": "api\/v1\/about",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"user_id\": 11,\n    \"page\": 14\n}"
                         },
                         "description": "",
                         "response": []

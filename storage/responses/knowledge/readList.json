@@ -1,0 +1,48 @@
+{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 3,
+            "cate_id": 1,
+            "title": "人格三",
+            "sort": 3,
+            "hot": 0,
+            "desc": "你的背后隐藏了哪种人格",
+            "read_num": 33,
+            "src": "http://daodao.shenruxiang.com/fangao_about.png",
+            "src_type": 1,
+            "content": "这个时间点，可能疫情快过去了，国家也开启了接近40万亿的基础建设计划",
+            "create_time": "2020-08-01 15:13:48",
+            "update_time": "2020-08-01 15:13:48"
+        },
+        {
+            "id": 2,
+            "cate_id": 1,
+            "title": "人格二",
+            "sort": 2,
+            "hot": 0,
+            "desc": "你的背后隐藏了哪种人格",
+            "read_num": 22,
+            "src": "http://daodao.shenruxiang.com/fangao_about.png",
+            "src_type": 1,
+            "content": "这个时间点，可能疫情快过去了，国家也开启了接近40万亿的基础建设计划",
+            "create_time": "2020-08-01 15:13:48",
+            "update_time": "2020-08-01 15:13:48"
+        },
+        {
+            "id": 1,
+            "cate_id": 1,
+            "title": "人格一",
+            "sort": 1,
+            "hot": 0,
+            "desc": "你的背后隐藏了哪种人格",
+            "read_num": 11,
+            "src": "http://daodao.shenruxiang.com/fangao_about.png",
+            "src_type": 1,
+            "content": "这个时间点，可能疫情快过去了，国家也开启了接近40万亿的基础建设计划",
+            "create_time": "2020-08-01 15:13:48",
+            "update_time": "2020-08-01 15:13:48"
+        }
+    ]
+}

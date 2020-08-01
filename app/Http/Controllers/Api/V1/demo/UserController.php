@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Model\Post\Post;
-use App\Model\Post\PostComment;
+use App\Model\Community\Post;
+use App\Model\Community\PostComment;
 use App\Model\User\System;
 use App\Model\User\User;
 use App\Model\User\UserCert;

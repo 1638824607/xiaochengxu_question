@@ -6,7 +6,7 @@ use App\Model\Adv\Adv;
 use App\Model\Adv\CateAdv;
 use App\Model\Adv\CatePostDetailAdv;
 use App\Model\Adv\PostAdv;
-use App\Model\Post\Post;
+use App\Model\Community\Post;
 
 /**
  * @group adv

@@ -1,0 +1,30 @@
+{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 1,
+            "name": "read",
+            "title": "知识阅读",
+            "sort": 3,
+            "image": "http://daodao.shenruxiang.com/fangao_about.png",
+            "is_cate": 1
+        },
+        {
+            "id": 2,
+            "name": "match",
+            "title": "知识竞赛",
+            "sort": 2,
+            "image": "http://daodao.shenruxiang.com/fangao_about.png",
+            "is_cate": 2
+        },
+        {
+            "id": 3,
+            "name": "health",
+            "title": "健康自测",
+            "sort": 1,
+            "image": "http://daodao.shenruxiang.com/fangao_about.png",
+            "is_cate": 1
+        }
+    ]
+}

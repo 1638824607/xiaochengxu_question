@@ -1,0 +1,30 @@
+{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 1,
+            "user_id": 1,
+            "name": "沈老师",
+            "avatar": "http://daodao.shenruxiang.com/sns/post/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+            "job": "心理工作者",
+            "org": "王者联盟",
+            "tel": "13012796666",
+            "desc": "这是老师的描述",
+            "created_at": "2020-08-01 20:31:40",
+            "updated_at": "2020-08-01 20:31:40"
+        },
+        {
+            "id": 2,
+            "user_id": 2,
+            "name": "阳老师",
+            "avatar": "http://daodao.shenruxiang.com/sns/post/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+            "job": "心理工作者",
+            "org": "王者联盟",
+            "tel": "13012796666",
+            "desc": "这是老师的描述",
+            "created_at": "2020-08-01 20:31:40",
+            "updated_at": "2020-08-01 20:31:40"
+        }
+    ]
+}

@@ -7,8 +7,8 @@ use App\Model\User\User;
 use Illuminate\Http\Request;
 
 /**
- * @group login
- * 第三方登陆guoj1i1e1
+ * @group Login
+ * 第三方登陆
  */
 class LoginController extends BaseController
 {
