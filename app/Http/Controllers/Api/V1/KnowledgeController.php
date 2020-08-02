@@ -203,11 +203,32 @@ class KnowledgeController extends BaseController
             return $this->retJson(201, '测评已完成');
         }
 
-        $matchRecordInfo->score    = request('score');
-        $matchRecordInfo->end_time = date('Y-m-d H:i:s');
+        $matchRecordInfo->score       = request('score');
+        $matchRecordInfo->score_level = $this->scoreLevel(request('score'));
+        $matchRecordInfo->end_time    = date('Y-m-d H:i:s');
         $matchRecordInfo->save();
 
         return $this->retJson(0, '测评已完成');
+    }
+
+    /**
+     * matchRecordInfo
+     * 知识竞赛用户测评详情
+     * @authenticated
+     * @bodyParam  record_id int required 测评记录id
+     * @responseFile responses/knowledge/matchRecordInfo.json
+     */
+    public function matchRecordInfo()
+    {
+        $this->validator([
+            'record_id' => 'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $matchRecordInfo = MatchRecord::with(['match', 'user'])->where('id', request('record_id'))->first();
+
+        return $this->retData($matchRecordInfo);
     }
 
     /**
@@ -325,10 +346,42 @@ class KnowledgeController extends BaseController
             return $this->retJson(201, '测评已完成');
         }
 
-        $healthRecordInfo->score    = request('score');
-        $healthRecordInfo->end_time = date('Y-m-d H:i:s');
+        $healthRecordInfo->score       = request('score');
+        $healthRecordInfo->score_level = $this->scoreLevel(request('score'));
+        $healthRecordInfo->end_time    = date('Y-m-d H:i:s');
         $healthRecordInfo->save();
 
         return $this->retJson(0, '测评已完成');
+    }
+
+    /**
+     * healthRecordInfo
+     * 知识竞赛用户测评详情
+     * @authenticated
+     * @bodyParam  record_id int required 测评记录id
+     * @responseFile responses/knowledge/healthRecordInfo.json
+     */
+    public function healthRecordInfo()
+    {
+        $this->validator([
+            'record_id' => 'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $healthRecordInfo = HealthRecord::with(['health', 'user'])->where('id', request('record_id'))->first();
+
+        return $this->retData($healthRecordInfo);
+    }
+
+    public function scoreLevel($score)
+    {
+        if($score >= 90) {
+            return '优秀';
+        }elseif($score >= 70){
+            return '良好';
+        }else{
+            return '一般';
+        }
     }
 }

@@ -28,11 +28,13 @@ Route::namespace('V1')->prefix('v1')->group(function ()
         Route::post('matchInfo', 'KnowledgeController@matchInfo');
         Route::post('matchRecordStart', 'KnowledgeController@matchRecordStart');
         Route::post('matchRecordEnd', 'KnowledgeController@matchRecordEnd');
+        Route::post('matchRecordInfo', 'KnowledgeController@matchRecordInfo');
         Route::post('healthCateList', 'KnowledgeController@healthCateList');
         Route::post('healthList', 'KnowledgeController@healthList');
         Route::post('healthInfo', 'KnowledgeController@healthInfo');
         Route::post('healthRecordStart', 'KnowledgeController@healthRecordStart');
         Route::post('healthRecordEnd', 'KnowledgeController@healthRecordEnd');
+        Route::post('healthRecordInfo', 'KnowledgeController@healthRecordInfo');
     });
 
     Route::prefix('community')->group(function ()

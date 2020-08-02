@@ -16,23 +16,21 @@ class LoginController extends BaseController
      * loginByOauth
      * 第三方登陆注册
      * @bodyParam  openid string required 第三方标示openid
-     * @bodyParam  login_type  string required 第三方登陆类型（wx/qq）
      * @bodyParam  login_device_type string required 登陆设备类型（android/ios）
      * @bodyParam  login_device string 登陆设备(小米10)
-     * @bodyParam  nickname string 昵称
+     * @bodyParam  nick string 昵称
      * @bodyParam  avatar string 头像
      * @bodyParam  province string 省份
      * @bodyParam  city string 城市
      * @responseFile responses/login/loginByOauth.json
      */
-    public function loginByOauth(Request $request)
+    public function loginByOauth()
     {
         $this->validator([
             'openid'            => 'required',
-            'login_type'        => 'required',
             'login_device_type' => 'required',
             'login_device'      => 'present',
-            'nickname'          => 'present',
+            'nick'              => 'present',
             'avatar'            => 'present',
             'province'          => 'present',
             'city'              => 'present',
@@ -46,10 +44,9 @@ class LoginController extends BaseController
         if (empty($userInfo)) {
             User::create([
                 'openid'            => request('openid'),
-                'name'              => request('login_type') . '_' . time() . rand(100, 999),
-                'nick_name'         => request('nickname', ''),
+                'name'              => time() . rand(100, 999),
+                'nick'              => request('nickname', ''),
                 'avatar'            => request('avatar', request()->root() . '/img/default_avatar.jpg'),
-                'login_type'        => request('login_type', ''),
                 'login_device_type' => request('login_device_type'),
                 'login_device'      => request('login_device', ''),
                 'login_time'        => date('Y-m-d H:i:s'),
@@ -60,12 +57,11 @@ class LoginController extends BaseController
                 'city'              => request('city', ''),
             ]);
         } else {
-            if ($userInfo['status'] != 1) {
+            if ($userInfo['status'] != 2) {
                 return $this->retJson(203, '用户已被屏蔽');
             }
 
             User::where('id', $userInfo['id'])->update([
-                'login_type'        => request('login_type', ''),
                 'login_device_type' => request('login_device_type', ''),
                 'login_device'      => request('login_device', ''),
                 'login_time'        => date('Y-m-d H:i:s'),

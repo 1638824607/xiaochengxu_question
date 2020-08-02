@@ -85,6 +85,7 @@
                 </div>
 
                 <div class="links">
+                    <a href="http://114.67.201.243/xlcsyxt">需求文档</a>
                     <a href="/docs">接口文档</a>
                     <a href="/">管理后台</a>
                 </div>

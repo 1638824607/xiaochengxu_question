@@ -12,6 +12,11 @@ class HealthRecord extends Model
 
     public function health()
     {
-        return $this->belongsTo('App\Model\Knowledge\health', 'health_id');
+        return $this->belongsTo('App\Model\Knowledge\Health', 'health_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Model\User\User', 'user_id');
     }
 }
