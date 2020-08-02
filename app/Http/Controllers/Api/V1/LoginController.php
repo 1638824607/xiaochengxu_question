@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Model\Adv\AppStart;
 use App\Model\User\User;
+use http\Client;
 use Illuminate\Http\Request;
 
 /**
@@ -12,68 +13,144 @@ use Illuminate\Http\Request;
  */
 class LoginController extends BaseController
 {
+    const APPID        = 'wx53e535fb5fdd4b8e';
+    const APPID_SECERT = 'd03ad0fa1264acc244f71b11ea7daf57';
+
     /**
-     * loginByOauth
-     * 第三方登陆注册
+     * registerByOauth
+     * 第三方注册
      * @bodyParam  openid string required 第三方标示openid
-     * @bodyParam  login_device_type string required 登陆设备类型（android/ios）
-     * @bodyParam  login_device string 登陆设备(小米10)
      * @bodyParam  nick string 昵称
      * @bodyParam  avatar string 头像
+     * @bodyParam  gender int 性别 0未知 1男性 2女性
      * @bodyParam  province string 省份
      * @bodyParam  city string 城市
+     * @responseFile responses/login/registerByOauth.json
+     */
+    public function registerByOauth()
+    {
+        $this->validator([
+            'openid'            => 'required',
+            'nick'              => 'required',
+            'avatar'            => 'required',
+            'gender'            => 'required',
+            'province'          => 'required',
+            'city'              => 'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $userInfo = User::where(['openid' => request('openid')])->first();
+
+        if(! empty($userInfo)) {
+            return $this->retJson(201, '用户已注册');
+        }
+
+        $userInfo = User::create([
+            'openid'            => request('openid'),
+            'user_name'         => time() . rand(100, 999),
+            'nick'              => request('nick'),
+            'avatar'            => request('avatar'),
+            'login_time'        => date('Y-m-d H:i:s'),
+            'token'             => md5(md5(request('openid') . time())),
+            'expire_time'       => time() + 60 * 60 * 24 * 100,
+            'province'          => request('province' ),
+            'city'              => request('city' )]
+        );
+
+        $userInfo = User::where('id', $userInfo->id)->first();
+        $userInfo->isTemp = false;
+
+        return $this->retData($userInfo);
+    }
+
+    /**
+     * loginByOauth
+     * 第三方登陆
+     * @bodyParam  code string required 登录时获取的 code
      * @responseFile responses/login/loginByOauth.json
      */
     public function loginByOauth()
     {
         $this->validator([
-            'openid'            => 'required',
-            'login_device_type' => 'required',
-            'login_device'      => 'present',
-            'nick'              => 'present',
-            'avatar'            => 'present',
-            'province'          => 'present',
-            'city'              => 'present',
+            'code' => 'required',
         ], [
             'required' => '缺少必要的参数',
-            'present'  => '缺少必要的参数',
         ]);
 
-        $userInfo = User::where(['openid' => request('openid')])->first();
+        $params = [
+            'appid'      => self::APPID,
+            'secret'     => self::APPID_SECERT,
+            'js_code'    => request('code'),
+            'grant_type' => 'authorization_code'
+        ];
+
+        // 拼接url
+        $wxCodeUrl = 'https://api.weixin.qq.com/sns/jscode2session';
+
+        $res = $this->http_query($wxCodeUrl, $params);
+        $res = json_decode($res, true);
+
+        if($res['errcode'] != 0) {
+            return $this->retJson(201, $res['errmsg']);
+        }
+
+        $sessionKey = $res['session_key'];
+        $openid     = $res['openid'];
+
+        $userInfo = User::where(['openid' => 1])->first();
 
         if (empty($userInfo)) {
-            User::create([
-                'openid'            => request('openid'),
-                'name'              => time() . rand(100, 999),
-                'nick'              => request('nickname', ''),
-                'avatar'            => request('avatar', request()->root() . '/img/default_avatar.jpg'),
-                'login_device_type' => request('login_device_type'),
-                'login_device'      => request('login_device', ''),
-                'login_time'        => date('Y-m-d H:i:s'),
-                'token'             => md5(md5(request('openid') . time())),
-                'expire_time'       => time() + 60 * 60 * 24 * 100,
-                'register_ip'       => $_SERVER['REMOTE_ADDR'],
-                'province'          => request('province', ''),
-                'city'              => request('city', ''),
-            ]);
-        } else {
-            if ($userInfo['status'] != 2) {
-                return $this->retJson(203, '用户已被屏蔽');
-            }
-
-            User::where('id', $userInfo['id'])->update([
-                'login_device_type' => request('login_device_type', ''),
-                'login_device'      => request('login_device', ''),
-                'login_time'        => date('Y-m-d H:i:s'),
-                'token'             => md5(md5(request('openid') . time())),
-                'expire_time'       => time() + 60 * 60 * 24 * 100,
-                'register_ip'       => $_SERVER['REMOTE_ADDR'],
-                'updated_at'        => date('Y-m-d H:i:s'),
+            return $this->retData([
+                'isTemp'     => true,
+                'openId'     => $openid,
+                'sessionKey' => $sessionKey,
             ]);
         }
 
-        $userInfo = User::where(['openid' => request('openid')])->first();
+        $userInfo = User::where('id', $userInfo['id'])->update([
+            'login_time'        => date('Y-m-d H:i:s'),
+            'token'             => md5(md5( time())),
+            'expire_time'       => time() + 60 * 60 * 24 * 100,
+        ]);
+
+        $userInfo = User::where('id', $userInfo->id)->first();
+        $userInfo->isTemp = false;
 
         return $this->retData($userInfo);
+    }
+
+    public function http_query($url, $get = null, $post = null)
+    {
+        if (isset($get)) {
+            if (substr_count($url, '?') > 0) {
+                $url .= "&" . http_build_query($get);
+            } else {
+                $url .= "?" . http_build_query($get);
+            }
+        }
+        // 初始化一个cURL会话
+        $ch = curl_init($url);
+        if (isset($post)) {
+            curl_setopt($ch, CURLOPT_POST, TRUE);         #开启post
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $post);  #post数据
+        }
+        curl_setopt($ch, CURLOPT_HEADER, 0);            #是否需要头部信息（否）
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);    #如果成功只将结果返回，不自动输出任何内容。
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);           #设置允许执行的最长秒数。
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);    #在发起连接前等待的时间，如果设置为0，则无限等待。
+        //忽略证书
+        if (substr($url, 0, 5) == 'https') {
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        }
+        $curl_result = curl_exec($ch);
+        if ($curl_result) {
+            $data = $curl_result;
+        } else {
+            $data = curl_error($ch);
+        }
+        curl_close($ch);    #关闭cURL会话
+        return $data;
     }
 }

@@ -21,8 +21,6 @@
         "login_time": "2020-08-02 16:11:42",
         "expire_time": 1605024702,
         "created_at": "2020-08-02 16:11:42",
-        "isTemp": false,
-        "openId": 123456,
-        "sessionKey": 556633232323
+        "isTemp": false
     }
 }

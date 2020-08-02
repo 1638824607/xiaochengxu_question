@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 Route::namespace('V1')->prefix('v1')->group(function ()
 {
     Route::post('loginByOauth', 'LoginController@loginByOauth');
+    Route::post('registerByOauth', 'LoginController@registerByOauth');
 
     Route::prefix('knowledge')->group(function ()
     {
