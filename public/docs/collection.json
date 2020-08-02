@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "884a34fa-1d38-4fb6-9e97-286d97dd562c",
+        "_postman_id": "63b63c95-da45-4afc-88f1-c0b6941f3465",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -33,7 +33,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 18,\n    \"token\": 19,\n    \"page\": 15,\n    \"cate_id\": 18\n}"
+                            "raw": "{\n    \"user_id\": 14,\n    \"token\": 11,\n    \"page\": 13,\n    \"cate_id\": 18\n}"
                         },
                         "description": "",
                         "response": []
@@ -61,7 +61,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 15,\n    \"token\": 10,\n    \"post_id\": 4\n}"
+                            "raw": "{\n    \"user_id\": 6,\n    \"token\": 5,\n    \"post_id\": 11\n}"
                         },
                         "description": "",
                         "response": []
@@ -89,7 +89,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 11,\n    \"token\": 20,\n    \"post_id\": 18,\n    \"page\": 6\n}"
+                            "raw": "{\n    \"user_id\": 20,\n    \"token\": 11,\n    \"post_id\": 19,\n    \"page\": 19\n}"
                         },
                         "description": "",
                         "response": []
@@ -117,7 +117,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 14,\n    \"token\": 13,\n    \"post_id\": 11,\n    \"comment_id\": 10,\n    \"comment_content\": \"occaecati\",\n    \"to_user_id\": 7\n}"
+                            "raw": "{\n    \"user_id\": 18,\n    \"token\": 16,\n    \"post_id\": 7,\n    \"comment_id\": 6,\n    \"comment_content\": \"corporis\",\n    \"to_user_id\": 17\n}"
                         },
                         "description": "",
                         "response": []
@@ -145,7 +145,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 18,\n    \"token\": 15,\n    \"post_id\": 20\n}"
+                            "raw": "{\n    \"user_id\": 2,\n    \"token\": 18,\n    \"post_id\": 17\n}"
                         },
                         "description": "",
                         "response": []
@@ -173,7 +173,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 8,\n    \"token\": 13,\n    \"post_id\": 4,\n    \"comment_id\": 17\n}"
+                            "raw": "{\n    \"user_id\": 5,\n    \"token\": 5,\n    \"post_id\": 12,\n    \"comment_id\": 8\n}"
                         },
                         "description": "",
                         "response": []
@@ -201,7 +201,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 11,\n    \"token\": 16,\n    \"post_id\": 14\n}"
+                            "raw": "{\n    \"user_id\": 1,\n    \"token\": 9,\n    \"post_id\": 13\n}"
                         },
                         "description": "",
                         "response": []
@@ -229,7 +229,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 3,\n    \"token\": 9,\n    \"post_id\": 13\n}"
+                            "raw": "{\n    \"user_id\": 14,\n    \"token\": 6,\n    \"post_id\": 16\n}"
                         },
                         "description": "",
                         "response": []
@@ -257,7 +257,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 6,\n    \"token\": 9,\n    \"title\": \"et\",\n    \"content\": \"ullam\",\n    \"images\": \"non\"\n}"
+                            "raw": "{\n    \"user_id\": 17,\n    \"token\": 9,\n    \"title\": \"natus\",\n    \"content\": \"a\",\n    \"images\": \"ipsa\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -313,7 +313,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 4,\n    \"advisory_id\": 15,\n    \"order_at\": \"itaque\"\n}"
+                            "raw": "{\n    \"user_id\": 20,\n    \"advisory_id\": 13,\n    \"order_at\": \"alias\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -341,7 +341,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 3,\n    \"user_id\": 19,\n    \"order_at\": \"reiciendis\"\n}"
+                            "raw": "{\n    \"id\": 1,\n    \"user_id\": 20,\n    \"order_at\": \"quo\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -459,7 +459,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"cate_id\": 11,\n    \"sort\": \"nemo\"\n}"
+                            "raw": "{\n    \"cate_id\": 17,\n    \"sort\": \"accusamus\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -487,7 +487,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 5\n}"
+                            "raw": "{\n    \"id\": 10\n}"
                         },
                         "description": "",
                         "response": []
@@ -515,7 +515,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"sort\": \"iste\"\n}"
+                            "raw": "{\n    \"sort\": \"culpa\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -543,7 +543,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 3\n}"
+                            "raw": "{\n    \"id\": 12\n}"
                         },
                         "description": "",
                         "response": []
@@ -571,7 +571,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"match_id\": 3,\n    \"user_id\": 12\n}"
+                            "raw": "{\n    \"match_id\": 4,\n    \"user_id\": 4\n}"
                         },
                         "description": "",
                         "response": []
@@ -599,7 +599,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"record_id\": 13,\n    \"user_id\": 13,\n    \"score\": 13\n}"
+                            "raw": "{\n    \"record_id\": 5,\n    \"user_id\": 7,\n    \"score\": 14\n}"
                         },
                         "description": "",
                         "response": []
@@ -627,7 +627,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"record_id\": 11\n}"
+                            "raw": "{\n    \"record_id\": 15\n}"
                         },
                         "description": "",
                         "response": []
@@ -683,7 +683,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"cate_id\": 8,\n    \"sort\": \"eum\"\n}"
+                            "raw": "{\n    \"cate_id\": 19,\n    \"sort\": \"numquam\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -711,7 +711,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 20\n}"
+                            "raw": "{\n    \"id\": 1\n}"
                         },
                         "description": "",
                         "response": []
@@ -739,7 +739,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"health_id\": 16,\n    \"user_id\": 20\n}"
+                            "raw": "{\n    \"health_id\": 6,\n    \"user_id\": 3\n}"
                         },
                         "description": "",
                         "response": []
@@ -767,7 +767,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"record_id\": 16,\n    \"user_id\": 1,\n    \"score\": 17\n}"
+                            "raw": "{\n    \"record_id\": 8,\n    \"user_id\": 6,\n    \"score\": 8\n}"
                         },
                         "description": "",
                         "response": []
@@ -795,7 +795,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"record_id\": 1\n}"
+                            "raw": "{\n    \"record_id\": 13\n}"
                         },
                         "description": "",
                         "response": []
@@ -829,7 +829,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"openid\": \"facilis\",\n    \"login_device_type\": \"est\",\n    \"login_device\": \"libero\",\n    \"nick\": \"nihil\",\n    \"avatar\": \"magnam\",\n    \"province\": \"enim\",\n    \"city\": \"vel\"\n}"
+                            "raw": "{\n    \"openid\": \"eius\",\n    \"login_device_type\": \"perferendis\",\n    \"login_device\": \"voluptate\",\n    \"nick\": \"sed\",\n    \"avatar\": \"minus\",\n    \"province\": \"consequuntur\",\n    \"city\": \"pariatur\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -947,7 +947,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"day_id\": 4\n}"
+                            "raw": "{\n    \"day_id\": 19\n}"
                         },
                         "description": "",
                         "response": []
@@ -1003,7 +1003,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"game_id\": 5\n}"
+                            "raw": "{\n    \"game_id\": 2\n}"
                         },
                         "description": "",
                         "response": []
@@ -1031,7 +1031,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"game_id\": 18,\n    \"user_id\": 15\n}"
+                            "raw": "{\n    \"game_id\": 15,\n    \"user_id\": 7\n}"
                         },
                         "description": "",
                         "response": []
@@ -1059,7 +1059,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"record_id\": 1,\n    \"summary\": \"autem\"\n}"
+                            "raw": "{\n    \"record_id\": 19,\n    \"summary\": \"est\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -1093,7 +1093,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 17,\n    \"token\": 17,\n    \"file\": {\n        \"\": \"deleniti\"\n    }\n}"
+                            "raw": "{\n    \"user_id\": 7,\n    \"token\": 17,\n    \"file\": {\n        \"\": \"necessitatibus\"\n    }\n}"
                         },
                         "description": "",
                         "response": []
@@ -1121,7 +1121,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 4,\n    \"token\": 1,\n    \"file\": {\n        \"\": \"modi\"\n    }\n}"
+                            "raw": "{\n    \"user_id\": 6,\n    \"token\": 20,\n    \"file\": {\n        \"\": \"in\"\n    }\n}"
                         },
                         "description": "",
                         "response": []
@@ -1155,7 +1155,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 2\n}"
+                            "raw": "{\n    \"user_id\": 13\n}"
                         },
                         "description": "",
                         "response": []
@@ -1183,7 +1183,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nick_name\": \"dolorum\",\n    \"sex\": \"optio\",\n    \"avatar\": \"quidem\"\n}"
+                            "raw": "{\n    \"nick_name\": \"rerum\",\n    \"sex\": \"ducimus\",\n    \"avatar\": \"reiciendis\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -1211,7 +1211,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 10\n}"
+                            "raw": "{\n    \"user_id\": 5\n}"
                         },
                         "description": "",
                         "response": []
@@ -1239,7 +1239,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 14,\n    \"page\": 7\n}"
+                            "raw": "{\n    \"user_id\": 12,\n    \"page\": 15\n}"
                         },
                         "description": "",
                         "response": []
@@ -1267,7 +1267,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 12,\n    \"page\": 8\n}"
+                            "raw": "{\n    \"user_id\": 13,\n    \"page\": 9\n}"
                         },
                         "description": "",
                         "response": []
@@ -1295,7 +1295,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 20,\n    \"page\": 14\n}"
+                            "raw": "{\n    \"user_id\": 9,\n    \"page\": 7\n}"
                         },
                         "description": "",
                         "response": []
@@ -1323,7 +1323,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 9,\n    \"token\": 2,\n    \"page\": 17\n}"
+                            "raw": "{\n    \"user_id\": 18,\n    \"token\": 19,\n    \"page\": 14\n}"
                         },
                         "description": "",
                         "response": []
@@ -1351,7 +1351,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 2,\n    \"page\": 11\n}"
+                            "raw": "{\n    \"user_id\": 5,\n    \"page\": 18\n}"
                         },
                         "description": "",
                         "response": []
@@ -1379,7 +1379,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 8,\n    \"page\": 5\n}"
+                            "raw": "{\n    \"user_id\": 3,\n    \"page\": 16\n}"
                         },
                         "description": "",
                         "response": []

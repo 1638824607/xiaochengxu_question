@@ -27,6 +27,7 @@ class UserController extends BaseController
      * userInfo
      * 用户个人信息
      * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
      * @responseFile responses/user/userInfo.json
      */
     public function userInfo()
@@ -44,6 +45,8 @@ class UserController extends BaseController
     /**
      * userInfoEdit
      * 用户信息修改
+     * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
      * @bodyParam  nick_name string required 昵称
      * @bodyParam  sex string required 性别 男|女
      * @bodyParam  avatar string required 头像
@@ -72,6 +75,7 @@ class UserController extends BaseController
      * matchRecordList
      * 知识竞赛自测记录
      * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
      * @bodyParam  page int required 页数
      * @responseFile responses/user/matchRecordList.json
      */
@@ -86,6 +90,7 @@ class UserController extends BaseController
      * healthRecordList
      * 健康自测自测记录
      * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
      * @bodyParam  page int required 页数
      * @responseFile responses/user/healthRecordList.json
      */
@@ -100,6 +105,7 @@ class UserController extends BaseController
      * userPostList
      * 用户帖子列表
      * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
      * @responseFile responses/user/userPostList.json
      */
     public function userPostList()
@@ -122,6 +128,7 @@ class UserController extends BaseController
      * userCommentedList
      * 用户回帖列表
      * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
      * @bodyParam  page int required 页数
      * @responseFile responses/user/userCommentedList.json
      */
@@ -176,6 +183,7 @@ class UserController extends BaseController
      * userCollectList
      * 用户收藏列表
      * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
      * @bodyParam  page    int 页数
      * @responseFile responses/user/userCollectList.json
      */
@@ -196,6 +204,7 @@ class UserController extends BaseController
      * userAdvisoryOrder
      * 用户预约列表
      * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
      * @bodyParam  page    int 页数
      * @responseFile responses/user/userAdvisoryOrder.json
      */

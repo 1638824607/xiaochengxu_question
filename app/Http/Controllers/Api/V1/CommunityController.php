@@ -331,9 +331,7 @@ class CommunityController extends BaseController
             'images'   => 'required',
         ], [
             'required' => '缺少必要的参数',
-            'present'  => '缺少必要的参数',
         ]);
-
 
         Post::create([
             'user_id'       => $this->userInfo['id'],
@@ -364,6 +362,7 @@ class CommunityController extends BaseController
      * 咨询预约
      * @authenticated
      * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
      * @bodyParam  advisory_id int required 咨询老师id
      * @bodyParam  order_at datetime required 预约时间
      * @responseFile responses/community/advisoryOrder.json
@@ -398,8 +397,9 @@ class CommunityController extends BaseController
      * advisoryOrderEdit
      * 咨询预约修改
      * @authenticated
-     * @bodyParam  id int required 预约id
      * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
+     * @bodyParam  id int required 预约id
      * @bodyParam  order_at datetime required 预约时间
      * @responseFile responses/community/advisoryOrderEdit.json
      */

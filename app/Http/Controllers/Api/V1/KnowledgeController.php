@@ -152,8 +152,9 @@ class KnowledgeController extends BaseController
      * matchRecordStart
      * 知识竞赛测评开始
      * @authenticated
-     * @bodyParam  match_id int required 测评id
      * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
+     * @bodyParam  match_id int required 测评id
      * @responseFile responses/knowledge/matchRecordStart.json
      */
     public function matchRecordStart()
@@ -178,8 +179,9 @@ class KnowledgeController extends BaseController
      * matchRecordEnd
      * 知识竞赛测评结束
      * @authenticated
-     * @bodyParam  record_id int required 测评记录id
      * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
+     * @bodyParam  record_id int required 测评记录id
      * @bodyParam  score int required 测评分数
      * @responseFile responses/knowledge/matchRecordEnd.json
      */
@@ -215,6 +217,8 @@ class KnowledgeController extends BaseController
      * matchRecordInfo
      * 知识竞赛用户测评详情
      * @authenticated
+     * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
      * @bodyParam  record_id int required 测评记录id
      * @responseFile responses/knowledge/matchRecordInfo.json
      */
@@ -295,8 +299,9 @@ class KnowledgeController extends BaseController
      * healthRecordStart
      * 健康自测测评开始
      * @authenticated
-     * @bodyParam  health_id int required 测评id
      * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
+     * @bodyParam  health_id int required 测评id
      * @responseFile responses/knowledge/healthRecordStart.json
      */
     public function healthRecordStart()
@@ -321,8 +326,9 @@ class KnowledgeController extends BaseController
      * healthRecordEnd
      * 健康自测测评结束
      * @authenticated
-     * @bodyParam  record_id int required 测评记录id
      * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
+     * @bodyParam  record_id int required 测评记录id
      * @bodyParam  score int required 测评分数
      * @responseFile responses/knowledge/matchRecordEnd.json
      */
@@ -358,6 +364,8 @@ class KnowledgeController extends BaseController
      * healthRecordInfo
      * 知识竞赛用户测评详情
      * @authenticated
+     * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
      * @bodyParam  record_id int required 测评记录id
      * @responseFile responses/knowledge/healthRecordInfo.json
      */

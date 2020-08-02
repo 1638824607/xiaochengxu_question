@@ -112,8 +112,9 @@ class TrainController extends BaseController
      * gameRecordStart
      * 益脑游戏训练开始
      * @authenticated
-     * @bodyParam  game_id int required 游戏id
      * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
+     * @bodyParam  game_id int required 游戏id
      * @responseFile responses/train/gameRecordStart.json
      */
     public function gameRecordStart()
@@ -138,6 +139,8 @@ class TrainController extends BaseController
      * gameRecordEnd
      * 益脑游戏训练结束
      * @authenticated
+     * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
      * @bodyParam  record_id int required 测评记录id
      * @bodyParam  summary string required 完成总结语
      * @responseFile responses/train/gameRecordEnd.json
