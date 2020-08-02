@@ -61,7 +61,7 @@
     "http://sns.shenruxiang.com/api/v1/community/postList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":3,"token":12,"page":17,"cate_id":9}'
+    -d '{"user_id":18,"token":19,"page":15,"cate_id":18}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/community/postList"
@@ -73,10 +73,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": 3,
-    "token": 12,
-    "page": 17,
-    "cate_id": 9
+    "user_id": 18,
+    "token": 19,
+    "page": 15,
+    "cate_id": 18
 }
 
 fetch(url, {
@@ -96,10 +96,10 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 3,
-            'token' =&gt; 12,
-            'page' =&gt; 17,
-            'cate_id' =&gt; 9,
+            'user_id' =&gt; 18,
+            'token' =&gt; 19,
+            'page' =&gt; 15,
+            'cate_id' =&gt; 18,
         ],
     ]
 );
@@ -202,7 +202,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/community/postDetail" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":1,"token":7,"post_id":13}'
+    -d '{"user_id":15,"token":10,"post_id":4}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/community/postDetail"
@@ -214,9 +214,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 1,
-    "token": 7,
-    "post_id": 13
+    "user_id": 15,
+    "token": 10,
+    "post_id": 4
 }
 
 fetch(url, {
@@ -236,9 +236,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 1,
-            'token' =&gt; 7,
-            'post_id' =&gt; 13,
+            'user_id' =&gt; 15,
+            'token' =&gt; 10,
+            'post_id' =&gt; 4,
         ],
     ]
 );
@@ -324,7 +324,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/community/postCommentList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":13,"token":11,"post_id":12,"page":16}'
+    -d '{"user_id":11,"token":20,"post_id":18,"page":6}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/community/postCommentList"
@@ -336,10 +336,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": 13,
-    "token": 11,
-    "post_id": 12,
-    "page": 16
+    "user_id": 11,
+    "token": 20,
+    "post_id": 18,
+    "page": 6
 }
 
 fetch(url, {
@@ -359,10 +359,10 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 13,
-            'token' =&gt; 11,
-            'post_id' =&gt; 12,
-            'page' =&gt; 16,
+            'user_id' =&gt; 11,
+            'token' =&gt; 20,
+            'post_id' =&gt; 18,
+            'page' =&gt; 6,
         ],
     ]
 );
@@ -486,7 +486,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/community/sendPostComment" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":2,"token":13,"post_id":8,"comment_id":12,"comment_content":"et","to_user_id":11}'
+    -d '{"user_id":14,"token":13,"post_id":11,"comment_id":10,"comment_content":"occaecati","to_user_id":7}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/community/sendPostComment"
@@ -498,12 +498,12 @@ let headers = {
 };
 
 let body = {
-    "user_id": 2,
+    "user_id": 14,
     "token": 13,
-    "post_id": 8,
-    "comment_id": 12,
-    "comment_content": "et",
-    "to_user_id": 11
+    "post_id": 11,
+    "comment_id": 10,
+    "comment_content": "occaecati",
+    "to_user_id": 7
 }
 
 fetch(url, {
@@ -523,12 +523,12 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 2,
+            'user_id' =&gt; 14,
             'token' =&gt; 13,
-            'post_id' =&gt; 8,
-            'comment_id' =&gt; 12,
-            'comment_content' =&gt; 'et',
-            'to_user_id' =&gt; 11,
+            'post_id' =&gt; 11,
+            'comment_id' =&gt; 10,
+            'comment_content' =&gt; 'occaecati',
+            'to_user_id' =&gt; 7,
         ],
     ]
 );
@@ -605,7 +605,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/community/praisePost" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":4,"token":18,"post_id":3}'
+    -d '{"user_id":18,"token":15,"post_id":20}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/community/praisePost"
@@ -617,9 +617,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 4,
-    "token": 18,
-    "post_id": 3
+    "user_id": 18,
+    "token": 15,
+    "post_id": 20
 }
 
 fetch(url, {
@@ -639,9 +639,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 4,
-            'token' =&gt; 18,
-            'post_id' =&gt; 3,
+            'user_id' =&gt; 18,
+            'token' =&gt; 15,
+            'post_id' =&gt; 20,
         ],
     ]
 );
@@ -700,7 +700,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/community/praisePostComment" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":9,"token":16,"post_id":2,"comment_id":4}'
+    -d '{"user_id":8,"token":13,"post_id":4,"comment_id":17}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/community/praisePostComment"
@@ -712,10 +712,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": 9,
-    "token": 16,
-    "post_id": 2,
-    "comment_id": 4
+    "user_id": 8,
+    "token": 13,
+    "post_id": 4,
+    "comment_id": 17
 }
 
 fetch(url, {
@@ -735,10 +735,10 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 9,
-            'token' =&gt; 16,
-            'post_id' =&gt; 2,
-            'comment_id' =&gt; 4,
+            'user_id' =&gt; 8,
+            'token' =&gt; 13,
+            'post_id' =&gt; 4,
+            'comment_id' =&gt; 17,
         ],
     ]
 );
@@ -803,7 +803,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/community/sharePost" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":14,"token":15,"post_id":11}'
+    -d '{"user_id":11,"token":16,"post_id":14}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/community/sharePost"
@@ -815,9 +815,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 14,
-    "token": 15,
-    "post_id": 11
+    "user_id": 11,
+    "token": 16,
+    "post_id": 14
 }
 
 fetch(url, {
@@ -837,9 +837,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 14,
-            'token' =&gt; 15,
-            'post_id' =&gt; 11,
+            'user_id' =&gt; 11,
+            'token' =&gt; 16,
+            'post_id' =&gt; 14,
         ],
     ]
 );
@@ -898,7 +898,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/community/collectPost" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":7,"token":4,"post_id":13}'
+    -d '{"user_id":3,"token":9,"post_id":13}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/community/collectPost"
@@ -910,8 +910,8 @@ let headers = {
 };
 
 let body = {
-    "user_id": 7,
-    "token": 4,
+    "user_id": 3,
+    "token": 9,
     "post_id": 13
 }
 
@@ -932,8 +932,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 7,
-            'token' =&gt; 4,
+            'user_id' =&gt; 3,
+            'token' =&gt; 9,
             'post_id' =&gt; 13,
         ],
     ]
@@ -993,7 +993,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/community/sendPost" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":6,"token":4,"title":"aut","content":"aut","images":"saepe"}'
+    -d '{"user_id":6,"token":9,"title":"et","content":"ullam","images":"non"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/community/sendPost"
@@ -1006,10 +1006,10 @@ let headers = {
 
 let body = {
     "user_id": 6,
-    "token": 4,
-    "title": "aut",
-    "content": "aut",
-    "images": "saepe"
+    "token": 9,
+    "title": "et",
+    "content": "ullam",
+    "images": "non"
 }
 
 fetch(url, {
@@ -1030,10 +1030,10 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'user_id' =&gt; 6,
-            'token' =&gt; 4,
-            'title' =&gt; 'aut',
-            'content' =&gt; 'aut',
-            'images' =&gt; 'saepe',
+            'token' =&gt; 9,
+            'title' =&gt; 'et',
+            'content' =&gt; 'ullam',
+            'images' =&gt; 'non',
         ],
     ]
 );
@@ -1178,7 +1178,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/community/advisoryOrder" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":1,"advisory_id":5,"order_at":"earum"}'
+    -d '{"user_id":4,"advisory_id":15,"order_at":"itaque"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/community/advisoryOrder"
@@ -1190,9 +1190,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 1,
-    "advisory_id": 5,
-    "order_at": "earum"
+    "user_id": 4,
+    "advisory_id": 15,
+    "order_at": "itaque"
 }
 
 fetch(url, {
@@ -1212,9 +1212,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 1,
-            'advisory_id' =&gt; 5,
-            'order_at' =&gt; 'earum',
+            'user_id' =&gt; 4,
+            'advisory_id' =&gt; 15,
+            'order_at' =&gt; 'itaque',
         ],
     ]
 );
@@ -1273,7 +1273,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/community/advisoryOrderEdit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":2,"user_id":18,"order_at":"autem"}'
+    -d '{"id":3,"user_id":19,"order_at":"reiciendis"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/community/advisoryOrderEdit"
@@ -1285,9 +1285,9 @@ let headers = {
 };
 
 let body = {
-    "id": 2,
-    "user_id": 18,
-    "order_at": "autem"
+    "id": 3,
+    "user_id": 19,
+    "order_at": "reiciendis"
 }
 
 fetch(url, {
@@ -1307,9 +1307,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'id' =&gt; 2,
-            'user_id' =&gt; 18,
-            'order_at' =&gt; 'autem',
+            'id' =&gt; 3,
+            'user_id' =&gt; 19,
+            'order_at' =&gt; 'reiciendis',
         ],
     ]
 );
@@ -1591,7 +1591,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/knowledge/readList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"cate_id":14,"sort":"consequatur"}'
+    -d '{"cate_id":11,"sort":"nemo"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/knowledge/readList"
@@ -1603,8 +1603,8 @@ let headers = {
 };
 
 let body = {
-    "cate_id": 14,
-    "sort": "consequatur"
+    "cate_id": 11,
+    "sort": "nemo"
 }
 
 fetch(url, {
@@ -1624,8 +1624,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'cate_id' =&gt; 14,
-            'sort' =&gt; 'consequatur',
+            'cate_id' =&gt; 11,
+            'sort' =&gt; 'nemo',
         ],
     ]
 );
@@ -1720,7 +1720,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/knowledge/readInfo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":15}'
+    -d '{"id":5}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/knowledge/readInfo"
@@ -1732,7 +1732,7 @@ let headers = {
 };
 
 let body = {
-    "id": 15
+    "id": 5
 }
 
 fetch(url, {
@@ -1752,7 +1752,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'id' =&gt; 15,
+            'id' =&gt; 5,
         ],
     ]
 );
@@ -1815,7 +1815,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/knowledge/matchList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"sort":"tempore"}'
+    -d '{"sort":"iste"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/knowledge/matchList"
@@ -1827,7 +1827,7 @@ let headers = {
 };
 
 let body = {
-    "sort": "tempore"
+    "sort": "iste"
 }
 
 fetch(url, {
@@ -1847,7 +1847,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'sort' =&gt; 'tempore',
+            'sort' =&gt; 'iste',
         ],
     ]
 );
@@ -1942,7 +1942,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/knowledge/matchInfo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":15}'
+    -d '{"id":3}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/knowledge/matchInfo"
@@ -1954,7 +1954,7 @@ let headers = {
 };
 
 let body = {
-    "id": 15
+    "id": 3
 }
 
 fetch(url, {
@@ -1974,7 +1974,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'id' =&gt; 15,
+            'id' =&gt; 3,
         ],
     ]
 );
@@ -2082,7 +2082,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/knowledge/matchRecordStart" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"match_id":3,"user_id":15}'
+    -d '{"match_id":3,"user_id":12}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/knowledge/matchRecordStart"
@@ -2095,7 +2095,7 @@ let headers = {
 
 let body = {
     "match_id": 3,
-    "user_id": 15
+    "user_id": 12
 }
 
 fetch(url, {
@@ -2116,7 +2116,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'match_id' =&gt; 3,
-            'user_id' =&gt; 15,
+            'user_id' =&gt; 12,
         ],
     ]
 );
@@ -2171,7 +2171,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/knowledge/matchRecordEnd" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"record_id":11,"user_id":17,"score":18}'
+    -d '{"record_id":13,"user_id":13,"score":13}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/knowledge/matchRecordEnd"
@@ -2183,9 +2183,9 @@ let headers = {
 };
 
 let body = {
-    "record_id": 11,
-    "user_id": 17,
-    "score": 18
+    "record_id": 13,
+    "user_id": 13,
+    "score": 13
 }
 
 fetch(url, {
@@ -2205,9 +2205,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'record_id' =&gt; 11,
-            'user_id' =&gt; 17,
-            'score' =&gt; 18,
+            'record_id' =&gt; 13,
+            'user_id' =&gt; 13,
+            'score' =&gt; 13,
         ],
     ]
 );
@@ -2217,7 +2217,7 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "code": 201,
+    "code": 0,
     "msg": "测评已完成",
     "data": []
 }</code></pre>
@@ -2255,6 +2255,135 @@ print_r(json_decode((string) $body));</code></pre>
 </tbody>
 </table>
 <!-- END_41f5e00358d2c30a92c5b8cf2cba54c8 -->
+<!-- START_2588382960fb18c9f9cfa019cc168ff5 -->
+<h2>matchRecordInfo</h2>
+<p>知识竞赛用户测评详情</p>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/knowledge/matchRecordInfo" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"record_id":11}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/knowledge/matchRecordInfo"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "record_id": 11
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/knowledge/matchRecordInfo',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'record_id' =&gt; 11,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "id": 1,
+        "user_id": 1,
+        "match_id": 1,
+        "score": 11,
+        "start_time": null,
+        "end_time": "2020-08-01 10:16:01",
+        "created_at": "2020-08-01 10:14:53",
+        "updated_at": "2020-08-01 10:16:01",
+        "match": {
+            "id": 1,
+            "title": "测评一",
+            "sort": 1,
+            "hot": 0,
+            "desc": "疫情心理健康自评量表描述",
+            "introduce": "疫情心理健康自评量表介绍",
+            "introduce_src": "http:\/\/daodao.shenruxiang.com\/fangao_about.png",
+            "introduce_src_type": "1",
+            "src": "http:\/\/daodao.shenruxiang.com\/fangao_about.png",
+            "src_type": 1,
+            "join_num": 11,
+            "duration": 60,
+            "created_at": "2020-08-01 15:13:48",
+            "updated_at": "2020-08-01 15:13:48"
+        },
+        "user": {
+            "id": 1,
+            "user_name": "var100",
+            "nick": "来日方长",
+            "avatar": "http:\/\/daodao.shenruxiang.com\/sns\/post\/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+            "password": "",
+            "email": "",
+            "phone": "13893524930",
+            "status": 2,
+            "age": 0,
+            "address": "",
+            "wechat": "",
+            "publish_article_num": 0,
+            "do_question_num": 0,
+            "game_accuracy": 0,
+            "create_time": 0,
+            "update_time": 0,
+            "sex": "",
+            "created_at": "2020-08-01 12:58:48",
+            "openid": "",
+            "login_device_type": "",
+            "login_device": "",
+            "province": "",
+            "city": ""
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/knowledge/matchRecordInfo</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>record_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>测评记录id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_2588382960fb18c9f9cfa019cc168ff5 -->
 <!-- START_51b573f98ba8dabb6bd507af0bf9f6e5 -->
 <h2>healthCateList</h2>
 <p>健康自测分类列表</p>
@@ -2345,7 +2474,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/knowledge/healthList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"cate_id":12,"sort":"voluptatem"}'
+    -d '{"cate_id":8,"sort":"eum"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/knowledge/healthList"
@@ -2357,8 +2486,8 @@ let headers = {
 };
 
 let body = {
-    "cate_id": 12,
-    "sort": "voluptatem"
+    "cate_id": 8,
+    "sort": "eum"
 }
 
 fetch(url, {
@@ -2378,8 +2507,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'cate_id' =&gt; 12,
-            'sort' =&gt; 'voluptatem',
+            'cate_id' =&gt; 8,
+            'sort' =&gt; 'eum',
         ],
     ]
 );
@@ -2483,7 +2612,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/knowledge/healthInfo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":15}'
+    -d '{"id":20}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/knowledge/healthInfo"
@@ -2495,7 +2624,7 @@ let headers = {
 };
 
 let body = {
-    "id": 15
+    "id": 20
 }
 
 fetch(url, {
@@ -2515,7 +2644,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'id' =&gt; 15,
+            'id' =&gt; 20,
         ],
     ]
 );
@@ -2624,7 +2753,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/knowledge/healthRecordStart" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"health_id":18,"user_id":19}'
+    -d '{"health_id":16,"user_id":20}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/knowledge/healthRecordStart"
@@ -2636,8 +2765,8 @@ let headers = {
 };
 
 let body = {
-    "health_id": 18,
-    "user_id": 19
+    "health_id": 16,
+    "user_id": 20
 }
 
 fetch(url, {
@@ -2657,8 +2786,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'health_id' =&gt; 18,
-            'user_id' =&gt; 19,
+            'health_id' =&gt; 16,
+            'user_id' =&gt; 20,
         ],
     ]
 );
@@ -2713,7 +2842,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/knowledge/healthRecordEnd" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"record_id":8,"user_id":3,"score":19}'
+    -d '{"record_id":16,"user_id":1,"score":17}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/knowledge/healthRecordEnd"
@@ -2725,9 +2854,9 @@ let headers = {
 };
 
 let body = {
-    "record_id": 8,
-    "user_id": 3,
-    "score": 19
+    "record_id": 16,
+    "user_id": 1,
+    "score": 17
 }
 
 fetch(url, {
@@ -2747,9 +2876,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'record_id' =&gt; 8,
-            'user_id' =&gt; 3,
-            'score' =&gt; 19,
+            'record_id' =&gt; 16,
+            'user_id' =&gt; 1,
+            'score' =&gt; 17,
         ],
     ]
 );
@@ -2759,7 +2888,7 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "code": 201,
+    "code": 0,
     "msg": "测评已完成",
     "data": []
 }</code></pre>
@@ -2797,6 +2926,137 @@ print_r(json_decode((string) $body));</code></pre>
 </tbody>
 </table>
 <!-- END_b1bf6b28086cdd69fabca11a46166cfb -->
+<!-- START_4db252ce48101b3189ba7831fa3eff65 -->
+<h2>healthRecordInfo</h2>
+<p>知识竞赛用户测评详情</p>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/knowledge/healthRecordInfo" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"record_id":1}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/knowledge/healthRecordInfo"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "record_id": 1
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/knowledge/healthRecordInfo',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'record_id' =&gt; 1,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "id": 1,
+        "user_id": 1,
+        "health_id": 1,
+        "score": 11,
+        "score_level": "",
+        "start_time": null,
+        "end_time": "2020-08-01 10:16:01",
+        "created_at": "2020-08-01 10:14:53",
+        "updated_at": "2020-08-01 10:16:01",
+        "health": {
+            "id": 1,
+            "cate_id": 1,
+            "title": "测评一",
+            "sort": 1,
+            "hot": 0,
+            "desc": "疫情心理健康自评量表描述",
+            "introduce": "疫情心理健康自评量表介绍",
+            "introduce_src": "http:\/\/daodao.shenruxiang.com\/fangao_about.png",
+            "introduce_src_type": "1",
+            "src": "http:\/\/daodao.shenruxiang.com\/fangao_about.png",
+            "src_type": 1,
+            "join_num": 11,
+            "duration": 60,
+            "created_at": "2020-08-01 15:13:48",
+            "updated_at": "2020-08-01 15:13:48"
+        },
+        "user": {
+            "id": 1,
+            "user_name": "var100",
+            "nick": "来日方长",
+            "avatar": "http:\/\/daodao.shenruxiang.com\/sns\/post\/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+            "password": "",
+            "email": "",
+            "phone": "13893524930",
+            "status": 2,
+            "age": 0,
+            "address": "",
+            "wechat": "",
+            "publish_article_num": 0,
+            "do_question_num": 0,
+            "game_accuracy": 0,
+            "create_time": 0,
+            "update_time": 0,
+            "sex": "",
+            "created_at": "2020-08-01 12:58:48",
+            "openid": "",
+            "login_device_type": "",
+            "login_device": "",
+            "province": "",
+            "city": ""
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/knowledge/healthRecordInfo</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>record_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>测评记录id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_4db252ce48101b3189ba7831fa3eff65 -->
 <h1>Login</h1>
 <p>第三方登陆</p>
 <!-- START_89ab4d2e68c02976da4a993a2a2733db -->
@@ -2809,7 +3069,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/loginByOauth" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"openid":"placeat","login_type":"ipsa","login_device_type":"fugiat","login_device":"possimus","nickname":"non","avatar":"incidunt","province":"omnis","city":"qui"}'
+    -d '{"openid":"facilis","login_device_type":"est","login_device":"libero","nick":"nihil","avatar":"magnam","province":"enim","city":"vel"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/loginByOauth"
@@ -2821,14 +3081,13 @@ let headers = {
 };
 
 let body = {
-    "openid": "placeat",
-    "login_type": "ipsa",
-    "login_device_type": "fugiat",
-    "login_device": "possimus",
-    "nickname": "non",
-    "avatar": "incidunt",
-    "province": "omnis",
-    "city": "qui"
+    "openid": "facilis",
+    "login_device_type": "est",
+    "login_device": "libero",
+    "nick": "nihil",
+    "avatar": "magnam",
+    "province": "enim",
+    "city": "vel"
 }
 
 fetch(url, {
@@ -2848,14 +3107,13 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'openid' =&gt; 'placeat',
-            'login_type' =&gt; 'ipsa',
-            'login_device_type' =&gt; 'fugiat',
-            'login_device' =&gt; 'possimus',
-            'nickname' =&gt; 'non',
-            'avatar' =&gt; 'incidunt',
-            'province' =&gt; 'omnis',
-            'city' =&gt; 'qui',
+            'openid' =&gt; 'facilis',
+            'login_device_type' =&gt; 'est',
+            'login_device' =&gt; 'libero',
+            'nick' =&gt; 'nihil',
+            'avatar' =&gt; 'magnam',
+            'province' =&gt; 'enim',
+            'city' =&gt; 'vel',
         ],
     ]
 );
@@ -2913,12 +3171,6 @@ print_r(json_decode((string) $body));</code></pre>
 <td>第三方标示openid</td>
 </tr>
 <tr>
-<td><code>login_type</code></td>
-<td>string</td>
-<td>required</td>
-<td>第三方登陆类型（wx/qq）</td>
-</tr>
-<tr>
 <td><code>login_device_type</code></td>
 <td>string</td>
 <td>required</td>
@@ -2931,7 +3183,7 @@ print_r(json_decode((string) $body));</code></pre>
 <td>登陆设备(小米10)</td>
 </tr>
 <tr>
-<td><code>nickname</code></td>
+<td><code>nick</code></td>
 <td>string</td>
 <td>optional</td>
 <td>昵称</td>
@@ -2957,6 +3209,720 @@ print_r(json_decode((string) $body));</code></pre>
 </tbody>
 </table>
 <!-- END_89ab4d2e68c02976da4a993a2a2733db -->
+<h1>Train</h1>
+<p>训练提升</p>
+<!-- START_1eed432289ba4c22d78e9ca2fab5b4f5 -->
+<h2>bannerList</h2>
+<p>轮播图列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/train/bannerList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/train/bannerList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/train/bannerList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 2,
+            "image": "http:\/\/daodao.shenruxiang.com\/fangao_about.png",
+            "sort": 1,
+            "title": "轮播图"
+        },
+        {
+            "id": 3,
+            "image": "http:\/\/daodao.shenruxiang.com\/fangao_about.png",
+            "sort": 1,
+            "title": "轮播图"
+        },
+        {
+            "id": 4,
+            "image": "http:\/\/daodao.shenruxiang.com\/fangao_about.png",
+            "sort": 1,
+            "title": "轮播图"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/train/bannerList</code></p>
+<!-- END_1eed432289ba4c22d78e9ca2fab5b4f5 -->
+<!-- START_79cf6a7577d658fb03132f255cb73068 -->
+<h2>dayCateList</h2>
+<p>每日静心分类列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/train/dayCateList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/train/dayCateList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/train/dayCateList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 1,
+            "title": "正念冥想",
+            "sort": 6
+        },
+        {
+            "id": 2,
+            "title": "美人技术",
+            "sort": 5
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/train/dayCateList</code></p>
+<!-- END_79cf6a7577d658fb03132f255cb73068 -->
+<!-- START_990747a9500a3cef0ccda8a0da596623 -->
+<h2>dayList</h2>
+<p>每日静心列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/train/dayList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"cate_id":3}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/train/dayList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "cate_id": 3
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/train/dayList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'cate_id' =&gt; 3,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 1,
+            "cate_id": 1,
+            "title": "开启美好一天",
+            "desc": "美好的一天，从冥想开始",
+            "image": "http:\/\/daodao.shenruxiang.com\/sns\/post\/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+            "introduction": "联系简介",
+            "join_num": 0,
+            "created_at": "2020-08-02 16:21:17",
+            "updated_at": "2020-08-02 16:21:18"
+        },
+        {
+            "id": 2,
+            "cate_id": 1,
+            "title": "开启美好一天",
+            "desc": "美好的一天，从冥想开始",
+            "image": "http:\/\/daodao.shenruxiang.com\/sns\/post\/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+            "introduction": "联系简介",
+            "join_num": 0,
+            "created_at": "2020-08-02 16:21:17",
+            "updated_at": "2020-08-02 16:21:18"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/train/dayList</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cate_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>分类id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_990747a9500a3cef0ccda8a0da596623 -->
+<!-- START_9614dccfe7cffea236f3f9ea2f2599ea -->
+<h2>dayInfo</h2>
+<p>每日静心详情</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/train/dayInfo" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"day_id":4}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/train/dayInfo"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "day_id": 4
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/train/dayInfo',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'day_id' =&gt; 4,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "id": 1,
+        "cate_id": 1,
+        "title": "开启美好一天",
+        "desc": "美好的一天，从冥想开始",
+        "image": "http:\/\/daodao.shenruxiang.com\/sns\/post\/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+        "introduction": "联系简介",
+        "join_num": 0,
+        "created_at": "2020-08-02 16:21:17",
+        "updated_at": "2020-08-02 16:21:18",
+        "day_step": [
+            {
+                "id": 1,
+                "day_id": 1,
+                "title": "姿势调整",
+                "duration": 120,
+                "src": "http:\/\/daodao.shenruxiang.com\/step.mp3",
+                "created_at": "2020-08-02 16:23:19",
+                "updated_at": "2020-08-02 16:23:21"
+            },
+            {
+                "id": 2,
+                "day_id": 1,
+                "title": "呼吸觉察",
+                "duration": 120,
+                "src": "http:\/\/daodao.shenruxiang.com\/step.mp3",
+                "created_at": "2020-08-02 16:23:19",
+                "updated_at": "2020-08-02 16:23:21"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/train/dayInfo</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>day_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>day_id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_9614dccfe7cffea236f3f9ea2f2599ea -->
+<!-- START_27ed9348bab6cea514baffaaab27ae9a -->
+<h2>gameList</h2>
+<p>益脑游戏列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/train/gameList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/train/gameList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/train/gameList',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 1,
+            "title": "注意力训练",
+            "desc": "通过简洁的游戏训练提高儿童的注意力",
+            "image": "http:\/\/daodao.shenruxiang.com\/sns\/post\/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+            "duration": 60,
+            "introduction": "本部分属于训练提升模块中训练游戏，通过简洁的游戏训练提高儿童的注意力，经验表明保持一段时间的训练注意力能显著提升。",
+            "join_num": 0,
+            "guide": "接下来我们会看到一张打乱数字顺序的表格，在保持正确的情况下尽可能快的按顺序点击数字，注意不要出错哦。",
+            "created_at": "2020-08-02 16:16:11",
+            "updated_at": "2020-08-02 16:16:13"
+        },
+        {
+            "id": 2,
+            "title": "反应时训练",
+            "desc": "通过简洁的游戏训练提高儿童的注意力",
+            "image": "http:\/\/daodao.shenruxiang.com\/sns\/post\/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+            "duration": 60,
+            "introduction": "本部分属于训练提升模块中训练游戏，通过简洁的游戏训练提高儿童的注意力，经验表明保持一段时间的训练注意力能显著提升。",
+            "join_num": 0,
+            "guide": "接下来我们会看到一张打乱数字顺序的表格，在保持正确的情况下尽可能快的按顺序点击数字，注意不要出错哦。",
+            "created_at": "2020-08-02 16:16:11",
+            "updated_at": "2020-08-02 16:16:13"
+        },
+        {
+            "id": 3,
+            "title": "记忆力训练",
+            "desc": "通过简洁的游戏训练提高儿童的注意力",
+            "image": "http:\/\/daodao.shenruxiang.com\/sns\/post\/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+            "duration": 60,
+            "introduction": "本部分属于训练提升模块中训练游戏，通过简洁的游戏训练提高儿童的注意力，经验表明保持一段时间的训练注意力能显著提升。",
+            "join_num": 0,
+            "guide": "接下来我们会看到一张打乱数字顺序的表格，在保持正确的情况下尽可能快的按顺序点击数字，注意不要出错哦。",
+            "created_at": "2020-08-02 16:16:11",
+            "updated_at": "2020-08-02 16:16:13"
+        },
+        {
+            "id": 4,
+            "title": "判断力训练",
+            "desc": "通过简洁的游戏训练提高儿童的注意力",
+            "image": "http:\/\/daodao.shenruxiang.com\/sns\/post\/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+            "duration": 60,
+            "introduction": "本部分属于训练提升模块中训练游戏，通过简洁的游戏训练提高儿童的注意力，经验表明保持一段时间的训练注意力能显著提升。",
+            "join_num": 0,
+            "guide": "接下来我们会看到一张打乱数字顺序的表格，在保持正确的情况下尽可能快的按顺序点击数字，注意不要出错哦。",
+            "created_at": "2020-08-02 16:16:11",
+            "updated_at": "2020-08-02 16:16:13"
+        },
+        {
+            "id": 5,
+            "title": "时间感知训练",
+            "desc": "通过简洁的游戏训练提高儿童的注意力",
+            "image": "http:\/\/daodao.shenruxiang.com\/sns\/post\/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+            "duration": 60,
+            "introduction": "本部分属于训练提升模块中训练游戏，通过简洁的游戏训练提高儿童的注意力，经验表明保持一段时间的训练注意力能显著提升。",
+            "join_num": 0,
+            "guide": "接下来我们会看到一张打乱数字顺序的表格，在保持正确的情况下尽可能快的按顺序点击数字，注意不要出错哦。",
+            "created_at": "2020-08-02 16:16:11",
+            "updated_at": "2020-08-02 16:16:13"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/train/gameList</code></p>
+<!-- END_27ed9348bab6cea514baffaaab27ae9a -->
+<!-- START_9c89d9cdcb0e0f1df0942532c5aaf584 -->
+<h2>gameInfo</h2>
+<p>益脑游戏训练详情</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/train/gameInfo" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"game_id":5}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/train/gameInfo"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "game_id": 5
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/train/gameInfo',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'game_id' =&gt; 5,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "id": 1,
+        "title": "注意力训练",
+        "desc": "通过简洁的游戏训练提高儿童的注意力",
+        "image": "http:\/\/daodao.shenruxiang.com\/sns\/post\/cd28b7505f3d539879ea2dda5a9b121d.jpg",
+        "duration": 60,
+        "introduction": "本部分属于训练提升模块中训练游戏，通过简洁的游戏训练提高儿童的注意力，经验表明保持一段时间的训练注意力能显著提升。",
+        "join_num": 0,
+        "guide": "接下来我们会看到一张打乱数字顺序的表格，在保持正确的情况下尽可能快的按顺序点击数字，注意不要出错哦。",
+        "created_at": "2020-08-02 16:16:11",
+        "updated_at": "2020-08-02 16:16:13"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/train/gameInfo</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>game_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>游戏id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_9c89d9cdcb0e0f1df0942532c5aaf584 -->
+<!-- START_f226b36a18f4a47fb0fc56d36f97d133 -->
+<h2>gameRecordStart</h2>
+<p>益脑游戏训练开始</p>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/train/gameRecordStart" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"game_id":18,"user_id":15}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/train/gameRecordStart"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "game_id": 18,
+    "user_id": 15
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/train/gameRecordStart',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'game_id' =&gt; 18,
+            'user_id' =&gt; 15,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "游戏训练开始",
+    "data": {
+        "id": 6
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/train/gameRecordStart</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>game_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>游戏id</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>用户id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_f226b36a18f4a47fb0fc56d36f97d133 -->
+<!-- START_b914cca70c823edfe7990b81b0dc8ddf -->
+<h2>gameRecordEnd</h2>
+<p>益脑游戏训练结束</p>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/train/gameRecordEnd" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"record_id":1,"summary":"autem"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/train/gameRecordEnd"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "record_id": 1,
+    "summary": "autem"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://sns.shenruxiang.com/api/v1/train/gameRecordEnd',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'record_id' =&gt; 1,
+            'summary' =&gt; 'autem',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 0,
+    "msg": "游戏训练已完成",
+    "data": []
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/train/gameRecordEnd</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>record_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>测评记录id</td>
+</tr>
+<tr>
+<td><code>summary</code></td>
+<td>string</td>
+<td>required</td>
+<td>完成总结语</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b914cca70c823edfe7990b81b0dc8ddf -->
 <h1>Upload</h1>
 <!-- START_5b769578a2c7d2ab8e61aa5fe83d95d7 -->
 <h2>uploadPost</h2>
@@ -2969,7 +3935,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/uploadPost" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":12,"token":4,"file":{"":"iure"}}'
+    -d '{"user_id":17,"token":17,"file":{"":"deleniti"}}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/uploadPost"
@@ -2981,10 +3947,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": 12,
-    "token": 4,
+    "user_id": 17,
+    "token": 17,
     "file": {
-        "": "iure"
+        "": "deleniti"
     }
 }
 
@@ -3005,10 +3971,10 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 12,
-            'token' =&gt; 4,
+            'user_id' =&gt; 17,
+            'token' =&gt; 17,
             'file' =&gt; [
-                '' =&gt; 'iure',
+                '' =&gt; 'deleniti',
             ],
         ],
     ]
@@ -3077,7 +4043,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/uploadUserAvatar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":1,"token":16,"file":{"":"nam"}}'
+    -d '{"user_id":4,"token":1,"file":{"":"modi"}}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/uploadUserAvatar"
@@ -3089,10 +4055,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": 1,
-    "token": 16,
+    "user_id": 4,
+    "token": 1,
     "file": {
-        "": "nam"
+        "": "modi"
     }
 }
 
@@ -3113,10 +4079,10 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 1,
-            'token' =&gt; 16,
+            'user_id' =&gt; 4,
+            'token' =&gt; 1,
             'file' =&gt; [
-                '' =&gt; 'nam',
+                '' =&gt; 'modi',
             ],
         ],
     ]
@@ -3179,7 +4145,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/user/userInfo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":4}'
+    -d '{"user_id":2}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/user/userInfo"
@@ -3191,7 +4157,7 @@ let headers = {
 };
 
 let body = {
-    "user_id": 4
+    "user_id": 2
 }
 
 fetch(url, {
@@ -3211,7 +4177,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 4,
+            'user_id' =&gt; 2,
         ],
     ]
 );
@@ -3275,7 +4241,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/user/userInfoEdit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nick_name":"harum","sex":"magnam","avatar":"pariatur"}'
+    -d '{"nick_name":"dolorum","sex":"optio","avatar":"quidem"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/user/userInfoEdit"
@@ -3287,9 +4253,9 @@ let headers = {
 };
 
 let body = {
-    "nick_name": "harum",
-    "sex": "magnam",
-    "avatar": "pariatur"
+    "nick_name": "dolorum",
+    "sex": "optio",
+    "avatar": "quidem"
 }
 
 fetch(url, {
@@ -3309,9 +4275,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'nick_name' =&gt; 'harum',
-            'sex' =&gt; 'magnam',
-            'avatar' =&gt; 'pariatur',
+            'nick_name' =&gt; 'dolorum',
+            'sex' =&gt; 'optio',
+            'avatar' =&gt; 'quidem',
         ],
     ]
 );
@@ -3371,7 +4337,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/user/userPostList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":14}'
+    -d '{"user_id":10}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/user/userPostList"
@@ -3383,7 +4349,7 @@ let headers = {
 };
 
 let body = {
-    "user_id": 14
+    "user_id": 10
 }
 
 fetch(url, {
@@ -3403,7 +4369,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 14,
+            'user_id' =&gt; 10,
         ],
     ]
 );
@@ -3519,7 +4485,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/user/userCommentedList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":6,"page":4}'
+    -d '{"user_id":14,"page":7}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/user/userCommentedList"
@@ -3531,8 +4497,8 @@ let headers = {
 };
 
 let body = {
-    "user_id": 6,
-    "page": 4
+    "user_id": 14,
+    "page": 7
 }
 
 fetch(url, {
@@ -3552,8 +4518,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 6,
-            'page' =&gt; 4,
+            'user_id' =&gt; 14,
+            'page' =&gt; 7,
         ],
     ]
 );
@@ -3725,7 +4691,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/user/matchRecordList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":7,"page":19}'
+    -d '{"user_id":12,"page":8}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/user/matchRecordList"
@@ -3737,8 +4703,8 @@ let headers = {
 };
 
 let body = {
-    "user_id": 7,
-    "page": 19
+    "user_id": 12,
+    "page": 8
 }
 
 fetch(url, {
@@ -3758,8 +4724,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 7,
-            'page' =&gt; 19,
+            'user_id' =&gt; 12,
+            'page' =&gt; 8,
         ],
     ]
 );
@@ -3865,7 +4831,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/user/healthRecordList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":19,"page":9}'
+    -d '{"user_id":20,"page":14}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/user/healthRecordList"
@@ -3877,8 +4843,8 @@ let headers = {
 };
 
 let body = {
-    "user_id": 19,
-    "page": 9
+    "user_id": 20,
+    "page": 14
 }
 
 fetch(url, {
@@ -3898,8 +4864,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 19,
-            'page' =&gt; 9,
+            'user_id' =&gt; 20,
+            'page' =&gt; 14,
         ],
     ]
 );
@@ -4115,7 +5081,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/user/userPraiseList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":19,"token":8,"page":20}'
+    -d '{"user_id":9,"token":2,"page":17}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/user/userPraiseList"
@@ -4127,9 +5093,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 19,
-    "token": 8,
-    "page": 20
+    "user_id": 9,
+    "token": 2,
+    "page": 17
 }
 
 fetch(url, {
@@ -4149,9 +5115,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 19,
-            'token' =&gt; 8,
-            'page' =&gt; 20,
+            'user_id' =&gt; 9,
+            'token' =&gt; 2,
+            'page' =&gt; 17,
         ],
     ]
 );
@@ -4306,7 +5272,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/user/userAdvisoryOrder" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":11,"page":14}'
+    -d '{"user_id":2,"page":11}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/user/userAdvisoryOrder"
@@ -4318,8 +5284,8 @@ let headers = {
 };
 
 let body = {
-    "user_id": 11,
-    "page": 14
+    "user_id": 2,
+    "page": 11
 }
 
 fetch(url, {
@@ -4339,8 +5305,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 11,
-            'page' =&gt; 14,
+            'user_id' =&gt; 2,
+            'page' =&gt; 11,
         ],
     ]
 );
@@ -4425,7 +5391,7 @@ print_r(json_decode((string) $body));</code></pre>
     "http://sns.shenruxiang.com/api/v1/user/userCollectList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":11,"page":14}'
+    -d '{"user_id":8,"page":5}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://sns.shenruxiang.com/api/v1/user/userCollectList"
@@ -4437,8 +5403,8 @@ let headers = {
 };
 
 let body = {
-    "user_id": 11,
-    "page": 14
+    "user_id": 8,
+    "page": 5
 }
 
 fetch(url, {
@@ -4458,8 +5424,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'user_id' =&gt; 11,
-            'page' =&gt; 14,
+            'user_id' =&gt; 8,
+            'page' =&gt; 5,
         ],
     ]
 );

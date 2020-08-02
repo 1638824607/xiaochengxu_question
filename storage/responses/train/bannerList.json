@@ -1,0 +1,24 @@
+{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 2,
+            "image": "http://daodao.shenruxiang.com/fangao_about.png",
+            "sort": 1,
+            "title": "轮播图"
+        },
+        {
+            "id": 3,
+            "image": "http://daodao.shenruxiang.com/fangao_about.png",
+            "sort": 1,
+            "title": "轮播图"
+        },
+        {
+            "id": 4,
+            "image": "http://daodao.shenruxiang.com/fangao_about.png",
+            "sort": 1,
+            "title": "轮播图"
+        }
+    ]
+}
