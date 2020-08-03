@@ -9,6 +9,7 @@ use App\Model\Community\PostCollect;
 use App\Model\Community\PostComment;
 use App\Model\Community\PostPraise;
 use App\Model\Community\PostShare;
+use App\Model\User\User;
 
 /**
  * @group Community
@@ -341,6 +342,8 @@ class CommunityController extends BaseController
             'images'        => request('images'),
             'create_day'    => date('Y-m-d')
         ]);
+
+        User::where('id', $this->userInfo['id'])->increment('publish_post_num');
 
         return $this->retJson(0, '发帖成功');
     }

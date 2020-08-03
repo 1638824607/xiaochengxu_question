@@ -36,6 +36,7 @@ Route::namespace('V1')->prefix('v1')->group(function ()
         Route::post('healthRecordStart', 'KnowledgeController@healthRecordStart');
         Route::post('healthRecordEnd', 'KnowledgeController@healthRecordEnd');
         Route::post('healthRecordInfo', 'KnowledgeController@healthRecordInfo');
+        Route::post('shareHealth', 'KnowledgeController@shareHealth');
     });
 
     Route::prefix('community')->group(function ()

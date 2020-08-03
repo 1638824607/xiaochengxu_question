@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Model\Knowledge\Banner;
 use App\Model\Knowledge\Cate;
+use App\Model\Knowledge\Data;
 use App\Model\Knowledge\Health;
 use App\Model\Knowledge\HealthCate;
 use App\Model\Knowledge\HealthRecord;
@@ -11,6 +12,7 @@ use App\Model\Knowledge\Match;
 use App\Model\Knowledge\MatchRecord;
 use App\Model\Knowledge\Read;
 use App\Model\Knowledge\ReadCate;
+use App\Model\User\User;
 
 /**
  * @group Knowledge
@@ -145,6 +147,20 @@ class KnowledgeController extends BaseController
 
         $matchInfo = Match::with('question')->where('id', request('id'))->first();
 
+        $data = Data::updateOrCreate([
+            'knowledge_id'   => $matchInfo->id,
+            'knowledge_name' => $matchInfo->title,
+            'knowledge_type' => 'match',
+            'create_day'     => date('Y-m-d')
+        ],[
+            'knowledge_id'   => $matchInfo->id,
+            'knowledge_name' => $matchInfo->title,
+            'knowledge_type' => 'match',
+            'create_day'     => date('Y-m-d')
+        ]);
+
+        $data->increment('click_num');
+
         return $this->retData($matchInfo);
     }
 
@@ -171,6 +187,24 @@ class KnowledgeController extends BaseController
             'match_id'    => request('match_id'),
             'start_time'  => date('Y-m-d H:i:s')
         ]);
+
+        $matchInfo = Match::where('id', request('match_id'))->first();
+
+        $data = Data::updateOrCreate([
+            'knowledge_id'   => $matchInfo->id,
+            'knowledge_name' => $matchInfo->title,
+            'knowledge_type' => 'match',
+            'create_day'     => date('Y-m-d')
+        ],[
+            'knowledge_id'   => $matchInfo->id,
+            'knowledge_name' => $matchInfo->title,
+            'knowledge_type' => 'match',
+            'create_day'     => date('Y-m-d')
+        ]);
+
+        $data->increment('join_num');
+
+        User::where('id', $this->userInfo['id'])->increment('do_question_num');
 
         return $this->retJson(0, '测评开始', ['id' => $matchRecord->id]);
     }
@@ -236,6 +270,46 @@ class KnowledgeController extends BaseController
     }
 
     /**
+     * matchShare
+     * 知识竞赛分享
+     * @authenticated
+     * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   string required 用户token
+     * @bodyParam  match_id  int required 知识科普id
+     * @responseFile responses/knowledge/matchShare.json
+     */
+    public function matchShare()
+    {
+        $this->validator([
+            'match_id' => 'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $matchInfo = Match::where('id', request('match_id'))->first();
+
+        if(empty($matchInfo)) {
+            return $this->retJson(201, '数据异常');
+        }
+
+        $data = Data::updateOrCreate([
+            'knowledge_id'   => $matchInfo->id,
+            'knowledge_name' => $matchInfo->title,
+            'knowledge_type' => 'match',
+            'create_day'     => date('Y-m-d')
+        ],[
+            'knowledge_id'   => $matchInfo->id,
+            'knowledge_name' => $matchInfo->title,
+            'knowledge_type' => 'match',
+            'create_day'     => date('Y-m-d')
+        ]);
+
+        $data->increment('share_num');
+
+        return $this->retJson(0, '分享成功');
+    }
+
+    /**
      * healthCateList
      * 健康自测分类列表
      * @responseFile responses/knowledge/readCateList.json
@@ -278,7 +352,7 @@ class KnowledgeController extends BaseController
 
     /**
      * healthInfo
-     * 健康自测测评详情
+     * 健康自测用户测评详情
      * @bodyParam  id int required 测评id
      * @responseFile responses/knowledge/healthInfo.json
      */
@@ -291,6 +365,20 @@ class KnowledgeController extends BaseController
         ]);
 
         $healthInfo = Health::with('question')->where('id', request('id'))->first();
+
+        $data = Data::updateOrCreate([
+            'knowledge_id'   => $healthInfo->id,
+            'knowledge_name' => $healthInfo->title,
+            'knowledge_type' => 'health',
+            'create_day'     => date('Y-m-d')
+        ],[
+            'knowledge_id'   => $healthInfo->id,
+            'knowledge_name' => $healthInfo->title,
+            'knowledge_type' => 'health',
+            'create_day'     => date('Y-m-d')
+        ]);
+
+        $data->increment('click_num');
 
         return $this->retData($healthInfo);
     }
@@ -318,6 +406,24 @@ class KnowledgeController extends BaseController
             'health_id'   => request('health_id'),
             'start_time'  => date('Y-m-d H:i:s')
         ]);
+
+        $healthInfo = Health::where('id', request('health_id'))->first();
+
+        $data = Data::updateOrCreate([
+            'knowledge_id'   => $healthInfo->id,
+            'knowledge_name' => $healthInfo->title,
+            'knowledge_type' => 'health',
+            'create_day'     => date('Y-m-d')
+        ],[
+            'knowledge_id'   => $healthInfo->id,
+            'knowledge_name' => $healthInfo->title,
+            'knowledge_type' => 'health',
+            'create_day'     => date('Y-m-d')
+        ]);
+
+        $data->increment('join_num');
+
+        User::where('id', $this->userInfo['id'])->increment('do_question_num');
 
         return $this->retJson(0, '测评开始', ['id'=> $healthRecord->id]);
     }
@@ -380,6 +486,46 @@ class KnowledgeController extends BaseController
         $healthRecordInfo = HealthRecord::with(['health', 'user'])->where('id', request('record_id'))->first();
 
         return $this->retData($healthRecordInfo);
+    }
+
+    /**
+     * shareHealth
+     * 健康自测分享
+     * @authenticated
+     * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   string required 用户token
+     * @bodyParam  health_id  int required 健康自测id
+     * @responseFile responses/knowledge/shareHealth.json
+     */
+    public function shareHealth()
+    {
+        $this->validator([
+            'health_id' => 'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $healthInfo = Health::where('id', request('health_id'))->first();
+
+        if(empty($healthInfo)) {
+            return $this->retJson(201, '数据异常');
+        }
+
+        $data = Data::updateOrCreate([
+            'knowledge_id'   => $healthInfo->id,
+            'knowledge_name' => $healthInfo->title,
+            'knowledge_type' => 'health',
+            'create_day'     => date('Y-m-d')
+        ],[
+            'knowledge_id'   => $healthInfo->id,
+            'knowledge_name' => $healthInfo->title,
+            'knowledge_type' => 'health',
+            'create_day'     => date('Y-m-d')
+        ]);
+
+        $data->increment('share_num');
+
+        return $this->retJson(0, '分享成功');
     }
 
     public function scoreLevel($score)

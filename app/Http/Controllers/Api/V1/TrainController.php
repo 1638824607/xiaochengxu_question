@@ -8,6 +8,7 @@ use App\Model\Train\Day;
 use App\Model\Train\DayCate;
 use App\Model\Train\Game;
 use App\Model\Train\GameRecord;
+use App\Model\User\User;
 
 /**
  * @group Train
@@ -131,6 +132,8 @@ class TrainController extends BaseController
             'game_id'  => request('game_id'),
             'start_at' => date('Y-m-d H:i:s')
         ]);
+
+        User::where('id', $this->userInfo['id'])->increment('do_game_num');
 
         return $this->retJson(0, '游戏开始', ['id' => $gameRecord->id]);
     }

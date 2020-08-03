@@ -91,14 +91,14 @@ class LoginController extends BaseController
         $res = $this->http_query($wxCodeUrl, $params);
         $res = json_decode($res, true);
 
-        if($res['errcode'] != 0) {
+        if(! empty($res['errcode'])) {
             return $this->retJson(201, $res['errmsg']);
         }
 
         $sessionKey = $res['session_key'];
         $openid     = $res['openid'];
 
-        $userInfo = User::where(['openid' => 1])->first();
+        $userInfo = User::where(['openid' => $openid])->first();
 
         if (empty($userInfo)) {
             return $this->retData([
@@ -108,10 +108,10 @@ class LoginController extends BaseController
             ]);
         }
 
-        $userInfo = User::where('id', $userInfo['id'])->update([
-            'login_time'        => date('Y-m-d H:i:s'),
-            'token'             => md5(md5( time())),
-            'expire_time'       => time() + 60 * 60 * 24 * 100,
+        User::where('id', $userInfo->id)->update([
+            'login_time'  => date('Y-m-d H:i:s'),
+            'token'       => md5(md5( time())),
+            'expire_time' => time() + 60 * 60 * 24 * 100,
         ]);
 
         $userInfo = User::where('id', $userInfo->id)->first();
