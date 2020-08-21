@@ -326,6 +326,7 @@ class CommunityController extends BaseController
      */
     public function sendPost()
     {
+      
         $this->validator([
             'title'    => 'required',
             'content'  => 'required',
