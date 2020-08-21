@@ -6,6 +6,7 @@ use App\Model\Adv\AppStart;
 use App\Model\User\User;
 use http\Client;
 use Illuminate\Http\Request;
+use App\Util\Crypt\WeiXin\WXBizDataCrypt;
 
 /**
  * @group Login
@@ -31,11 +32,11 @@ class LoginController extends BaseController
     {
         $this->validator([
             'openid'            => 'required',
-            'nick'              => 'required',
-            'avatar'            => 'required',
-            'gender'            => 'required',
-            'province'          => 'required',
-            'city'              => 'required',
+//            'nick'              => 'required',
+//            'avatar'            => 'required',
+//            'gender'            => 'required',
+//            'province'          => 'required',
+//            'city'              => 'required',
         ], [
             'required' => '缺少必要的参数',
         ]);
@@ -49,13 +50,14 @@ class LoginController extends BaseController
         $userInfo = User::create([
             'openid'            => request('openid'),
             'user_name'         => time() . rand(100, 999),
-            'nick'              => request('nick'),
-            'avatar'            => request('avatar'),
+            'nick'              => request('nick')? request('nick'):'',
+            'avatar'            => request('avatar')? request('avatar'):'',
             'login_time'        => date('Y-m-d H:i:s'),
             'token'             => md5(md5(request('openid') . time())),
             'expire_time'       => time() + 60 * 60 * 24 * 100,
-            'province'          => request('province' ),
-            'city'              => request('city' )]
+            'province'          => request('province')? request('province'):'',
+            'city'              => request('city')?request('city'):'',
+            ]
         );
 
         $userInfo = User::where('id', $userInfo->id)->first();
@@ -152,5 +154,47 @@ class LoginController extends BaseController
         }
         curl_close($ch);    #关闭cURL会话
         return $data;
+    }
+
+
+    public function getPhone()
+    {
+        $this->validator([
+            'code' => 'required',
+            'openid'=>'required',
+            'iv'=>'required',
+            'encryptedData'=>'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $userInfo = User::where(['openid' => request('openid')])->first();
+        if(empty($userInfo)){
+            return $this->retJson(211, '用户不存在');
+        }
+
+
+        $test = new WXBizDataCrypt(self::APPID,self::APPID_SECERT);
+
+        $returnCode = $test->decryptData(request('encryptedData'),request('iv'),$data);
+        if($returnCode != 0){
+            return $this->retJson(212, '手机号绑定失败'.$returnCode);
+        }
+
+        if($userInfo->phone && $userInfo->phone == $returnCode['purePhoneNumber']){
+            return $this->retJson(213, '手机号已绑定');
+        }
+
+        $res = User::where(['openid' => request('openid')])->update([
+            'phone' => $returnCode['purePhoneNumber'],
+        ]);
+        if($res){
+            $userInfo = User::where(['openid' => request('openid')])->first();
+            return $this->retJson(0, '绑定成功',$userInfo);
+        }else{
+            return $this->retJson(214, '绑定失败');
+        }
+
+
     }
 }
