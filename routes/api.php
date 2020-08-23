@@ -17,7 +17,7 @@ Route::namespace('V1')->prefix('v1')->group(function ()
 {
     Route::post('loginByOauth', 'LoginController@loginByOauth');
     Route::post('registerByOauth', 'LoginController@registerByOauth');
-
+    Route::post('makeToken', 'LoginController@makeToken');
     Route::prefix('knowledge')->group(function ()
     {
         Route::post('bannerList', 'KnowledgeController@bannerList');
