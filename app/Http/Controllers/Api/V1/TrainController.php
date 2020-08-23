@@ -74,7 +74,19 @@ class TrainController extends BaseController
         ]);
 
         $dayInfo = Day::with('dayStep')->where('id', request('day_id'))->first();
+        $dayInfo = $dayInfo->toarray();
+        $day_step_list = $dayInfo['day_step'];
+        foreach($day_step_list as $key=>$item)
+        {
+            if(strpos(strtolower($item['src']),'.mp3'))
+            {
+                $day_step_list[$key]['src_type'] = 1;
+            }else{
+                $day_step_list[$key]['src_type'] = 2;
+            }
 
+        }
+        $dayInfo['day_step'] = $day_step_list;
         return $this->retData($dayInfo);
     }
 
