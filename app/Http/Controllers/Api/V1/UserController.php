@@ -47,8 +47,8 @@ class UserController extends BaseController
      * 用户信息修改
      * @bodyParam  user_id int required 用户id
      * @bodyParam  token   int required 用户token
-     * @bodyParam  nick_name string required 昵称
-     * @bodyParam  sex string required 性别 男|女
+     * @bodyParam  nick string required 昵称
+     * @bodyParam  sex string  性别 男|女
      * @bodyParam  avatar string required 头像
      * @responseFile responses/user/userInfoEdit.json
      */
@@ -56,17 +56,27 @@ class UserController extends BaseController
     {
         $this->validator([
             'nick'   => 'required',
-            'sex'    => 'required',
+            'sex'    => 'present',
             'avatar' => 'required',
         ], [
-            'required' => '缺少必要的参数',
+            'present' => '缺少必要的参数',
         ]);
 
-        User::where('id', request('user_id'))->update([
-            'nick' => request('nick'),
-            'sex'       => request('sex'),
-            'avatar'    => request('avatar'),
-        ]);
+        $updateData = [];
+
+        if(! empty(request('nick'))) {
+            $updateData['nick'] = request('nick');
+        }
+
+        if(! empty(request('sex'))) {
+            $updateData['sex'] = request('sex');
+        }
+
+        if(! empty(request('avatar'))) {
+            $updateData['avatar'] = request('avatar');
+        }
+
+        User::where('id', request('user_id'))->update($updateData);
 
         return $this->retJson(0, '编辑资料成功');
     }

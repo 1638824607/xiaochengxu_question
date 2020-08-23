@@ -87,7 +87,13 @@
                 <div class="links">
                     <a href="http://114.67.201.243/xlcsyxt">需求文档</a>
                     <a href="/docs">接口文档</a>
-                    <a href="/">管理后台</a>
+                    <a href="http://xlcsxcx.boyingzhai.com">
+                        <span>管理后台</span>
+                    </a>
+                </div>
+                <div style="margin-top: 20px">
+                    <span style="font-size: 10px">后台账号密码</span>
+                    jxadmin 99jxwlkj
                 </div>
             </div>
         </div>
