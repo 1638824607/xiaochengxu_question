@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Model\User;
+use App\Model\User\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Validator;
@@ -15,10 +15,9 @@ class BaseController extends Controller
     public function __construct()
     {
         $route = $this->getRoute();
-
         $this->userInfo = ['id' => 1];
         if(! in_array($route['controller'], $this->whiteRoute)) {
-//            $this->checkLogin(request('user_id', 0), request('token', ''));
+           $this->checkLogin(request('user_id', 0), request('token', ''));
         }
     }
 
@@ -39,7 +38,6 @@ class BaseController extends Controller
     public function checkLogin($userId, $userToken)
     {
         header('content-type:application/json');
-
         if(empty($userToken)|| empty($userId)) {
             exit($this->retJson('203', '登陆失效')->content());
         }
@@ -115,4 +113,13 @@ class BaseController extends Controller
 
         return true;
     }
+
+    /*
+    * 用于测试生成用户token
+    */
+    public function makeToken()
+    {
+        return md5(md5(request('openid') . time()));
+    }
+
 }
