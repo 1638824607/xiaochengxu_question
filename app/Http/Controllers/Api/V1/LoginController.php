@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Model\Adv\AppStart;
 use App\Model\User\User;
 use http\Client;
+
 use Illuminate\Http\Request;
 use App\Model\User\WXBizDataCrypt;
 
-//use Util\Crypt\WeiXin\WXBizDataCrypt;
+
 
 /**
  * @group Login
@@ -172,7 +172,7 @@ class LoginController extends BaseController
 
         $userInfo = User::where(['openid' => request('openid')])->first();
         if(empty($userInfo)){
-            return $this->retJson(211, '用户不存在');
+//            return $this->retJson(211, '用户不存在');
         }
 
 

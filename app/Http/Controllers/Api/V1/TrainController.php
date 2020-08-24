@@ -9,6 +9,7 @@ use App\Model\Train\DayCate;
 use App\Model\Train\Game;
 use App\Model\Train\GameRecord;
 use App\Model\User\User;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @group Train
@@ -54,7 +55,9 @@ class TrainController extends BaseController
             'required' => '缺少必要的参数',
         ]);
 
-        $dayList = Day::where('cate_id', request('cate_id'))->get();
+        $dayList = Day::withCount(['dayStep' =>function($query){
+            $query->select(DB::raw("sum(duration) as duration"));
+        }])->where('cate_id', request('cate_id'))->get();
 
         return $this->retData($dayList);
     }
