@@ -162,7 +162,7 @@ class LoginController extends BaseController
     public function getPhone()
     {
         $this->validator([
-            'code' => 'required',
+//            'code' => 'required',
             'openid'=>'required',
             'iv'=>'required',
             'encryptedData'=>'required',
@@ -175,8 +175,25 @@ class LoginController extends BaseController
 //            return $this->retJson(211, '用户不存在');
         }
 
-
-        $test = new WXBizDataCrypt(self::APPID,self::APPID_SECERT);
+//        $params = [
+//            'appid'      => self::APPID,
+//            'secret'     => self::APPID_SECERT,
+//            'js_code'    => request('code'),
+//            'grant_type' => 'authorization_code'
+//        ];
+//
+//        // 拼接url
+//        $wxCodeUrl = 'https://api.weixin.qq.com/sns/jscode2session';
+//
+//        $res = $this->http_query($wxCodeUrl, $params);
+//        $res = json_decode($res, true);
+//
+//        if(! empty($res['errcode'])) {
+//            return $this->retJson(201, $res['errmsg']);
+//        }
+//
+//        $sessionKey = $res['session_key'];
+        $test = new WXBizDataCrypt('wx53e535fb5fdd4b8e',$userInfo->session_key);
 
         $returnCode = $test->decryptData(request('encryptedData'),request('iv'),$data);
         if($returnCode != 0){
@@ -198,5 +215,48 @@ class LoginController extends BaseController
         }
 
 
+    }
+
+
+    public function refreshSessionKey()
+    {
+        $this->validator([
+            'code' => 'required',
+            'openid'=>'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $userInfo = User::where(['openid' => request('openid')])->first();
+        if(empty($userInfo['session_key'])){
+            return $this->retJson(215, '请重新登录');
+        }
+        $params = [
+            'appid'      => self::APPID,
+            'secret'     => self::APPID_SECERT,
+            'js_code'    => request('code'),
+            'grant_type' => 'authorization_code'
+        ];
+
+        // 拼接url
+        $wxCodeUrl = 'https://api.weixin.qq.com/sns/jscode2session';
+
+        $res = $this->http_query($wxCodeUrl, $params);
+        $res = json_decode($res, true);
+
+        if(! empty($res['errcode'])) {
+            return $this->retJson(201, $res['errmsg']);
+        }
+
+        $sessionKey = $res['session_key'];
+
+        $res = User::where(['openid' => request('openid')])->update([
+            'session_key' => $sessionKey,
+        ]);
+        if($res){
+            return $this->retJson(216, 'session_key更新完成');
+        }else{
+            return $this->retJson(215, '请重新登录');
+        }
     }
 }

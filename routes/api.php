@@ -19,6 +19,7 @@ Route::namespace('V1')->prefix('v1')->group(function ()
     Route::post('registerByOauth', 'LoginController@registerByOauth');
     Route::post('makeToken', 'LoginController@makeToken');
     Route::post('getPhone', 'LoginController@getPhone');
+    Route::post('refreshSessionKey', 'LoginController@refreshSessionKey');
 
     Route::prefix('knowledge')->group(function ()
     {
