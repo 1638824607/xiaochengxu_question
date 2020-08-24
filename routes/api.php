@@ -65,6 +65,7 @@ Route::namespace('V1')->prefix('v1')->group(function ()
         Route::post('userCommentedList', 'UserController@userCommentedList');
         Route::post('matchRecordList', 'UserController@matchRecordList');
         Route::post('healthRecordList', 'UserController@healthRecordList');
+        Route::post('gameRecordList', 'UserController@gameRecordList');
         Route::post('userPraiseList', 'UserController@userPraiseList');
         Route::post('userAdvisoryOrder', 'UserController@userAdvisoryOrder');
         Route::post('userCollectList', 'UserController@userCollectList');
