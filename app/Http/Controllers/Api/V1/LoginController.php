@@ -6,7 +6,9 @@ use App\Model\Adv\AppStart;
 use App\Model\User\User;
 use http\Client;
 use Illuminate\Http\Request;
-use App\Util\Crypt\WeiXin\WXBizDataCrypt;
+use App\Model\User\WXBizDataCrypt;
+
+//use Util\Crypt\WeiXin\WXBizDataCrypt;
 
 /**
  * @group Login
