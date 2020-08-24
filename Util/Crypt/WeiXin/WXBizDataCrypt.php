@@ -6,7 +6,7 @@
  * Time: 10:58
  */
 
-namespace App\Util\Crypt\WeiXin;
+namespace Util\Crypt\WeiXin;
 
 
 use Exception;
@@ -35,43 +35,35 @@ class WXBizDataCrypt
      *
      * @return int 成功0，失败返回对应的错误码
      */
-    public function decryptData($encryptedData, $iv, &$data)
+    public function decryptData( $encryptedData, $iv, &$data )
     {
-        //如果不是24位，就是非法
         if (strlen($this->sessionKey) != 24) {
             return ErrorCode::$IllegalAesKey;
         }
-        //sessionKey在传输前base64加密，所以要base64解密
-        $aesKey = base64_decode($this->sessionKey);
-        //如果不是24位，就是非法
+        $aesKey=base64_decode($this->sessionKey);
+
+
         if (strlen($iv) != 24) {
             return ErrorCode::$IllegalIv;
         }
-        //IV在传输前base64加密，所以要base64解密
-        $aesIV = base64_decode($iv);
-        //encryptedData在传输前base64加密，所以要base64解密
-        $aesCipher = base64_decode($encryptedData);
-        //用密钥aesKey,初始化AES类
-        $pc = new Prpcrypt($aesKey);
-        //用密文、初始向量执行解密，得到原文
-        $result = $pc->decrypt($aesCipher, $aesIV);
-        //如果结果不是0，表示不正常，返回错误代码
-        if ($result[0] != 0) {
-            return $result[0];
-        }
-        //把结果转换为数据对象
-        $dataObj = json_decode($result[1]);
-        //如果错误结果为空，返回非法密文
-        if ($dataObj == NULL) {
+        $aesIV=base64_decode($iv);
+
+        $aesCipher=base64_decode($encryptedData);
+
+        $result=openssl_decrypt( $aesCipher, "AES-128-CBC", $aesKey, 1, $aesIV);
+
+        $dataObj=json_decode( $result );
+        if( $dataObj  == NULL )
+        {
             return ErrorCode::$IllegalBuffer;
         }
-        //如果数据对象的appid不对，返回非法密文
-        if ($dataObj->watermark->appid != $this->appid) {
+        if( $dataObj->watermark->appid != $this->appid )
+        {
             return ErrorCode::$IllegalBuffer;
         }
-        //指针$data获取值
-        $data = $result[1];
-        //返回正确代码
+        $data = $result;
         return ErrorCode::$OK;
     }
+
+
 }
