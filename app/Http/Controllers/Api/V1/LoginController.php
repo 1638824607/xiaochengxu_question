@@ -162,7 +162,7 @@ class LoginController extends BaseController
     public function getPhone()
     {
         $this->validator([
-//            'code' => 'required',
+            // 'code' => 'required',
             'openid'=>'required',
             'iv'=>'required',
             'encryptedData'=>'required',
@@ -172,43 +172,44 @@ class LoginController extends BaseController
 
         $userInfo = User::where(['openid' => request('openid')])->first();
         if(empty($userInfo)){
-//            return $this->retJson(211, '用户不存在');
+            return $this->retJson(211, '用户不存在');
         }
+        // return $this->retJson(9000, $userInfo->session_key);
 
-//        $params = [
-//            'appid'      => self::APPID,
-//            'secret'     => self::APPID_SECERT,
-//            'js_code'    => request('code'),
-//            'grant_type' => 'authorization_code'
-//        ];
-//
-//        // 拼接url
-//        $wxCodeUrl = 'https://api.weixin.qq.com/sns/jscode2session';
-//
-//        $res = $this->http_query($wxCodeUrl, $params);
-//        $res = json_decode($res, true);
-//
-//        if(! empty($res['errcode'])) {
-//            return $this->retJson(201, $res['errmsg']);
-//        }
-//
-//        $sessionKey = $res['session_key'];
+        //  $params = [
+        //     'appid'      => self::APPID,
+        //     'secret'     => self::APPID_SECERT,
+        //     'js_code'    => request('code'),
+        //     'grant_type' => 'authorization_code'
+        // ];
+
+        // // 拼接url
+        // $wxCodeUrl = 'https://api.weixin.qq.com/sns/jscode2session';
+
+        // $res = $this->http_query($wxCodeUrl, $params);
+        // $res = json_decode($res, true);
+
+        // if(! empty($res['errcode'])) {
+        //     return $this->retJson(201, $res['errmsg']);
+        // }
+
+        // $sessionKey = $res['session_key'];
         $test = new WXBizDataCrypt('wx53e535fb5fdd4b8e',$userInfo->session_key);
-
-        $returnCode = $test->decryptData(request('encryptedData'),request('iv'),$data);
+        // return $this->retJson(211, stripslashes(request('encryptedData')));
+        $returnCode = $test->decryptData(request('encryptedData'),urldecode(request('iv')),$data);
         if($returnCode != 0){
             return $this->retJson(212, '手机号绑定失败'.$returnCode);
         }
-
-        if($userInfo->phone && $userInfo->phone == $returnCode['purePhoneNumber']){
+        $wx_user_info = json_decode($data, true);
+        if($userInfo->phone && $userInfo->phone == $wx_user_info['purePhoneNumber']){
             return $this->retJson(213, '手机号已绑定');
         }
 
-        $res = User::where(['openid' => request('openid')])->update([
-            'phone' => $returnCode['purePhoneNumber'],
+        $res = User::where('openid',request('openid'))->update([
+            'phone' => $wx_user_info['purePhoneNumber'],
         ]);
         if($res){
-            $userInfo = User::where(['openid' => request('openid')])->first();
+            $userInfo = User::where('openid',request('openid'))->first();
             return $this->retJson(0, '绑定成功',$userInfo);
         }else{
             return $this->retJson(214, '绑定失败');
@@ -228,7 +229,7 @@ class LoginController extends BaseController
         ]);
 
         $userInfo = User::where(['openid' => request('openid')])->first();
-        if(empty($userInfo['session_key'])){
+        if(empty($userInfo)){
             return $this->retJson(215, '请重新登录');
         }
         $params = [
@@ -242,6 +243,7 @@ class LoginController extends BaseController
         $wxCodeUrl = 'https://api.weixin.qq.com/sns/jscode2session';
 
         $res = $this->http_query($wxCodeUrl, $params);
+        $res = stripslashes($res);
         $res = json_decode($res, true);
 
         if(! empty($res['errcode'])) {
@@ -250,13 +252,13 @@ class LoginController extends BaseController
 
         $sessionKey = $res['session_key'];
 
-        $res = User::where(['openid' => request('openid')])->update([
-            'session_key' => $sessionKey,
+        $res = User::where('openid',request('openid'))->update([
+            'session_key' =>$sessionKey,
         ]);
         if($res){
-            return $this->retJson(216, 'session_key更新完成');
+            return $this->retJson(216, $sessionKey);
         }else{
-            return $this->retJson(215, '请重新登录');
+            return $this->retJson(217, '请重新登录');
         }
     }
 }
