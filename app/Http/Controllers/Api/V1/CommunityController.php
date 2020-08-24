@@ -30,7 +30,43 @@ class CommunityController extends BaseController
     {
         $postList = Post::with(['user'])->orderBy('created_at', 'desc')
             ->simplePaginate(10);
+        $collectPostIDs = [];
+        $praisePostIDs = [];
+        if($postList)
+        {
+            $postList = $postList->toArray();
+            $postIDs = array_column($postList['data'],'id');
+            $commentList = PostCollect::whereIn('post_id',$postIDs)->where(['user_id'=>$this->userInfo['id']])->get();
+            if($commentList)
+            {
+                $collectPostIDs = array_column($commentList->toArray(),'post_id');
+            }
+            $commentList = PostPraise::whereIn('post_id',$postIDs)->where(['user_id'=>$this->userInfo['id']])->get();
+            if($commentList)
+            {
+                $praisePostIDs = array_column($commentList->toArray(),'post_id');
+            }
 
+            foreach($postList['data'] as $key=>$item)
+            {
+                if(in_array($item['id'],$collectPostIDs))
+                {
+                    $postList['data'][$key]['is_collect'] = 1;
+                }else{
+                    $postList['data'][$key]['is_collect'] = 0;
+                }
+
+                if(in_array($item['id'],$praisePostIDs))
+                {
+                    $postList['data'][$key]['is_praise'] = 1;
+                }else{
+                    $postList['data'][$key]['is_praise'] = 0;
+                }
+            }
+            
+        }
+
+       
         return $this->retData($postList);
     }
 
