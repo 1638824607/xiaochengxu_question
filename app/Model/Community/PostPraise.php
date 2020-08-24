@@ -16,4 +16,9 @@ class PostPraise extends Model
     {
         return $this->belongsTo('App\Model\User\User', 'to_user_id')->select(array('id', 'nick', 'avatar'));
     }
+
+    public function post()
+    {
+        return $this->belongsTo('App\Model\Community\Post', 'post_id');
+    }
 }

@@ -201,7 +201,7 @@ class UserController extends BaseController
             'required' => '缺少必要的参数',
         ]);
 
-        $userPraiseList = PostPraise::with(['toUser'])->where('user_id', request('user_id'))->simplePaginate(10);
+        $userPraiseList = PostPraise::with(['toUser', 'post'])->where('user_id', request('user_id'))->simplePaginate(10);
 
         return $this->retData($userPraiseList);
     }

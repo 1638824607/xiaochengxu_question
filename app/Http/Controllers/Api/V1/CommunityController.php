@@ -63,10 +63,10 @@ class CommunityController extends BaseController
                     $postList['data'][$key]['is_praise'] = 0;
                 }
             }
-            
+
         }
 
-       
+
         return $this->retData($postList);
     }
 
