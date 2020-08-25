@@ -463,16 +463,58 @@ class CommunityController extends BaseController
     public function advisoryDateList()
     {
     
-         $date_list = AdvisoryTime::get();
-         var_dump($date_list);die;
-         $returnData = [
-             [
-                 'title'=>'8.25',
-                 'week'=>'周二',
-                 'is_reducible'=>0,
-             ]
+         $date_list = AdvisoryTime::get()->toArray();
+         $time = time();
+         $rows = [];
+         $week_array=array("日","一","二","三","四","五","六"); //先定义一个数组
+
+         $advisory_list =  AdvisoryOrder::get()->toArray();
+         $teacher_list = Advisory::get()->toArray();
+         
+         $now = time();
+         $have_data = [];
+         for($i=0;$i<5;$i++)
+         {
+            $key =  date('Y-m-d',$time);
+            $flag = 0; 
+            $rows[$i]['title'] =  date('m.d',$time);
+            $rows[$i]['week'] = '周'. $week_array[date("w",$time)];
+            $rows[$i]['date'] = $key;
+            foreach($date_list as $t)
+            {
+                $teacher_ids = array_column($teacher_list,'id');
+                if(strtotime(date('Y-m-d ',$time) .$t['start_time']) <= $now)
+                {
+                    // 来不及预约
+                    continue;  
+                }
+                foreach($teacher_list as $te)
+                {
+                  
+                    foreach($advisory_list as $o)
+                    {
+                        $order_at_time = strtotime($o['order_at']);
+                        $start_t = strtotime(date('Y-m-d ',$time) .$t['start_time']);
+                        $end_t = strtotime(date('Y-m-d ',$time) .$t['end_time']);
+                        if(in_array($o['advisory_id'],$teacher_ids) && $order_at_time >= $start_t && $order_at_time <= $end_t)
+                        {
+                           unset($teacher_ids[array_search($o['advisory_id'],$teacher_ids)]);
+                        }
+                    }
+                }
+                $have_data[$key][] = ['teacher_id'=>$te['id'],'start_time'=>$t['start_time'],'end_time'=>$t['end_time']];
+
+            }
+
+            $rows[$i]['reducible'] = isset($have_data[$key]) ? 1 : 0;
+            $time = strtotime('+1day',$time);
+
+         }
+         $return_data = [
+             'items'=>$rows,
+             'reducible'=>$have_data
          ];
-         return $this->retData($returnData);
+         return $this->retData($return_data);
     }
 
 }
