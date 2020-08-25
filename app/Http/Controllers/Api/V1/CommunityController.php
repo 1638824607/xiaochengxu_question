@@ -92,11 +92,38 @@ class CommunityController extends BaseController
             $q->where('user_id', $this->userInfo['id']);
         }])->where(['id' => $postId, 'status' => 1])->first();
 
-        if (empty($postDetail)) {
-            return $this->retJson(400, '帖子已被屏蔽');
+        $postDetail->increment('view_num');
+
+        $collectPostIDs = [];
+        $praisePostIDs = [];
+        $postDetail = $postDetail->toArray();
+        $postIDs = array_column($postDetail,'id');
+
+        $commentList = PostCollect::where('post_id',$postId)->where(['user_id'=>$this->userInfo['id']])->get();
+        if($commentList)
+        {
+            $collectPostIDs = array_column($commentList->toArray(),'post_id');
+        }
+        $commentList = PostPraise::where('post_id',$postId)->where(['user_id'=>$this->userInfo['id']])->get();
+        if($commentList)
+        {
+            $praisePostIDs = array_column($commentList->toArray(),'post_id');
+        }
+        if(in_array($postId,$collectPostIDs))
+        {
+            $postDetail['is_collect'] = 1;
+        }else{
+            $postDetail['is_collect'] = 0;
         }
 
-        $postDetail->increment('view_num');
+        if(in_array($postId,$praisePostIDs))
+        {
+            $postDetail['is_praise'] = 1;
+        }else{
+            $postDetail['is_praise'] = 0;
+        }
+
+//        $postDetail->increment('view_num');
 
         return $this->retData($postDetail);
     }
