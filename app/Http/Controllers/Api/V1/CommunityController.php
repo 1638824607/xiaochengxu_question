@@ -458,4 +458,17 @@ class CommunityController extends BaseController
 
         return $this->retJson(0, '预约时间已更改');
     }
+
+    public function advisoryDateList()
+    {
+         $returnData = [
+             [
+                 'title'=>'8.25',
+                 'week'=>'周二',
+                 'is_reducible'=>0,
+             ]
+         ];
+         return $this->retData($advisoryList);
+    }
+
 }
