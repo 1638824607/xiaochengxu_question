@@ -10,6 +10,7 @@ use App\Model\Community\PostComment;
 use App\Model\Community\PostPraise;
 use App\Model\Community\PostShare;
 use App\Model\User\User;
+use App\Model\Community\AdvisoryTime;
 
 /**
  * @group Community
@@ -461,6 +462,9 @@ class CommunityController extends BaseController
 
     public function advisoryDateList()
     {
+    
+         $date_list = AdvisoryTime::get();
+         var_dump($date_list);die;
          $returnData = [
              [
                  'title'=>'8.25',
@@ -468,7 +472,7 @@ class CommunityController extends BaseController
                  'is_reducible'=>0,
              ]
          ];
-         return $this->retData($advisoryList);
+         return $this->retData($returnData);
     }
 
 }
