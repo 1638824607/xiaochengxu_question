@@ -56,8 +56,12 @@ Route::namespace('V1')->prefix('v1')->group(function ()
         Route::post('advisoryList', 'CommunityController@advisoryList');
         Route::post('advisoryOrder', 'CommunityController@advisoryOrder');
         Route::post('advisoryOrderEdit', 'CommunityController@advisoryOrderEdit');
+
+        Route::post('advisoryOrderEdit', 'CommunityController@advisoryOrderEdit');
+
         Route::post('advisoryDateList', 'CommunityController@advisoryDateList');
         
+
     });
 
     Route::prefix('user')->group(function ()
@@ -72,6 +76,8 @@ Route::namespace('V1')->prefix('v1')->group(function ()
         Route::post('userPraiseList', 'UserController@userPraiseList');
         Route::post('userAdvisoryOrder', 'UserController@userAdvisoryOrder');
         Route::post('userCollectList', 'UserController@userCollectList');
+        Route::post('userReplyList', 'UserController@userReplyList');
+        Route::post('userReplyDel', 'UserController@userReplyDel');
     });
 
     Route::prefix('train')->group(function ()
