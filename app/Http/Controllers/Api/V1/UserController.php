@@ -9,6 +9,8 @@ use App\Model\Community\PostComment;
 use App\Model\Community\PostPraise;
 use App\Model\Knowledge\HealthRecord;
 use App\Model\Knowledge\MatchRecord;
+use App\Model\Train\Game;
+use App\Model\Train\GameRecord;
 use App\Model\User\System;
 use App\Model\User\User;
 use App\Model\User\UserCert;
@@ -94,6 +96,21 @@ class UserController extends BaseController
         $matchRecordList = MatchRecord::with('match')->where('user_id', request('user_id'))->simplePaginate(10);
 
         return $this->retData($matchRecordList);
+    }
+
+    /**
+     * gameRecordList
+     * 游戏记录列表
+     * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
+     * @bodyParam  page int required 页数
+     * @responseFile responses/user/matchRecordList.json
+     */
+    public function gameRecordList()
+    {
+        $gameRecordList = GameRecord::with('game')->where('user_id', request('user_id'))->simplePaginate(10);
+
+        return $this->retData($gameRecordList);
     }
 
     /**
@@ -184,7 +201,7 @@ class UserController extends BaseController
             'required' => '缺少必要的参数',
         ]);
 
-        $userPraiseList = PostPraise::with(['toUser'])->where('user_id', request('user_id'))->simplePaginate(10);
+        $userPraiseList = PostPraise::with(['toUser', 'post'])->where('user_id', request('user_id'))->simplePaginate(10);
 
         return $this->retData($userPraiseList);
     }

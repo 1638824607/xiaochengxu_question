@@ -35,7 +35,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/community/postList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":5,"token":14,"page":6,"cate_id":9}'
+    -d '{"user_id":3,"token":2,"page":14,"cate_id":18}'
 
 ```
 
@@ -50,10 +50,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": 5,
-    "token": 14,
-    "page": 6,
-    "cate_id": 9
+    "user_id": 3,
+    "token": 2,
+    "page": 14,
+    "cate_id": 18
 }
 
 fetch(url, {
@@ -76,10 +76,10 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 5,
-            'token' => 14,
-            'page' => 6,
-            'cate_id' => 9,
+            'user_id' => 3,
+            'token' => 2,
+            'page' => 14,
+            'cate_id' => 18,
         ],
     ]
 );
@@ -162,7 +162,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/community/postDetail" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":2,"token":2,"post_id":10}'
+    -d '{"user_id":16,"token":11,"post_id":18}'
 
 ```
 
@@ -177,9 +177,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 2,
-    "token": 2,
-    "post_id": 10
+    "user_id": 16,
+    "token": 11,
+    "post_id": 18
 }
 
 fetch(url, {
@@ -202,9 +202,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 2,
-            'token' => 2,
-            'post_id' => 10,
+            'user_id' => 16,
+            'token' => 11,
+            'post_id' => 18,
         ],
     ]
 );
@@ -274,7 +274,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/community/postCommentList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":2,"token":10,"post_id":11,"page":1}'
+    -d '{"user_id":5,"token":4,"post_id":7,"page":11}'
 
 ```
 
@@ -289,10 +289,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": 2,
-    "token": 10,
-    "post_id": 11,
-    "page": 1
+    "user_id": 5,
+    "token": 4,
+    "post_id": 7,
+    "page": 11
 }
 
 fetch(url, {
@@ -315,10 +315,10 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 2,
-            'token' => 10,
-            'post_id' => 11,
-            'page' => 1,
+            'user_id' => 5,
+            'token' => 4,
+            'post_id' => 7,
+            'page' => 11,
         ],
     ]
 );
@@ -421,7 +421,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/community/sendPostComment" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":9,"token":20,"post_id":20,"comment_id":4,"comment_content":"beatae","to_user_id":20}'
+    -d '{"user_id":16,"token":9,"post_id":1,"comment_id":15,"comment_content":"voluptatum","to_user_id":5}'
 
 ```
 
@@ -436,12 +436,12 @@ let headers = {
 };
 
 let body = {
-    "user_id": 9,
-    "token": 20,
-    "post_id": 20,
-    "comment_id": 4,
-    "comment_content": "beatae",
-    "to_user_id": 20
+    "user_id": 16,
+    "token": 9,
+    "post_id": 1,
+    "comment_id": 15,
+    "comment_content": "voluptatum",
+    "to_user_id": 5
 }
 
 fetch(url, {
@@ -464,12 +464,12 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 9,
-            'token' => 20,
-            'post_id' => 20,
-            'comment_id' => 4,
-            'comment_content' => 'beatae',
-            'to_user_id' => 20,
+            'user_id' => 16,
+            'token' => 9,
+            'post_id' => 1,
+            'comment_id' => 15,
+            'comment_content' => 'voluptatum',
+            'to_user_id' => 5,
         ],
     ]
 );
@@ -515,7 +515,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/community/praisePost" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":5,"token":14,"post_id":18}'
+    -d '{"user_id":5,"token":16,"post_id":5}'
 
 ```
 
@@ -531,8 +531,8 @@ let headers = {
 
 let body = {
     "user_id": 5,
-    "token": 14,
-    "post_id": 18
+    "token": 16,
+    "post_id": 5
 }
 
 fetch(url, {
@@ -556,8 +556,8 @@ $response = $client->post(
         ],
         'json' => [
             'user_id' => 5,
-            'token' => 14,
-            'post_id' => 18,
+            'token' => 16,
+            'post_id' => 5,
         ],
     ]
 );
@@ -600,7 +600,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/community/praisePostComment" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":5,"token":19,"post_id":6,"comment_id":12}'
+    -d '{"user_id":12,"token":1,"post_id":11,"comment_id":14}'
 
 ```
 
@@ -615,10 +615,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": 5,
-    "token": 19,
-    "post_id": 6,
-    "comment_id": 12
+    "user_id": 12,
+    "token": 1,
+    "post_id": 11,
+    "comment_id": 14
 }
 
 fetch(url, {
@@ -641,10 +641,10 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 5,
-            'token' => 19,
-            'post_id' => 6,
-            'comment_id' => 12,
+            'user_id' => 12,
+            'token' => 1,
+            'post_id' => 11,
+            'comment_id' => 14,
         ],
     ]
 );
@@ -688,7 +688,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/community/sharePost" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":7,"token":4,"post_id":12}'
+    -d '{"user_id":4,"token":11,"post_id":16}'
 
 ```
 
@@ -703,9 +703,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 7,
-    "token": 4,
-    "post_id": 12
+    "user_id": 4,
+    "token": 11,
+    "post_id": 16
 }
 
 fetch(url, {
@@ -728,9 +728,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 7,
-            'token' => 4,
-            'post_id' => 12,
+            'user_id' => 4,
+            'token' => 11,
+            'post_id' => 16,
         ],
     ]
 );
@@ -773,7 +773,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/community/collectPost" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":10,"token":13,"post_id":7}'
+    -d '{"user_id":16,"token":4,"post_id":8}'
 
 ```
 
@@ -788,9 +788,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 10,
-    "token": 13,
-    "post_id": 7
+    "user_id": 16,
+    "token": 4,
+    "post_id": 8
 }
 
 fetch(url, {
@@ -813,9 +813,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 10,
-            'token' => 13,
-            'post_id' => 7,
+            'user_id' => 16,
+            'token' => 4,
+            'post_id' => 8,
         ],
     ]
 );
@@ -858,7 +858,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/community/sendPost" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":16,"token":8,"title":"sit","content":"sunt","images":"tempora"}'
+    -d '{"user_id":13,"token":18,"title":"similique","content":"sunt","images":"minima"}'
 
 ```
 
@@ -873,11 +873,11 @@ let headers = {
 };
 
 let body = {
-    "user_id": 16,
-    "token": 8,
-    "title": "sit",
+    "user_id": 13,
+    "token": 18,
+    "title": "similique",
     "content": "sunt",
-    "images": "tempora"
+    "images": "minima"
 }
 
 fetch(url, {
@@ -900,11 +900,11 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 16,
-            'token' => 8,
-            'title' => 'sit',
+            'user_id' => 13,
+            'token' => 18,
+            'title' => 'similique',
             'content' => 'sunt',
-            'images' => 'tempora',
+            'images' => 'minima',
         ],
     ]
 );
@@ -1038,7 +1038,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/community/advisoryOrder" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":3,"token":5,"advisory_id":4,"order_at":"inventore"}'
+    -d '{"user_id":4,"token":5,"advisory_id":11,"order_at":"cumque"}'
 
 ```
 
@@ -1053,10 +1053,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": 3,
+    "user_id": 4,
     "token": 5,
-    "advisory_id": 4,
-    "order_at": "inventore"
+    "advisory_id": 11,
+    "order_at": "cumque"
 }
 
 fetch(url, {
@@ -1079,10 +1079,10 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 3,
+            'user_id' => 4,
             'token' => 5,
-            'advisory_id' => 4,
-            'order_at' => 'inventore',
+            'advisory_id' => 11,
+            'order_at' => 'cumque',
         ],
     ]
 );
@@ -1126,7 +1126,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/community/advisoryOrderEdit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":1,"token":16,"id":7,"order_at":"est"}'
+    -d '{"user_id":4,"token":5,"id":2,"order_at":"eos"}'
 
 ```
 
@@ -1141,10 +1141,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": 1,
-    "token": 16,
-    "id": 7,
-    "order_at": "est"
+    "user_id": 4,
+    "token": 5,
+    "id": 2,
+    "order_at": "eos"
 }
 
 fetch(url, {
@@ -1167,10 +1167,10 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 1,
-            'token' => 16,
-            'id' => 7,
-            'order_at' => 'est',
+            'user_id' => 4,
+            'token' => 5,
+            'id' => 2,
+            'order_at' => 'eos',
         ],
     ]
 );
@@ -1483,7 +1483,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/knowledge/readList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"cate_id":12,"sort":"eos"}'
+    -d '{"cate_id":10,"sort":"accusamus"}'
 
 ```
 
@@ -1498,8 +1498,8 @@ let headers = {
 };
 
 let body = {
-    "cate_id": 12,
-    "sort": "eos"
+    "cate_id": 10,
+    "sort": "accusamus"
 }
 
 fetch(url, {
@@ -1522,8 +1522,8 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'cate_id' => 12,
-            'sort' => 'eos',
+            'cate_id' => 10,
+            'sort' => 'accusamus',
         ],
     ]
 );
@@ -1607,7 +1607,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/knowledge/readInfo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":10}'
+    -d '{"id":3}'
 
 ```
 
@@ -1622,7 +1622,7 @@ let headers = {
 };
 
 let body = {
-    "id": 10
+    "id": 3
 }
 
 fetch(url, {
@@ -1645,7 +1645,7 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'id' => 10,
+            'id' => 3,
         ],
     ]
 );
@@ -1702,7 +1702,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/knowledge/matchList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"sort":"quos"}'
+    -d '{"sort":"maiores"}'
 
 ```
 
@@ -1717,7 +1717,7 @@ let headers = {
 };
 
 let body = {
-    "sort": "quos"
+    "sort": "maiores"
 }
 
 fetch(url, {
@@ -1740,7 +1740,7 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'sort' => 'quos',
+            'sort' => 'maiores',
         ],
     ]
 );
@@ -1829,7 +1829,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/knowledge/matchInfo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":6}'
+    -d '{"id":16}'
 
 ```
 
@@ -1844,7 +1844,7 @@ let headers = {
 };
 
 let body = {
-    "id": 6
+    "id": 16
 }
 
 fetch(url, {
@@ -1867,7 +1867,7 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'id' => 6,
+            'id' => 16,
         ],
     ]
 );
@@ -1969,7 +1969,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/knowledge/matchRecordStart" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":18,"token":4,"match_id":9}'
+    -d '{"user_id":20,"token":9,"match_id":17}'
 
 ```
 
@@ -1984,9 +1984,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 18,
-    "token": 4,
-    "match_id": 9
+    "user_id": 20,
+    "token": 9,
+    "match_id": 17
 }
 
 fetch(url, {
@@ -2009,9 +2009,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 18,
-            'token' => 4,
-            'match_id' => 9,
+            'user_id' => 20,
+            'token' => 9,
+            'match_id' => 17,
         ],
     ]
 );
@@ -2056,7 +2056,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/knowledge/matchRecordEnd" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":10,"token":19,"record_id":18,"score":8}'
+    -d '{"user_id":10,"token":10,"record_id":1,"score":8}'
 
 ```
 
@@ -2072,8 +2072,8 @@ let headers = {
 
 let body = {
     "user_id": 10,
-    "token": 19,
-    "record_id": 18,
+    "token": 10,
+    "record_id": 1,
     "score": 8
 }
 
@@ -2098,8 +2098,8 @@ $response = $client->post(
         ],
         'json' => [
             'user_id' => 10,
-            'token' => 19,
-            'record_id' => 18,
+            'token' => 10,
+            'record_id' => 1,
             'score' => 8,
         ],
     ]
@@ -2144,7 +2144,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/knowledge/matchRecordInfo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":19,"token":16,"record_id":13}'
+    -d '{"user_id":5,"token":12,"record_id":14}'
 
 ```
 
@@ -2159,9 +2159,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 19,
-    "token": 16,
-    "record_id": 13
+    "user_id": 5,
+    "token": 12,
+    "record_id": 14
 }
 
 fetch(url, {
@@ -2184,9 +2184,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 19,
-            'token' => 16,
-            'record_id' => 13,
+            'user_id' => 5,
+            'token' => 12,
+            'record_id' => 14,
         ],
     ]
 );
@@ -2373,7 +2373,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/knowledge/healthList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"cate_id":6,"sort":"sit"}'
+    -d '{"cate_id":3,"sort":"praesentium"}'
 
 ```
 
@@ -2388,8 +2388,8 @@ let headers = {
 };
 
 let body = {
-    "cate_id": 6,
-    "sort": "sit"
+    "cate_id": 3,
+    "sort": "praesentium"
 }
 
 fetch(url, {
@@ -2412,8 +2412,8 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'cate_id' => 6,
-            'sort' => 'sit',
+            'cate_id' => 3,
+            'sort' => 'praesentium',
         ],
     ]
 );
@@ -2506,7 +2506,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/knowledge/healthInfo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":18}'
+    -d '{"id":17}'
 
 ```
 
@@ -2521,7 +2521,7 @@ let headers = {
 };
 
 let body = {
-    "id": 18
+    "id": 17
 }
 
 fetch(url, {
@@ -2544,7 +2544,7 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'id' => 18,
+            'id' => 17,
         ],
     ]
 );
@@ -2647,7 +2647,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/knowledge/healthRecordStart" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":6,"token":14,"health_id":10}'
+    -d '{"user_id":11,"token":16,"health_id":6}'
 
 ```
 
@@ -2662,9 +2662,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 6,
-    "token": 14,
-    "health_id": 10
+    "user_id": 11,
+    "token": 16,
+    "health_id": 6
 }
 
 fetch(url, {
@@ -2687,9 +2687,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 6,
-            'token' => 14,
-            'health_id' => 10,
+            'user_id' => 11,
+            'token' => 16,
+            'health_id' => 6,
         ],
     ]
 );
@@ -2734,7 +2734,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/knowledge/healthRecordEnd" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":2,"token":1,"record_id":19,"score":19}'
+    -d '{"user_id":6,"token":20,"record_id":16,"score":1}'
 
 ```
 
@@ -2749,10 +2749,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": 2,
-    "token": 1,
-    "record_id": 19,
-    "score": 19
+    "user_id": 6,
+    "token": 20,
+    "record_id": 16,
+    "score": 1
 }
 
 fetch(url, {
@@ -2775,10 +2775,10 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 2,
-            'token' => 1,
-            'record_id' => 19,
-            'score' => 19,
+            'user_id' => 6,
+            'token' => 20,
+            'record_id' => 16,
+            'score' => 1,
         ],
     ]
 );
@@ -2822,7 +2822,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/knowledge/healthRecordInfo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":17,"token":4,"record_id":2}'
+    -d '{"user_id":3,"token":8,"record_id":10}'
 
 ```
 
@@ -2837,9 +2837,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 17,
-    "token": 4,
-    "record_id": 2
+    "user_id": 3,
+    "token": 8,
+    "record_id": 10
 }
 
 fetch(url, {
@@ -2862,9 +2862,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 17,
-            'token' => 4,
-            'record_id' => 2,
+            'user_id' => 3,
+            'token' => 8,
+            'record_id' => 10,
         ],
     ]
 );
@@ -2959,7 +2959,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/knowledge/shareHealth" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":9,"token":"commodi","health_id":11}'
+    -d '{"user_id":12,"token":"est","health_id":12}'
 
 ```
 
@@ -2974,9 +2974,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 9,
-    "token": "commodi",
-    "health_id": 11
+    "user_id": 12,
+    "token": "est",
+    "health_id": 12
 }
 
 fetch(url, {
@@ -2999,9 +2999,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 9,
-            'token' => 'commodi',
-            'health_id' => 11,
+            'user_id' => 12,
+            'token' => 'est',
+            'health_id' => 12,
         ],
     ]
 );
@@ -3046,7 +3046,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/loginByOauth" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"code":"ut"}'
+    -d '{"code":"dicta"}'
 
 ```
 
@@ -3061,7 +3061,7 @@ let headers = {
 };
 
 let body = {
-    "code": "ut"
+    "code": "dicta"
 }
 
 fetch(url, {
@@ -3084,7 +3084,7 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'code' => 'ut',
+            'code' => 'dicta',
         ],
     ]
 );
@@ -3147,7 +3147,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/registerByOauth" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"openid":"ut","nick":"rerum","avatar":"esse","gender":7,"province":"et","city":"veniam"}'
+    -d '{"openid":"qui","nick":"non","avatar":"nemo","gender":3,"province":"aut","city":"nisi"}'
 
 ```
 
@@ -3162,12 +3162,12 @@ let headers = {
 };
 
 let body = {
-    "openid": "ut",
-    "nick": "rerum",
-    "avatar": "esse",
-    "gender": 7,
-    "province": "et",
-    "city": "veniam"
+    "openid": "qui",
+    "nick": "non",
+    "avatar": "nemo",
+    "gender": 3,
+    "province": "aut",
+    "city": "nisi"
 }
 
 fetch(url, {
@@ -3190,12 +3190,12 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'openid' => 'ut',
-            'nick' => 'rerum',
-            'avatar' => 'esse',
-            'gender' => 7,
-            'province' => 'et',
-            'city' => 'veniam',
+            'openid' => 'qui',
+            'nick' => 'non',
+            'avatar' => 'nemo',
+            'gender' => 3,
+            'province' => 'aut',
+            'city' => 'nisi',
         ],
     ]
 );
@@ -3249,6 +3249,112 @@ Parameter | Type | Status | Description
         `city` | string |  optional  | 城市
     
 <!-- END_af6e454a33c7911bbd74a46a3ea5e22c -->
+
+<!-- START_cfbe208a479c5116df0228ba7a72d94c -->
+## api/v1/makeToken
+> Example request:
+
+```bash
+curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/makeToken" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/makeToken"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://sns.shenruxiang.com/api/v1/makeToken',
+    [
+        'headers' => [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+
+### HTTP Request
+`POST api/v1/makeToken`
+
+
+<!-- END_cfbe208a479c5116df0228ba7a72d94c -->
+
+<!-- START_c9da673fc823c6746c683201b289f9e8 -->
+## api/v1/getPhone
+> Example request:
+
+```bash
+curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/getPhone" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/getPhone"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://sns.shenruxiang.com/api/v1/getPhone',
+    [
+        'headers' => [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+
+### HTTP Request
+`POST api/v1/getPhone`
+
+
+<!-- END_c9da673fc823c6746c683201b289f9e8 -->
 
 #Train
 
@@ -3422,7 +3528,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/train/dayList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"cate_id":9}'
+    -d '{"cate_id":4}'
 
 ```
 
@@ -3437,7 +3543,7 @@ let headers = {
 };
 
 let body = {
-    "cate_id": 9
+    "cate_id": 4
 }
 
 fetch(url, {
@@ -3460,7 +3566,7 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'cate_id' => 9,
+            'cate_id' => 4,
         ],
     ]
 );
@@ -3523,7 +3629,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/train/dayInfo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"day_id":6}'
+    -d '{"day_id":11}'
 
 ```
 
@@ -3538,7 +3644,7 @@ let headers = {
 };
 
 let body = {
-    "day_id": 6
+    "day_id": 11
 }
 
 fetch(url, {
@@ -3561,7 +3667,7 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'day_id' => 6,
+            'day_id' => 11,
         ],
     ]
 );
@@ -3756,7 +3862,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/train/gameInfo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"game_id":20}'
+    -d '{"game_id":3}'
 
 ```
 
@@ -3771,7 +3877,7 @@ let headers = {
 };
 
 let body = {
-    "game_id": 20
+    "game_id": 3
 }
 
 fetch(url, {
@@ -3794,7 +3900,7 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'game_id' => 20,
+            'game_id' => 3,
         ],
     ]
 );
@@ -3846,7 +3952,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/train/gameRecordStart" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":6,"token":4,"game_id":8}'
+    -d '{"user_id":9,"token":20,"game_id":11}'
 
 ```
 
@@ -3861,9 +3967,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 6,
-    "token": 4,
-    "game_id": 8
+    "user_id": 9,
+    "token": 20,
+    "game_id": 11
 }
 
 fetch(url, {
@@ -3886,9 +3992,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 6,
-            'token' => 4,
-            'game_id' => 8,
+            'user_id' => 9,
+            'token' => 20,
+            'game_id' => 11,
         ],
     ]
 );
@@ -3933,7 +4039,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/train/gameRecordEnd" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":19,"token":1,"record_id":16,"summary":"dolorem"}'
+    -d '{"user_id":2,"token":1,"record_id":4,"summary":"corrupti"}'
 
 ```
 
@@ -3948,10 +4054,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": 19,
+    "user_id": 2,
     "token": 1,
-    "record_id": 16,
-    "summary": "dolorem"
+    "record_id": 4,
+    "summary": "corrupti"
 }
 
 fetch(url, {
@@ -3974,10 +4080,10 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 19,
+            'user_id' => 2,
             'token' => 1,
-            'record_id' => 16,
-            'summary' => 'dolorem',
+            'record_id' => 4,
+            'summary' => 'corrupti',
         ],
     ]
 );
@@ -4024,7 +4130,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/uploadPost" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":9,"token":7,"file":"distinctio"}'
+    -d '{"user_id":20,"token":14,"file":"nulla"}'
 
 ```
 
@@ -4039,9 +4145,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 9,
-    "token": 7,
-    "file": "distinctio"
+    "user_id": 20,
+    "token": 14,
+    "file": "nulla"
 }
 
 fetch(url, {
@@ -4064,9 +4170,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 9,
-            'token' => 7,
-            'file' => 'distinctio',
+            'user_id' => 20,
+            'token' => 14,
+            'file' => 'nulla',
         ],
     ]
 );
@@ -4118,7 +4224,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/uploadUserAvatar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":13,"token":19,"file":"molestiae"}'
+    -d '{"user_id":11,"token":1,"file":"sequi"}'
 
 ```
 
@@ -4133,9 +4239,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 13,
-    "token": 19,
-    "file": "molestiae"
+    "user_id": 11,
+    "token": 1,
+    "file": "sequi"
 }
 
 fetch(url, {
@@ -4158,9 +4264,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 13,
-            'token' => 19,
-            'file' => 'molestiae',
+            'user_id' => 11,
+            'token' => 1,
+            'file' => 'sequi',
         ],
     ]
 );
@@ -4208,7 +4314,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/user/userInfo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":17,"token":2}'
+    -d '{"user_id":15,"token":5}'
 
 ```
 
@@ -4223,8 +4329,8 @@ let headers = {
 };
 
 let body = {
-    "user_id": 17,
-    "token": 2
+    "user_id": 15,
+    "token": 5
 }
 
 fetch(url, {
@@ -4247,8 +4353,8 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 17,
-            'token' => 2,
+            'user_id' => 15,
+            'token' => 5,
         ],
     ]
 );
@@ -4307,7 +4413,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/user/userInfoEdit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":15,"token":2,"nick":"ea","sex":"similique","avatar":"cumque"}'
+    -d '{"user_id":9,"token":16,"nick":"aspernatur","sex":"ut","avatar":"similique"}'
 
 ```
 
@@ -4322,11 +4428,11 @@ let headers = {
 };
 
 let body = {
-    "user_id": 15,
-    "token": 2,
-    "nick": "ea",
-    "sex": "similique",
-    "avatar": "cumque"
+    "user_id": 9,
+    "token": 16,
+    "nick": "aspernatur",
+    "sex": "ut",
+    "avatar": "similique"
 }
 
 fetch(url, {
@@ -4349,11 +4455,11 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 15,
-            'token' => 2,
-            'nick' => 'ea',
-            'sex' => 'similique',
-            'avatar' => 'cumque',
+            'user_id' => 9,
+            'token' => 16,
+            'nick' => 'aspernatur',
+            'sex' => 'ut',
+            'avatar' => 'similique',
         ],
     ]
 );
@@ -4398,7 +4504,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/user/userPostList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":8,"token":7}'
+    -d '{"user_id":14,"token":9}'
 
 ```
 
@@ -4413,8 +4519,8 @@ let headers = {
 };
 
 let body = {
-    "user_id": 8,
-    "token": 7
+    "user_id": 14,
+    "token": 9
 }
 
 fetch(url, {
@@ -4437,8 +4543,8 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 8,
-            'token' => 7,
+            'user_id' => 14,
+            'token' => 9,
         ],
     ]
 );
@@ -4549,7 +4655,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/user/userCommentedList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":6,"token":19,"page":16}'
+    -d '{"user_id":16,"token":2,"page":2}'
 
 ```
 
@@ -4564,9 +4670,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 6,
-    "token": 19,
-    "page": 16
+    "user_id": 16,
+    "token": 2,
+    "page": 2
 }
 
 fetch(url, {
@@ -4589,9 +4695,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 6,
-            'token' => 19,
-            'page' => 16,
+            'user_id' => 16,
+            'token' => 2,
+            'page' => 2,
         ],
     ]
 );
@@ -4753,7 +4859,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/user/matchRecordList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":2,"token":19,"page":15}'
+    -d '{"user_id":1,"token":12,"page":5}'
 
 ```
 
@@ -4768,9 +4874,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 2,
-    "token": 19,
-    "page": 15
+    "user_id": 1,
+    "token": 12,
+    "page": 5
 }
 
 fetch(url, {
@@ -4793,9 +4899,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 2,
-            'token' => 19,
-            'page' => 15,
+            'user_id' => 1,
+            'token' => 12,
+            'page' => 5,
         ],
     ]
 );
@@ -4891,7 +4997,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/user/healthRecordList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":1,"token":17,"page":11}'
+    -d '{"user_id":2,"token":6,"page":18}'
 
 ```
 
@@ -4906,9 +5012,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 1,
-    "token": 17,
-    "page": 11
+    "user_id": 2,
+    "token": 6,
+    "page": 18
 }
 
 fetch(url, {
@@ -4931,9 +5037,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 1,
-            'token' => 17,
-            'page' => 11,
+            'user_id' => 2,
+            'token' => 6,
+            'page' => 18,
         ],
     ]
 );
@@ -5127,6 +5233,144 @@ Parameter | Type | Status | Description
     
 <!-- END_09f5321311ee046bd8df745bf43919be -->
 
+<!-- START_77b2d959ec62f1242623d4c2a7deccf9 -->
+## gameRecordList
+游戏记录列表
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "http://sns.shenruxiang.com/api/v1/user/gameRecordList" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"user_id":14,"token":5,"page":3}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://sns.shenruxiang.com/api/v1/user/gameRecordList"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": 14,
+    "token": 5,
+    "page": 3
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://sns.shenruxiang.com/api/v1/user/gameRecordList',
+    [
+        'headers' => [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+        'json' => [
+            'user_id' => 14,
+            'token' => 5,
+            'page' => 3,
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "code": 0,
+    "msg": "请求成功",
+    "data": [
+        {
+            "id": 1,
+            "user_id": 1,
+            "match_id": 1,
+            "score": 11,
+            "start_time": null,
+            "end_time": "2020-08-01 10:16:01",
+            "created_at": "2020-08-01 10:14:53",
+            "updated_at": "2020-08-01 10:16:01",
+            "match": {
+                "id": 1,
+                "title": "测评一",
+                "sort": 1,
+                "hot": 0,
+                "desc": "疫情心理健康自评量表描述",
+                "introduce": "疫情心理健康自评量表介绍",
+                "introduce_src": "http:\/\/daodao.shenruxiang.com\/fangao_about.png",
+                "introduce_src_type": "1",
+                "src": "http:\/\/daodao.shenruxiang.com\/fangao_about.png",
+                "src_type": 1,
+                "join_num": 11,
+                "duration": 60,
+                "created_at": "2020-08-01 15:13:48",
+                "updated_at": "2020-08-01 15:13:48"
+            }
+        },
+        {
+            "id": 2,
+            "user_id": 1,
+            "match_id": 1,
+            "score": 0,
+            "start_time": null,
+            "end_time": null,
+            "created_at": "2020-08-01 10:14:58",
+            "updated_at": "2020-08-01 10:14:58",
+            "match": {
+                "id": 1,
+                "title": "测评一",
+                "sort": 1,
+                "hot": 0,
+                "desc": "疫情心理健康自评量表描述",
+                "introduce": "疫情心理健康自评量表介绍",
+                "introduce_src": "http:\/\/daodao.shenruxiang.com\/fangao_about.png",
+                "introduce_src_type": "1",
+                "src": "http:\/\/daodao.shenruxiang.com\/fangao_about.png",
+                "src_type": 1,
+                "join_num": 11,
+                "duration": 60,
+                "created_at": "2020-08-01 15:13:48",
+                "updated_at": "2020-08-01 15:13:48"
+            }
+        }
+    ]
+}
+```
+
+### HTTP Request
+`POST api/v1/user/gameRecordList`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `user_id` | integer |  required  | 用户id
+        `token` | integer |  required  | 用户token
+        `page` | integer |  required  | 页数
+    
+<!-- END_77b2d959ec62f1242623d4c2a7deccf9 -->
+
 <!-- START_bfb590aaf9c194724ed566321c719253 -->
 ## userPraiseList
 用户点赞列表
@@ -5139,7 +5383,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/user/userPraiseList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":16,"token":16,"page":18}'
+    -d '{"user_id":8,"token":6,"page":17}'
 
 ```
 
@@ -5154,9 +5398,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 16,
-    "token": 16,
-    "page": 18
+    "user_id": 8,
+    "token": 6,
+    "page": 17
 }
 
 fetch(url, {
@@ -5179,9 +5423,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 16,
-            'token' => 16,
-            'page' => 18,
+            'user_id' => 8,
+            'token' => 6,
+            'page' => 17,
         ],
     ]
 );
@@ -5320,7 +5564,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/user/userAdvisoryOrder" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":9,"token":15,"page":14}'
+    -d '{"user_id":8,"token":12,"page":1}'
 
 ```
 
@@ -5335,9 +5579,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 9,
-    "token": 15,
-    "page": 14
+    "user_id": 8,
+    "token": 12,
+    "page": 1
 }
 
 fetch(url, {
@@ -5360,9 +5604,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 9,
-            'token' => 15,
-            'page' => 14,
+            'user_id' => 8,
+            'token' => 12,
+            'page' => 1,
         ],
     ]
 );
@@ -5437,7 +5681,7 @@ curl -X POST \
     "http://sns.shenruxiang.com/api/v1/user/userCollectList" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":6,"token":16,"page":5}'
+    -d '{"user_id":1,"token":16,"page":20}'
 
 ```
 
@@ -5452,9 +5696,9 @@ let headers = {
 };
 
 let body = {
-    "user_id": 6,
+    "user_id": 1,
     "token": 16,
-    "page": 5
+    "page": 20
 }
 
 fetch(url, {
@@ -5477,9 +5721,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'user_id' => 6,
+            'user_id' => 1,
             'token' => 16,
-            'page' => 5,
+            'page' => 20,
         ],
     ]
 );

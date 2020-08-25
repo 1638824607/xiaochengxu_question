@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Model\Adv\AppStart;
 use App\Model\User\User;
 use http\Client;
+
 use Illuminate\Http\Request;
-use App\Util\Crypt\WeiXin\WXBizDataCrypt;
+use App\Model\User\WXBizDataCrypt;
+
+
 
 /**
  * @group Login
@@ -160,7 +162,7 @@ class LoginController extends BaseController
     public function getPhone()
     {
         $this->validator([
-            'code' => 'required',
+            // 'code' => 'required',
             'openid'=>'required',
             'iv'=>'required',
             'encryptedData'=>'required',
@@ -172,29 +174,91 @@ class LoginController extends BaseController
         if(empty($userInfo)){
             return $this->retJson(211, '用户不存在');
         }
+        // return $this->retJson(9000, $userInfo->session_key);
 
+        //  $params = [
+        //     'appid'      => self::APPID,
+        //     'secret'     => self::APPID_SECERT,
+        //     'js_code'    => request('code'),
+        //     'grant_type' => 'authorization_code'
+        // ];
 
-        $test = new WXBizDataCrypt(self::APPID,self::APPID_SECERT);
+        // // 拼接url
+        // $wxCodeUrl = 'https://api.weixin.qq.com/sns/jscode2session';
 
-        $returnCode = $test->decryptData(request('encryptedData'),request('iv'),$data);
+        // $res = $this->http_query($wxCodeUrl, $params);
+        // $res = json_decode($res, true);
+
+        // if(! empty($res['errcode'])) {
+        //     return $this->retJson(201, $res['errmsg']);
+        // }
+
+        // $sessionKey = $res['session_key'];
+        $test = new WXBizDataCrypt('wx53e535fb5fdd4b8e',$userInfo->session_key);
+        // return $this->retJson(211, stripslashes(request('encryptedData')));
+        $returnCode = $test->decryptData(request('encryptedData'),urldecode(request('iv')),$data);
         if($returnCode != 0){
             return $this->retJson(212, '手机号绑定失败'.$returnCode);
         }
-
-        if($userInfo->phone && $userInfo->phone == $returnCode['purePhoneNumber']){
+        $wx_user_info = json_decode($data, true);
+        if($userInfo->phone && $userInfo->phone == $wx_user_info['purePhoneNumber']){
             return $this->retJson(213, '手机号已绑定');
         }
 
-        $res = User::where(['openid' => request('openid')])->update([
-            'phone' => $returnCode['purePhoneNumber'],
+        $res = User::where('openid',request('openid'))->update([
+            'phone' => $wx_user_info['purePhoneNumber'],
         ]);
         if($res){
-            $userInfo = User::where(['openid' => request('openid')])->first();
+            $userInfo = User::where('openid',request('openid'))->first();
             return $this->retJson(0, '绑定成功',$userInfo);
         }else{
             return $this->retJson(214, '绑定失败');
         }
 
 
+    }
+
+
+    public function refreshSessionKey()
+    {
+        $this->validator([
+            'code' => 'required',
+            'openid'=>'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $userInfo = User::where(['openid' => request('openid')])->first();
+        if(empty($userInfo)){
+            return $this->retJson(215, '请重新登录');
+        }
+        $params = [
+            'appid'      => self::APPID,
+            'secret'     => self::APPID_SECERT,
+            'js_code'    => request('code'),
+            'grant_type' => 'authorization_code'
+        ];
+
+        // 拼接url
+        $wxCodeUrl = 'https://api.weixin.qq.com/sns/jscode2session';
+
+        $res = $this->http_query($wxCodeUrl, $params);
+        $res = stripslashes($res);
+        $res = json_decode($res, true);
+
+        if(! empty($res['errcode'])) {
+            return $this->retJson(201, $res['errmsg']);
+        }
+
+        $sessionKey = $res['session_key'];
+
+        $res = User::where('openid',request('openid'))->update([
+            'session_key' =>$sessionKey,
+        ]);
+        if($res){
+            return $this->retJson(216, $sessionKey);
+        }else{
+            return $this->retJson(217, '请重新登录');
+        }
     }
 }

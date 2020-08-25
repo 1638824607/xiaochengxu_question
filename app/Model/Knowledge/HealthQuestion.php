@@ -10,7 +10,7 @@ class HealthQuestion extends Model
 
     protected $guarded = [''];
 
-    protected $casts = [
-        'options' => 'array',
-    ];
+//    protected $casts = [
+//        'options' => 'array',
+//    ];
 }

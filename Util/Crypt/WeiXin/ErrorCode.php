@@ -6,7 +6,7 @@
  * Time: 10:58
  */
 
-namespace App\Util\Crypt\WeiXin;
+namespace Util\Crypt\WeiXin;
 
 use Exception;
 

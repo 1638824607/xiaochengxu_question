@@ -63,10 +63,10 @@ class CommunityController extends BaseController
                     $postList['data'][$key]['is_praise'] = 0;
                 }
             }
-            
+
         }
 
-       
+
         return $this->retData($postList);
     }
 
@@ -167,7 +167,7 @@ class CommunityController extends BaseController
 
         PostComment::create([
             'post_id'    => request('post_id'),
-            'user_id'    => request('user_id'),
+            'user_id'    => $this->userInfo['id'],
             'to_user_id' => request('to_user_id'),
             'comment_id' => request('comment_id'),
             'content'    => request('comment_content')
@@ -362,7 +362,7 @@ class CommunityController extends BaseController
      */
     public function sendPost()
     {
-      
+
         $this->validator([
             'title'    => 'required',
             'content'  => 'required',
