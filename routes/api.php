@@ -56,7 +56,12 @@ Route::namespace('V1')->prefix('v1')->group(function ()
         Route::post('advisoryList', 'CommunityController@advisoryList');
         Route::post('advisoryOrder', 'CommunityController@advisoryOrder');
         Route::post('advisoryOrderEdit', 'CommunityController@advisoryOrderEdit');
+
         Route::post('advisoryOrderEdit', 'CommunityController@advisoryOrderEdit');
+
+        Route::post('advisoryDateList', 'CommunityController@advisoryDateList');
+        
+
     });
 
     Route::prefix('user')->group(function ()
