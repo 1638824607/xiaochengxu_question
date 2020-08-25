@@ -185,6 +185,52 @@ class UserController extends BaseController
         return $this->retData($userCommentList);
     }
 
+
+    public function userReplyList()
+    {
+        $this->validator([
+            'user_id' => 'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+        $postComment = PostComment::with(['toUser'])->where(['user_id' => request('user_id'), 'status' => 1])->simplePaginate(10)->toArray();
+        if ($postComment){
+
+            foreach ($postComment as &$v) {
+                if($v['post_id']){
+                    $v['post'] =$post= Post::where('id',$v['post_id'])->first->toArray();
+                    $v['post']['user'] = User::where('id', $post['user_id'])->first()->toArray();
+                }
+                if($v['to_user_id']){
+                    $v['reply_list'] = PostComment::with(['toUser'])->where(['user_id' => $v['to_user_id'], 'status' => 1])->get()->toArray();
+                }
+            }
+
+        }
+
+        return $this->retData($postComment);
+    }
+
+
+    public function userReplyDel()
+    {
+        $this->validator([
+            'id' => 'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $res = PostComment::where('id', request('id'))->update([
+            'status'  => 2,
+
+        ]);
+        if($res){
+            return $this->retJson(0, '删除评论成功');
+        }else{
+            return $this->retJson(2, '删除评论失败');
+        }
+    }
+
     /**
      * userPraiseList
      * 用户点赞列表
@@ -202,7 +248,18 @@ class UserController extends BaseController
         ]);
 
         $userPraiseList = PostPraise::with(['toUser', 'post'])->where('user_id', request('user_id'))->simplePaginate(10);
+        if (! empty($userPraiseList['data']))
+        {
+            foreach ($userPraiseList['data'] as &$v) {
+                if(empty($v['post_comment'])) {
+                    continue;
+                }
 
+                foreach($v['post_comment'] as &$vv) {
+                    $vv['reply_list'] = PostComment::with(['toUser'])->where(['comment_id' => $vv['id'], 'status' => 1])->get()->toArray();
+                }
+            }
+        }
         return $this->retData($userPraiseList);
     }
 
