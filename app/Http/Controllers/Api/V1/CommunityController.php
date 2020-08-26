@@ -536,7 +536,7 @@ class CommunityController extends BaseController
                            unset($teacher_ids[array_search($o['advisory_id'],$teacher_ids)]);
                         }
                     }
-                    $have_data[$key][$index][] = [
+                    $have_data[$key][] = [
                         'time_id'=>$t['id'],
                         'teacher_id'=>$te['id'],
                         'start_time'=>$t['start_time'],
