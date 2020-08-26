@@ -504,6 +504,7 @@ class CommunityController extends BaseController
          
          $now = time();
          $have_data = [];
+         $teacher_date = [];
          for($i=0;$i<5;$i++)
          {
             $key =  date('Y-m-d',$time);
@@ -521,6 +522,7 @@ class CommunityController extends BaseController
                 }
                 foreach($teacher_list as $te)
                 {
+                    $has = 0;
                   
                     foreach($advisory_list as $o)
                     {
@@ -529,16 +531,20 @@ class CommunityController extends BaseController
                         $end_t = strtotime(date('Y-m-d ',$time) .$t['end_time']);
                         if(in_array($o['advisory_id'],$teacher_ids) && $order_at_time >= $start_t && $order_at_time <= $end_t)
                         {
+                           $has = 1; 
                            unset($teacher_ids[array_search($o['advisory_id'],$teacher_ids)]);
                         }
                     }
+                    $have_data[$key][$te['id']][] = [
+                        'time_id'=>$t['id'],
+                        'teacher_id'=>$te['id'],
+                        'start_time'=>$t['start_time'],
+                        'end_time'=>$t['end_time']
+                    ];
+                   
                 }
-                $have_data[$key][] = [
-                    'time_id'=>$t['id'],
-                    'teacher_id'=>$te['id'],
-                    'start_time'=>$t['start_time'],
-                    'end_time'=>$t['end_time']
-                ];
+              
+
 
             }
 
@@ -546,9 +552,13 @@ class CommunityController extends BaseController
             $time = strtotime('+1day',$time);
 
          }
+
+
+
          $return_data = [
              'items'=>$rows,
-             'reducible'=>$have_data
+             'reducible'=>$have_data,
+
          ];
          return $this->retData($return_data);
     }
