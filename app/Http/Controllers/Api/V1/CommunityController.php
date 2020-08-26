@@ -552,12 +552,16 @@ class CommunityController extends BaseController
             
             foreach($have_data as $key=>$item)
             {
-                $row = [];
+                $data = [];
+                $rows = [];
                foreach($item as $k=>$v)
                {
-                  $row[] = $v;
+                  $rows[] = $v;
+                  $data['teacher_name'] = $v['teacher_name'];
+                  $data['teacher_id'] = $v['teacher_id'];
                } 
-               $have_data[$key] = $row;
+               $data['items'] = $rows;
+               $have_data[$key] = $data;
             }
             
             $rows[$i]['reducible'] = isset($have_data[$key]) ? 1 : 0;
