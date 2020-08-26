@@ -93,7 +93,11 @@ class CommunityController extends BaseController
             $q->where('user_id', $this->userInfo['id']);
         }])->where(['id' => $postId, 'status' => 1])->first();
 
-        $postDetail->increment('view_num');
+        if (empty($postDetail)) {
+            return $this->retJson(400, '帖子已被屏蔽');
+        }
+
+         $postDetail->increment('view_num');
 
         $collectPostIDs = [];
         $praisePostIDs = [];
