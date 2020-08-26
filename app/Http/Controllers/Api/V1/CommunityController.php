@@ -538,6 +538,7 @@ class CommunityController extends BaseController
                     }
                     $have_data[$key][] = [
                         'time_id'=>$t['id'],
+                        'teacher_name'=>$te['name'],
                         'teacher_id'=>$te['id'],
                         'start_time'=>$t['start_time'],
                         'end_time'=>$t['end_time']
