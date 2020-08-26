@@ -520,6 +520,7 @@ class CommunityController extends BaseController
                     // 来不及预约
                     continue;  
                 }
+                $index = 1;
                 foreach($teacher_list as $te)
                 {
                     $has = 0;
@@ -535,13 +536,13 @@ class CommunityController extends BaseController
                            unset($teacher_ids[array_search($o['advisory_id'],$teacher_ids)]);
                         }
                     }
-                    $have_data[$key][$te['id']][] = [
+                    $have_data[$key][$index][] = [
                         'time_id'=>$t['id'],
                         'teacher_id'=>$te['id'],
                         'start_time'=>$t['start_time'],
                         'end_time'=>$t['end_time']
                     ];
-                   
+                   ++$index;
                 }
               
 
