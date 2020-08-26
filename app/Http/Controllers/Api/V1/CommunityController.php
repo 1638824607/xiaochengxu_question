@@ -536,7 +536,7 @@ class CommunityController extends BaseController
                            unset($teacher_ids[array_search($o['advisory_id'],$teacher_ids)]);
                         }
                     }
-                    $have_data[$key][] = [
+                    $have_data[$key][$te['id']][] = [
                         'time_id'=>$t['id'],
                         'teacher_name'=>$te['name'],
                         'teacher_id'=>$te['id'],
@@ -549,7 +549,17 @@ class CommunityController extends BaseController
 
 
             }
-
+            
+            foreach($have_data as $key=>$item)
+            {
+                $row = [];
+               foreach($item as $k=>$v)
+               {
+                  $row[] = $v;
+               } 
+               $have_data[$key] = $row;
+            }
+            
             $rows[$i]['reducible'] = isset($have_data[$key]) ? 1 : 0;
             $time = strtotime('+1day',$time);
 
