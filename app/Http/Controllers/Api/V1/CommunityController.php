@@ -557,8 +557,8 @@ class CommunityController extends BaseController
                foreach($item as $k=>$v)
                {
                   $rows[] = $v;
-                  $data['teacher_name'] = $v['teacher_name'];
-                  $data['teacher_id'] = $v['teacher_id'];
+                  $data['teacher_name'] = $v[0]['teacher_name'];
+                  $data['teacher_id'] = $v[0]['teacher_id'];
                } 
                $data['items'] = $rows;
                $have_data[$key] = $data;
