@@ -22,6 +22,7 @@ Route::namespace('V1')->prefix('v1')->group(function ()
     Route::post('refreshSessionKey', 'LoginController@refreshSessionKey');
     Route::post('loginLog', 'LoginController@loginLog');
 
+
     Route::prefix('knowledge')->group(function ()
     {
         Route::post('bannerList', 'KnowledgeController@bannerList');
@@ -57,8 +58,10 @@ Route::namespace('V1')->prefix('v1')->group(function ()
         Route::post('advisoryList', 'CommunityController@advisoryList');
         Route::post('advisoryOrder', 'CommunityController@advisoryOrder');
         Route::post('advisoryOrderEdit', 'CommunityController@advisoryOrderEdit');
+        Route::post('advisoryOrderEdit', 'CommunityController@advisoryOrderEdit');
         Route::post('advisoryDateList', 'CommunityController@advisoryDateList');
         Route::post('advisoryInfo', 'CommunityController@advisoryInfo');
+
 
     });
 
@@ -74,11 +77,13 @@ Route::namespace('V1')->prefix('v1')->group(function ()
         Route::post('userPraiseList', 'UserController@userPraiseList');
         Route::post('userAdvisoryOrder', 'UserController@userAdvisoryOrder');
         Route::post('userCollectList', 'UserController@userCollectList');
+
         Route::post('userReplyDel', 'UserController@userReplyDel');
         Route::post('userReplyList', 'UserController@userReplyList');
         Route::post('matchRecordInfo', 'UserController@matchRecordInfo');
         Route::post('gameRecordInfo', 'UserController@gameRecordInfo');
         Route::post('healthRecordInfo', 'UserController@healthRecordInfo');
+
     });
 
     Route::prefix('train')->group(function ()

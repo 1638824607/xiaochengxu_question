@@ -44,20 +44,15 @@ class LoginController extends BaseController
             'required' => '缺少必要的参数',
         ]);
 
-        $openid = request('openid');
-        $userInfo = User::where(['openid' => $openid])->first();
+        $userInfo = User::where(['openid' => request('openid')])->first();
 
-//        if(! empty($userInfo)) {
-//            return $this->retJson(201, '用户已注册');
-//        }
-
-        if(empty($userInfo)) {
-            return $this->retJson(201, '用户未注册');
+        if(! empty($userInfo)) {
+            return $this->retJson(201, '用户已注册');
         }
 
-        $userInfo = User::where(['openid' => $openid])->update([
+        $userInfo = User::create([
             'openid'            => request('openid'),
-//            'user_name'         => time() . rand(100, 999),
+            'user_name'         => time() . rand(100, 999),
             'nick'              => request('nick')? request('nick'):'',
             'avatar'            => request('avatar')? request('avatar'):'',
             'login_time'        => date('Y-m-d H:i:s'),
@@ -68,7 +63,7 @@ class LoginController extends BaseController
             ]
         );
 
-        $userInfo = User::where('openid', $openid)->first();
+        $userInfo = User::where('id', $userInfo->id)->first();
         $userInfo->isTemp = false;
 
         return $this->retData($userInfo);
@@ -191,11 +186,31 @@ class LoginController extends BaseController
 
         $userInfo = User::where(['openid' => request('openid')])->first();
         if(empty($userInfo)){
-//            return $this->retJson(211, '用户不存在');
+            return $this->retJson(211, '用户不存在');
         }
+        // return $this->retJson(9000, $userInfo->session_key);
+
+        //  $params = [
+        //     'appid'      => self::APPID,
+        //     'secret'     => self::APPID_SECERT,
+        //     'js_code'    => request('code'),
+        //     'grant_type' => 'authorization_code'
+        // ];
+
+        // // 拼接url
+        // $wxCodeUrl = 'https://api.weixin.qq.com/sns/jscode2session';
+
+        // $res = $this->http_query($wxCodeUrl, $params);
+        // $res = json_decode($res, true);
 
 
-         $test = new WXBizDataCrypt('wx53e535fb5fdd4b8e',$userInfo->session_key);
+        // if(! empty($res['errcode'])) {
+        //     return $this->retJson(201, $res['errmsg']);
+        // }
+
+        // $sessionKey = $res['session_key'];
+        $test = new WXBizDataCrypt('wx53e535fb5fdd4b8e',$userInfo->session_key);
+
         // return $this->retJson(211, stripslashes(request('encryptedData')));
         $returnCode = $test->decryptData(request('encryptedData'),urldecode(request('iv')),$data);
         if($returnCode != 0){
@@ -203,8 +218,7 @@ class LoginController extends BaseController
         }
         $wx_user_info = json_decode($data, true);
         if($userInfo->phone && $userInfo->phone == $wx_user_info['purePhoneNumber']){
-        	 $userInfo = User::where('openid',request('openid'))->first();
-            return $this->retJson(213, '手机号已绑定',$userInfo);
+            return $this->retJson(213, '手机号已绑定');
         }
 
         $res = User::where('openid',request('openid'))->update([
@@ -229,7 +243,8 @@ class LoginController extends BaseController
             'required' => '缺少必要的参数',
         ]);
 
-        $userInfo = User::where('openid',request('openid'))->first();
+        $userInfo = User::where(['openid' => request('openid')])->first();
+
         if(empty($userInfo)){
             return $this->retJson(215, '请重新登录');
         }
@@ -277,6 +292,5 @@ class LoginController extends BaseController
         ]);
 
         return $this->retJson([0, '登陆成功']);
-
     }
 }

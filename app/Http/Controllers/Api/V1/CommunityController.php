@@ -666,92 +666,92 @@ class CommunityController extends BaseController
         return $this->retJson(0, '预约时间已更改');
     }
 
-//    public function advisoryDateList()
-//    {
-//
-//         $date_list = AdvisoryTime::get()->toArray();
-//         $time = time();
-//         $rows = [];
-//         $week_array=array("日","一","二","三","四","五","六"); //先定义一个数组
-//
-//         $advisory_list =  AdvisoryOrder::get()->toArray();
-//         $teacher_list = Advisory::get()->toArray();
-//
-//         $now = time();
-//         $have_data = [];
-//         $teacher_date = [];
-//         for($i=0;$i<5;$i++)
-//         {
-//            $key =  date('Y-m-d',$time);
-//            $flag = 0;
-//            $rows[$i]['title'] =  date('m.d',$time);
-//            $rows[$i]['week'] = '周'. $week_array[date("w",$time)];
-//            $rows[$i]['date'] = $key;
-//            foreach($date_list as $t)
-//            {
-//                $teacher_ids = array_column($teacher_list,'id');
-//                if(strtotime(date('Y-m-d ',$time) .$t['start_time']) <= $now)
-//                {
-//                    // 来不及预约
-//                    continue;
-//                }
-//                $index = 1;
-//                foreach($teacher_list as $te)
-//                {
-//                    $has = 0;
-//
-//                    foreach($advisory_list as $o)
-//                    {
-//                        $order_at_time = strtotime($o['order_at']);
-//                        $start_t = strtotime(date('Y-m-d ',$time) .$t['start_time']);
-//                        $end_t = strtotime(date('Y-m-d ',$time) .$t['end_time']);
-//                        if(in_array($o['advisory_id'],$teacher_ids) && $order_at_time >= $start_t && $order_at_time <= $end_t)
-//                        {
-//                           $has = 1;
-//                           unset($teacher_ids[array_search($o['advisory_id'],$teacher_ids)]);
-//                        }
-//                    }
-//                    $have_data[$key][$te['id']][] = [
-//                        'time_id'=>$t['id'],
-//                        'teacher_name'=>$te['name'],
-//                        'teacher_id'=>$te['id'],
-//                        'start_time'=>$t['start_time'],
-//                        'end_time'=>$t['end_time']
-//                    ];
-//                   ++$index;
-//                }
-//
-//
-//
-//            }
-//
-//            foreach($have_data as $key=>$item)
-//            {
-//                $data = [];
-//               foreach($item as $k=>$v)
-//               {
-//
-//                  $data['teacher_name'] = '王';
-//                  $data['teacher_id'] = '10';
-//                  $data['items'] = $v;
-//               }
-//
-//               $have_data[$key] = $data;
-//            }
-//
-//            $rows[$i]['reducible'] = isset($have_data[$key]) ? 1 : 0;
-//            $time = strtotime('+1day',$time);
-//
-//         }
-//
-//
-//
-//         $return_data = [
-//             'items'=>$rows,
-//             'reducible'=>$have_data,
-//
-//         ];
-//         return $this->retData($return_data);
-//    }
 
+    public function advisoryDateList()
+    {
+
+         $date_list = AdvisoryTime::get()->toArray();
+         $time = time();
+         $rows = [];
+         $week_array=array("日","一","二","三","四","五","六"); //先定义一个数组
+
+         $advisory_list =  AdvisoryOrder::get()->toArray();
+         $teacher_list = Advisory::get()->toArray();
+
+         $now = time();
+         $have_data = [];
+         $teacher_date = [];
+         for($i=0;$i<5;$i++)
+         {
+            $key =  date('Y-m-d',$time);
+            $flag = 0;
+            $rows[$i]['title'] =  date('m.d',$time);
+            $rows[$i]['week'] = '周'. $week_array[date("w",$time)];
+            $rows[$i]['date'] = $key;
+            foreach($date_list as $t)
+            {
+                $teacher_ids = array_column($teacher_list,'id');
+                if(strtotime(date('Y-m-d ',$time) .$t['start_time']) <= $now)
+                {
+                    // 来不及预约
+                    continue;
+                }
+                $index = 1;
+                foreach($teacher_list as $te)
+                {
+                    $has = 0;
+
+                    foreach($advisory_list as $o)
+                    {
+                        $order_at_time = strtotime($o['order_at']);
+                        $start_t = strtotime(date('Y-m-d ',$time) .$t['start_time']);
+                        $end_t = strtotime(date('Y-m-d ',$time) .$t['end_time']);
+                        if(in_array($o['advisory_id'],$teacher_ids) && $order_at_time >= $start_t && $order_at_time <= $end_t)
+                        {
+                           $has = 1;
+                           unset($teacher_ids[array_search($o['advisory_id'],$teacher_ids)]);
+                        }
+                    }
+                    $have_data[$key][$te['id']][] = [
+                        'time_id'=>$t['id'],
+                        'teacher_name'=>$te['name'],
+                        'teacher_id'=>$te['id'],
+                        'start_time'=>$t['start_time'],
+                        'end_time'=>$t['end_time']
+                    ];
+                   ++$index;
+                }
+
+
+
+            }
+
+            foreach($have_data as $key=>$item)
+            {
+                $data = [];
+               foreach($item as $k=>$v)
+               {
+
+                  $data['teacher_name'] = '王';
+                  $data['teacher_id'] = '10';
+                  $data['items'] = $item;
+               }
+
+               $have_data[$key] = $data;
+            }
+
+            $rows[$i]['reducible'] = isset($have_data[$key]) ? 1 : 0;
+            $time = strtotime('+1day',$time);
+
+         }
+
+
+
+         $return_data = [
+             'items'=>$rows,
+             'reducible'=>$have_data,
+
+         ];
+         return $this->retData($return_data);
+    }
 }

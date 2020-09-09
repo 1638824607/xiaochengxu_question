@@ -264,6 +264,7 @@ class UserController extends BaseController
         return $this->retData($userCommentList);
     }
 
+
     public function userReplyList()
     {
         $this->validator([
@@ -275,10 +276,10 @@ class UserController extends BaseController
 
         if ($postComment){
 
-            foreach ($postComment['data'] as &$v) {
-                 if($v['post_id']){
-                    $v['post'] = Post::where('id',$v['post_id'])->first()->toArray();
-                    $v['post']['user'] = User::where('id', $v['post']['user_id'])->first()->toArray();
+            foreach ($postComment as &$v) {
+                if($v['post_id']){
+                    $v['post'] =$post= Post::where('id',$v['post_id'])->first->toArray();
+                    $v['post']['user'] = User::where('id', $post['user_id'])->first()->toArray();
                 }
                 if($v['to_user_id']){
                     $v['reply_list'] = PostComment::with(['toUser'])->where(['user_id' => $v['to_user_id'], 'status' => 1])->get()->toArray();
@@ -327,7 +328,18 @@ class UserController extends BaseController
         ]);
 
         $userPraiseList = PostPraise::with(['toUser', 'post'])->where('user_id', request('user_id'))->simplePaginate(10);
+        if (! empty($userPraiseList['data']))
+        {
+            foreach ($userPraiseList['data'] as &$v) {
+                if(empty($v['post_comment'])) {
+                    continue;
+                }
 
+                foreach($v['post_comment'] as &$vv) {
+                    $vv['reply_list'] = PostComment::with(['toUser'])->where(['comment_id' => $vv['id'], 'status' => 1])->get()->toArray();
+                }
+            }
+        }
         return $this->retData($userPraiseList);
     }
 
