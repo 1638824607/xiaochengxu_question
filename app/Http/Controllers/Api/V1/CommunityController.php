@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Model\Community\Advisory;
 use App\Model\Community\AdvisoryOrder;
+use App\Model\Community\Keyword;
 use App\Model\Community\Post;
 use App\Model\Community\PostCollect;
 use App\Model\Community\PostComment;
 use App\Model\Community\PostPraise;
 use App\Model\Community\PostShare;
 use App\Model\User\User;
+use App\Model\Community\AdvisoryTime;
 
 /**
  * @group Community
@@ -96,7 +98,38 @@ class CommunityController extends BaseController
             return $this->retJson(400, '帖子已被屏蔽');
         }
 
-        $postDetail->increment('view_num');
+         $postDetail->increment('view_num');
+
+        $collectPostIDs = [];
+        $praisePostIDs = [];
+        $postDetail = $postDetail->toArray();
+        $postIDs = array_column($postDetail,'id');
+
+        $commentList = PostCollect::where('post_id',$postId)->where(['user_id'=>$this->userInfo['id']])->get();
+        if($commentList)
+        {
+            $collectPostIDs = array_column($commentList->toArray(),'post_id');
+        }
+        $commentList = PostPraise::where('post_id',$postId)->where(['user_id'=>$this->userInfo['id']])->get();
+        if($commentList)
+        {
+            $praisePostIDs = array_column($commentList->toArray(),'post_id');
+        }
+        if(in_array($postId,$collectPostIDs))
+        {
+            $postDetail['is_collect'] = 1;
+        }else{
+            $postDetail['is_collect'] = 0;
+        }
+
+        if(in_array($postId,$praisePostIDs))
+        {
+            $postDetail['is_praise'] = 1;
+        }else{
+            $postDetail['is_praise'] = 0;
+        }
+
+//        $postDetail->increment('view_num');
 
         return $this->retData($postDetail);
     }
@@ -159,10 +192,26 @@ class CommunityController extends BaseController
             'required' => '缺少必要的参数',
         ]);
 
+
         $postInfo = Post::where(['id' => request('post_id'), 'status' => 1])->first();
 
         if (empty($postInfo)) {
             return $this->retJson(201, '获取帖子失败');
+        }
+
+        $userInfo = User::where('id', $this->userInfo['id'])->first();
+
+        if($userInfo['status'] == 2) {
+            return $this->retJson(1, '用户已被屏蔽');
+        }
+
+        $keywordList = Keyword::get()->toArray();
+
+        $content = htmlspecialchars(request('comment_content'));
+
+        if(! empty($keywordList)){
+            $keywordList = array_unique(array_filter(array_column($keywordList, 'content')));
+            $content = str_replace($keywordList, '***', $content);
         }
 
         PostComment::create([
@@ -170,7 +219,7 @@ class CommunityController extends BaseController
             'user_id'    => $this->userInfo['id'],
             'to_user_id' => request('to_user_id'),
             'comment_id' => request('comment_id'),
-            'content'    => request('comment_content')
+            'content'    => $content
         ]);
 
         Post::where('id', request('post_id'))->increment('comment_num');
@@ -362,6 +411,7 @@ class CommunityController extends BaseController
      */
     public function sendPost()
     {
+        $keywordList = Keyword::get()->toArray();
 
         $this->validator([
             'title'    => 'required',
@@ -371,10 +421,23 @@ class CommunityController extends BaseController
             'required' => '缺少必要的参数',
         ]);
 
+        $userInfo = User::where('id', $this->userInfo['id'])->first();
+
+        if($userInfo['status'] == 2) {
+            return $this->retJson(1, '用户已被屏蔽');
+        }
+
+        $content = htmlspecialchars(request('content'));
+
+        if(! empty($keywordList)){
+            $keywordList = array_unique(array_filter(array_column($keywordList, 'content')));
+            $content = str_replace($keywordList, '***', $content);
+        }
+
         Post::create([
             'user_id'       => $this->userInfo['id'],
             'title'         => request('title'),
-            'content'       => htmlspecialchars(request('content')),
+            'content'       => $content,
             'status'        => 1,
             'images'        => request('images'),
             'create_day'    => date('Y-m-d')
@@ -388,13 +451,122 @@ class CommunityController extends BaseController
     /**
      * advisoryList
      * 咨询求助列表
+     * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
      * @responseFile responses/community/advisoryList.json
      */
     public function advisoryList()
     {
-        $advisoryList = Advisory::get();
+        $startDate = date('Y-m-d');
+        $endDate   = date('Y-m-d', strtotime('+7 days'));
+
+        $advisory = new Advisory();
+
+        $dayList = Advisory::getDateRangeArray($startDate, $endDate, 'Y-m-d');
+
+        $advisoryList = [];
+
+        foreach($dayList as $day)
+        {
+            $week = date("w",strtotime($day));
+
+            $advisoryTempList = Advisory::where('week', 'like', "%{$week}%")->get();
+
+            $isHave = 0;
+
+            foreach($advisoryTempList as &$advisoryTemp) {
+                $durationList = empty($advisoryTemp['duration']) ? [] : explode(',', $advisoryTemp['duration']);
+
+                if(empty($durationList)) {
+                    continue;
+                }
+
+                $tempDuration = [];
+
+                foreach($durationList as $duration)
+                {
+                    $advisoryOrderCount = AdvisoryOrder::where(['created_day' => $day])->count();
+                    $advisoryOrderUser  = AdvisoryOrder::where(['created_day' => $day, 'advisory_id' => $advisoryTemp['id'], 'user_id' => $this->userInfo['id']])->first();
+
+                    $durationIsHave = $advisoryOrderCount >= $advisoryTemp['number'] ? 0 : 1;
+
+                    if($durationIsHave == 1){
+                        $isHave = 1;
+                    }
+
+                    $tempDuration[] = [
+                        'duration' => $duration,
+                        'is_have'  => $durationIsHave,
+                        'is_order' => empty($advisoryOrderUser) ? 0 : 1,
+                    ];
+
+                    $advisoryTemp['duration'] = $tempDuration;
+                }
+            }
+
+            $advisoryList[] = [
+                'data'    => date('m-d', strtotime($day)),
+                'week'    => $advisory->weekList[$week],
+                'is_have' => $isHave,
+                'list'    => $advisoryTempList
+            ];
+        }
 
         return $this->retData($advisoryList);
+    }
+
+    /**
+     * advisoryInfo
+     * 咨询求助详情
+     * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
+     * @bodyParam  advisory_id   int required 老师id
+     * @responseFile responses/community/advisoryInfo.json
+     */
+    public function advisoryInfo()
+    {
+        $this->validator([
+            'advisory_id' => 'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $advisory = new Advisory();
+
+        $advisoryInfo = $advisory->where('id', request('advisory_id'))->first();
+
+        if(empty($advisoryInfo)){
+            return $this->retJson(201, '未获取到预约详情');
+        }
+
+        if(! empty($advisoryInfo['week'])) {
+            $advisoryWeek = explode(',', $advisoryInfo['week']);
+            $startDate = date('Y-m-d');
+            $endDate   = date('Y-m-d', strtotime('+7 days'));
+
+            $dayList = $advisory->getDateRangeArray($startDate, $endDate, 'Y-m-d');
+
+            $tempDate = [];
+
+            foreach($dayList as $day)
+            {
+                $week = date("w", strtotime($day));
+
+                if(! in_array($week, $advisoryWeek)){
+                    continue;
+                }
+
+                $tempDate[] = [
+                    'date' => $day,
+                    'week' => $advisory->weekList[$week],
+                    'duration' => explode(',', $advisoryInfo['duration'])
+                ];
+            }
+
+            $advisoryInfo['date'] = $tempDate;
+        }
+
+        return $this->retData($advisoryInfo);
     }
 
     /**
@@ -404,7 +576,8 @@ class CommunityController extends BaseController
      * @bodyParam  user_id int required 用户id
      * @bodyParam  token   int required 用户token
      * @bodyParam  advisory_id int required 咨询老师id
-     * @bodyParam  order_at datetime required 预约时间
+     * @bodyParam  duration string required 预约时间段
+     * @bodyParam  created_day string required 预约日期 2020-08-27
      * @responseFile responses/community/advisoryOrder.json
      */
     public function advisoryOrder()
@@ -412,22 +585,27 @@ class CommunityController extends BaseController
         $this->validator([
             'advisory_id' => 'required',
             'user_id'     => 'required',
-            'order_at'    => 'required',
+            'created_day' => 'required',
+            'duration'    => 'required',
         ], [
             'required' => '缺少必要的参数',
         ]);
 
-        $advisoryOrderInfo = AdvisoryOrder::where(['advisory_id' => request('advisory_id'), 'user_id' => request('user_id')])
-            ->first();
+        $advisoryOrderInfo = AdvisoryOrder::where([
+            'advisory_id' => request('advisory_id'),
+            'user_id'     => request('user_id'),
+            'created_day' => request('created_day'),
+        ])->first();
 
-        if(! empty($advisoryOrderInfo) && $advisoryOrderInfo['status'] == 1) {
+        if(! empty($advisoryOrderInfo)) {
             return $this->retJson(201, '您已预约');
         }
 
         AdvisoryOrder::create([
             'advisory_id' => request('advisory_id'),
             'user_id'     => request('user_id'),
-            'order_at'    => request('order_at'),
+            'created_day' => request('created_day'),
+            'duration'    => request('duration'),
         ]);
 
         return $this->retJson(0, '您已成功预约');
@@ -440,7 +618,8 @@ class CommunityController extends BaseController
      * @bodyParam  user_id int required 用户id
      * @bodyParam  token   int required 用户token
      * @bodyParam  id int required 预约id
-     * @bodyParam  order_at datetime required 预约时间
+     * @bodyParam  created_day string required 预约日期
+     * @bodyParam  duration string 预约时间段
      * @responseFile responses/community/advisoryOrderEdit.json
      */
     public function advisoryOrderEdit()
@@ -452,10 +631,127 @@ class CommunityController extends BaseController
             return $this->retJson(201, '未找到预约记录');
         }
 
+        $advisoryInfo = Advisory::where('id', $advisoryOrderInfo['advisory_id'])->first();
+
+        if(empty($advisoryInfo)) {
+            return $this->retJson(201, '未找到预约记录');
+        }
+
+        $AdvisoryOrderCount = AdvisoryOrder::where([
+            'created_day'  => request('created_day'),
+            'duration'     => request('duration'),
+            'advisory_id'  => $advisoryInfo['id'],
+        ])->count();
+
+        if($AdvisoryOrderCount >= $advisoryInfo['number']) {
+            return $this->retJson(201, '预约已满');
+        }
+
+        $AdvisoryOrderUser = AdvisoryOrder::where([
+            'created_day'  => request('created_day'),
+            'duration'     => request('duration'),
+            'advisory_id'  => $advisoryInfo['id'],
+            'user_id'      => request('user_id'),
+        ])->first();
+
+        if(! empty($AdvisoryOrderUser)) {
+            return $this->retJson(201, '您已预约');
+        }
+
         AdvisoryOrder::where('id', request('id'))->update([
-            'order_at'  => request('order_at'),
+            'created_day'  => request('created_day'),
+            'duration'     => request('duration'),
         ]);
 
         return $this->retJson(0, '预约时间已更改');
     }
+
+//    public function advisoryDateList()
+//    {
+//
+//         $date_list = AdvisoryTime::get()->toArray();
+//         $time = time();
+//         $rows = [];
+//         $week_array=array("日","一","二","三","四","五","六"); //先定义一个数组
+//
+//         $advisory_list =  AdvisoryOrder::get()->toArray();
+//         $teacher_list = Advisory::get()->toArray();
+//
+//         $now = time();
+//         $have_data = [];
+//         $teacher_date = [];
+//         for($i=0;$i<5;$i++)
+//         {
+//            $key =  date('Y-m-d',$time);
+//            $flag = 0;
+//            $rows[$i]['title'] =  date('m.d',$time);
+//            $rows[$i]['week'] = '周'. $week_array[date("w",$time)];
+//            $rows[$i]['date'] = $key;
+//            foreach($date_list as $t)
+//            {
+//                $teacher_ids = array_column($teacher_list,'id');
+//                if(strtotime(date('Y-m-d ',$time) .$t['start_time']) <= $now)
+//                {
+//                    // 来不及预约
+//                    continue;
+//                }
+//                $index = 1;
+//                foreach($teacher_list as $te)
+//                {
+//                    $has = 0;
+//
+//                    foreach($advisory_list as $o)
+//                    {
+//                        $order_at_time = strtotime($o['order_at']);
+//                        $start_t = strtotime(date('Y-m-d ',$time) .$t['start_time']);
+//                        $end_t = strtotime(date('Y-m-d ',$time) .$t['end_time']);
+//                        if(in_array($o['advisory_id'],$teacher_ids) && $order_at_time >= $start_t && $order_at_time <= $end_t)
+//                        {
+//                           $has = 1;
+//                           unset($teacher_ids[array_search($o['advisory_id'],$teacher_ids)]);
+//                        }
+//                    }
+//                    $have_data[$key][$te['id']][] = [
+//                        'time_id'=>$t['id'],
+//                        'teacher_name'=>$te['name'],
+//                        'teacher_id'=>$te['id'],
+//                        'start_time'=>$t['start_time'],
+//                        'end_time'=>$t['end_time']
+//                    ];
+//                   ++$index;
+//                }
+//
+//
+//
+//            }
+//
+//            foreach($have_data as $key=>$item)
+//            {
+//                $data = [];
+//               foreach($item as $k=>$v)
+//               {
+//
+//                  $data['teacher_name'] = '王';
+//                  $data['teacher_id'] = '10';
+//                  $data['items'] = $v;
+//               }
+//
+//               $have_data[$key] = $data;
+//            }
+//
+//            $rows[$i]['reducible'] = isset($have_data[$key]) ? 1 : 0;
+//            $time = strtotime('+1day',$time);
+//
+//         }
+//
+//
+//
+//         $return_data = [
+//             'items'=>$rows,
+//             'reducible'=>$have_data,
+//
+//         ];
+//         return $this->retData($return_data);
+//    }
+
 }

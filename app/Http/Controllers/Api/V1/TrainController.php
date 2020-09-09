@@ -6,6 +6,7 @@ use App\Model\Knowledge\MatchRecord;
 use App\Model\Train\Banner;
 use App\Model\Train\Day;
 use App\Model\Train\DayCate;
+use App\Model\Train\DayJoin;
 use App\Model\Train\Game;
 use App\Model\Train\GameRecord;
 use App\Model\User\User;
@@ -57,9 +58,15 @@ class TrainController extends BaseController
 
         $dayList = Day::withCount(['dayStep' =>function($query){
             $query->select(DB::raw("sum(duration) as duration"));
+        }])->withCount(['dayJoin' => function($query){
+            $query->where('user_id',request('user_id'));
         }])->where('cate_id', request('cate_id'))->get();
-
         return $this->retData($dayList);
+    }
+
+    public function dayLists()
+    {
+
     }
 
     /**
@@ -77,19 +84,14 @@ class TrainController extends BaseController
         ]);
 
         $dayInfo = Day::with('dayStep')->where('id', request('day_id'))->first();
-        $dayInfo = $dayInfo->toarray();
-        $day_step_list = $dayInfo['day_step'];
-        foreach($day_step_list as $key=>$item)
-        {
-            if(strpos(strtolower($item['src']),'.mp3'))
-            {
-                $day_step_list[$key]['src_type'] = 1;
-            }else{
-                $day_step_list[$key]['src_type'] = 2;
-            }
+//        $dayInfo = $dayInfo->toarray();
+//        $day_step_list = $dayInfo->day_step;
+//        $dayInfo['day_step'] = $day_step_list;
 
-        }
-        $dayInfo['day_step'] = $day_step_list;
+        DayJoin::create([
+            'user_id' => $this->userInfo['id'],
+            'day_id'  => request('day_id'),
+        ]);
         return $this->retData($dayInfo);
     }
 

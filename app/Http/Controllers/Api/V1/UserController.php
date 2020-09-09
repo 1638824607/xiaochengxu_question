@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Model\Community\Advisory;
 use App\Model\Community\AdvisoryOrder;
 use App\Model\Community\Post;
 use App\Model\Community\PostCollect;
@@ -85,7 +86,7 @@ class UserController extends BaseController
 
     /**
      * matchRecordList
-     * 知识竞赛自测记录
+     * 知识竞赛自测记录列表
      * @bodyParam  user_id int required 用户id
      * @bodyParam  token   int required 用户token
      * @bodyParam  page int required 页数
@@ -93,9 +94,36 @@ class UserController extends BaseController
      */
     public function matchRecordList()
     {
-        $matchRecordList = MatchRecord::with('match')->where('user_id', request('user_id'))->simplePaginate(10);
+        $matchRecordList = MatchRecord::with('match')
+            ->where('user_id', request('user_id'))
+            ->whereNotNull('end_time')
+            ->simplePaginate(10);
 
         return $this->retData($matchRecordList);
+    }
+
+    /**
+     * matchRecordInfo
+     * 知识竞赛自测记录详情
+     * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
+     * @bodyParam  record_id int required 记录id
+     * @responseFile responses/user/matchRecordInfo.json
+     */
+    public function matchRecordInfo()
+    {
+        $this->validator([
+            'record_id' => 'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $matchRecordInfo = MatchRecord::with('match')
+            ->where('user_id', request('user_id'))
+            ->where('id', request('record_id'))
+            ->first();
+
+        return $this->retData($matchRecordInfo);
     }
 
     /**
@@ -114,8 +142,32 @@ class UserController extends BaseController
     }
 
     /**
+     * gameRecordInfo
+     * 游戏记录详情
+     * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
+     * @bodyParam  record_id int required 记录id
+     * @responseFile responses/user/gameRecordInfo.json
+     */
+    public function gameRecordInfo()
+    {
+        $this->validator([
+            'record_id' => 'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $gameRecordInfo = GameRecord::with('game')
+            ->where('user_id', request('user_id'))
+            ->where('id', request('record_id'))
+            ->first();
+
+        return $this->retData($gameRecordInfo);
+    }
+
+    /**
      * healthRecordList
-     * 健康自测自测记录
+     * 健康自测记录列表
      * @bodyParam  user_id int required 用户id
      * @bodyParam  token   int required 用户token
      * @bodyParam  page int required 页数
@@ -123,9 +175,36 @@ class UserController extends BaseController
      */
     public function healthRecordList()
     {
-        $healthRecordList = HealthRecord::with('health')->where('user_id', request('user_id'))->simplePaginate(10);
+        $healthRecordList = HealthRecord::with('health')
+            ->where('user_id', request('user_id'))
+            ->whereNotNull('end_time')
+            ->simplePaginate(10);
 
         return $this->retData($healthRecordList);
+    }
+
+    /**
+     * healthRecordInfo
+     * 健康自测记录详情
+     * @bodyParam  user_id int required 用户id
+     * @bodyParam  token   int required 用户token
+     * @bodyParam  record_id int required 记录id
+     * @responseFile responses/user/healthRecordInfo.json
+     */
+    public function healthRecordInfo()
+    {
+        $this->validator([
+            'record_id' => 'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $healthRecordInfo = HealthRecord::with('health')
+            ->where('user_id', request('user_id'))
+            ->where('id', request('record_id'))
+            ->first();
+
+        return $this->retData($healthRecordInfo);
     }
 
     /**
@@ -185,6 +264,52 @@ class UserController extends BaseController
         return $this->retData($userCommentList);
     }
 
+    public function userReplyList()
+    {
+        $this->validator([
+            'user_id' => 'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+        $postComment = PostComment::with(['toUser'])->where(['user_id' => request('user_id'), 'status' => 1])->simplePaginate(10)->toArray();
+
+        if ($postComment){
+
+            foreach ($postComment['data'] as &$v) {
+                 if($v['post_id']){
+                    $v['post'] = Post::where('id',$v['post_id'])->first()->toArray();
+                    $v['post']['user'] = User::where('id', $v['post']['user_id'])->first()->toArray();
+                }
+                if($v['to_user_id']){
+                    $v['reply_list'] = PostComment::with(['toUser'])->where(['user_id' => $v['to_user_id'], 'status' => 1])->get()->toArray();
+                }
+            }
+
+        }
+
+        return $this->retData($postComment);
+    }
+
+
+    public function userReplyDel()
+    {
+        $this->validator([
+            'id' => 'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $res = PostComment::where('id', request('id'))->update([
+            'status'  => 2,
+
+        ]);
+        if($res){
+            return $this->retJson(0, '删除评论成功');
+        }else{
+            return $this->retJson(2, '删除评论失败');
+        }
+    }
+
     /**
      * userPraiseList
      * 用户点赞列表
@@ -237,7 +362,21 @@ class UserController extends BaseController
      */
     public function userAdvisoryOrder()
     {
-        $advisoryOrderList = AdvisoryOrder::with('advisory')->where('user_id', request('user_id'))->simplePaginate(10);
+        $advisoryOrderList = AdvisoryOrder::with('advisory')->where('user_id', request('user_id'))->simplePaginate(10)->toArray();
+
+        $advisory = new Advisory;
+
+        if(! empty($advisoryOrderList['data'])) {
+            foreach($advisoryOrderList['data'] as &$advisoryOrder) {
+                if(empty($advisoryOrder['created_day'])) {
+                    continue;
+                }
+
+                $week = date("w", strtotime($advisoryOrder['created_day']));
+                $advisoryOrder['week'] = $advisory->weekList[$week];
+            }
+        }
+
 
         return $this->retData($advisoryOrderList);
     }

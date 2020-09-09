@@ -14,4 +14,9 @@ class Day extends Model
     {
         return $this->hasMany('App\Model\Train\DayStep', 'day_id');
     }
+
+    public function dayJoin()
+    {
+        return $this->hasMany('App\Model\Train\DayJoin', 'day_id');
+    }
 }

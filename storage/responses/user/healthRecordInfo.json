@@ -1,0 +1,35 @@
+{
+    "code": 0,
+    "msg": "请求成功",
+    "data": {
+        "id": 7,
+        "user_id": 54,
+        "health_id": 4,
+        "score": 11,
+        "score_level": "良好",
+        "question": "",
+        "start_time": "2020-08-01 10:53:24",
+        "end_time": "2020-08-01 10:53:52",
+        "created_at": "2020-07-17 10:53:24",
+        "updated_at": "2020-08-01 10:53:52",
+        "health": {
+            "id": 4,
+            "cate_id": 2,
+            "title": "健康自测测评题目",
+            "sort": 1,
+            "hot": 0,
+            "desc": "健康自测测评题目",
+            "introduce": "健康自测测评题目",
+            "introduce_src": "/uploads/image/20200810/2020081010123791.png",
+            "introduce_src_type": "1",
+            "src": "/uploads/image/20200810/2020081010122018.png",
+            "src_type": 1,
+            "join_num": 0,
+            "click_num": 0,
+            "share_num": 0,
+            "duration": 100,
+            "created_at": null,
+            "updated_at": null
+        }
+    }
+}

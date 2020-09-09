@@ -15,7 +15,7 @@ class BaseController extends Controller
     public function __construct()
     {
         $route = $this->getRoute();
-        $this->userInfo = ['id' => 1];
+//        $this->userInfo = ['id' => 1];
         if(! in_array($route['controller'], $this->whiteRoute)) {
            $this->checkLogin(request('user_id', 0), request('token', ''));
         }
@@ -38,19 +38,19 @@ class BaseController extends Controller
     public function checkLogin($userId, $userToken)
     {
         header('content-type:application/json');
-//        if(empty($userToken)|| empty($userId)) {
-//            exit($this->retJson('203', '登陆失效')->content());
-//        }
+        if(empty($userToken)|| empty($userId)) {
+            exit($this->retJson('203', '登陆失效')->content());
+        }
 
         $userInfo = User::where('id', $userId)->first();
 
-//        if(empty($userInfo) || empty($userInfo['token'])) {
-//            exit($this->retJson('203', '登陆失效')->content());
-//        }
-//
-//        if($userInfo['token'] != $userToken || $userInfo['expire_time'] < time()) {
-//            exit($this->retJson('203', '登陆失效')->content());
-//        }
+        if(empty($userInfo) || empty($userInfo['token'])) {
+            exit($this->retJson('203', '登陆失效')->content());
+        }
+
+        if($userInfo['token'] != $userToken || $userInfo['expire_time'] < time()) {
+            exit($this->retJson('203', '登陆失效')->content());
+        }
 
         $this->userInfo = $userInfo;
 

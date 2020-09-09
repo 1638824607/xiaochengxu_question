@@ -19,6 +19,8 @@ Route::namespace('V1')->prefix('v1')->group(function ()
     Route::post('registerByOauth', 'LoginController@registerByOauth');
     Route::post('makeToken', 'LoginController@makeToken');
     Route::post('getPhone', 'LoginController@getPhone');
+    Route::post('refreshSessionKey', 'LoginController@refreshSessionKey');
+    Route::post('loginLog', 'LoginController@loginLog');
 
     Route::prefix('knowledge')->group(function ()
     {
@@ -55,6 +57,9 @@ Route::namespace('V1')->prefix('v1')->group(function ()
         Route::post('advisoryList', 'CommunityController@advisoryList');
         Route::post('advisoryOrder', 'CommunityController@advisoryOrder');
         Route::post('advisoryOrderEdit', 'CommunityController@advisoryOrderEdit');
+        Route::post('advisoryDateList', 'CommunityController@advisoryDateList');
+        Route::post('advisoryInfo', 'CommunityController@advisoryInfo');
+
     });
 
     Route::prefix('user')->group(function ()
@@ -69,6 +74,11 @@ Route::namespace('V1')->prefix('v1')->group(function ()
         Route::post('userPraiseList', 'UserController@userPraiseList');
         Route::post('userAdvisoryOrder', 'UserController@userAdvisoryOrder');
         Route::post('userCollectList', 'UserController@userCollectList');
+        Route::post('userReplyDel', 'UserController@userReplyDel');
+        Route::post('userReplyList', 'UserController@userReplyList');
+        Route::post('matchRecordInfo', 'UserController@matchRecordInfo');
+        Route::post('gameRecordInfo', 'UserController@gameRecordInfo');
+        Route::post('healthRecordInfo', 'UserController@healthRecordInfo');
     });
 
     Route::prefix('train')->group(function ()
@@ -76,6 +86,7 @@ Route::namespace('V1')->prefix('v1')->group(function ()
         Route::post('bannerList', 'TrainController@bannerList');
         Route::post('dayCateList', 'TrainController@dayCateList');
         Route::post('dayList', 'TrainController@dayList');
+        Route::post('dayLists', 'TrainController@dayLists');
         Route::post('dayInfo', 'TrainController@dayInfo');
         Route::post('gameList', 'TrainController@gameList');
         Route::post('gameInfo', 'TrainController@gameInfo');

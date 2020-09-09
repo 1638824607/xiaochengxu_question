@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "4c7e026b-47a7-46d1-8fec-650bd13a7864",
+        "_postman_id": "a000377f-5757-4053-81ed-9f788c775192",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -33,7 +33,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 3,\n    \"token\": 2,\n    \"page\": 14,\n    \"cate_id\": 18\n}"
+                            "raw": "{\n    \"user_id\": 19,\n    \"token\": 14,\n    \"page\": 17,\n    \"cate_id\": 1\n}"
                         },
                         "description": "",
                         "response": []
@@ -61,7 +61,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 16,\n    \"token\": 11,\n    \"post_id\": 18\n}"
+                            "raw": "{\n    \"user_id\": 15,\n    \"token\": 1,\n    \"post_id\": 9\n}"
                         },
                         "description": "",
                         "response": []
@@ -89,7 +89,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 5,\n    \"token\": 4,\n    \"post_id\": 7,\n    \"page\": 11\n}"
+                            "raw": "{\n    \"user_id\": 16,\n    \"token\": 7,\n    \"post_id\": 12,\n    \"page\": 10\n}"
                         },
                         "description": "",
                         "response": []
@@ -117,7 +117,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 16,\n    \"token\": 9,\n    \"post_id\": 1,\n    \"comment_id\": 15,\n    \"comment_content\": \"voluptatum\",\n    \"to_user_id\": 5\n}"
+                            "raw": "{\n    \"user_id\": 19,\n    \"token\": 8,\n    \"post_id\": 1,\n    \"comment_id\": 13,\n    \"comment_content\": \"nihil\",\n    \"to_user_id\": 4\n}"
                         },
                         "description": "",
                         "response": []
@@ -145,7 +145,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 5,\n    \"token\": 16,\n    \"post_id\": 5\n}"
+                            "raw": "{\n    \"user_id\": 6,\n    \"token\": 12,\n    \"post_id\": 18\n}"
                         },
                         "description": "",
                         "response": []
@@ -173,7 +173,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 12,\n    \"token\": 1,\n    \"post_id\": 11,\n    \"comment_id\": 14\n}"
+                            "raw": "{\n    \"user_id\": 1,\n    \"token\": 7,\n    \"post_id\": 13,\n    \"comment_id\": 6\n}"
                         },
                         "description": "",
                         "response": []
@@ -201,7 +201,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 4,\n    \"token\": 11,\n    \"post_id\": 16\n}"
+                            "raw": "{\n    \"user_id\": 19,\n    \"token\": 16,\n    \"post_id\": 19\n}"
                         },
                         "description": "",
                         "response": []
@@ -229,7 +229,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 16,\n    \"token\": 4,\n    \"post_id\": 8\n}"
+                            "raw": "{\n    \"user_id\": 20,\n    \"token\": 5,\n    \"post_id\": 5\n}"
                         },
                         "description": "",
                         "response": []
@@ -257,7 +257,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 13,\n    \"token\": 18,\n    \"title\": \"similique\",\n    \"content\": \"sunt\",\n    \"images\": \"minima\"\n}"
+                            "raw": "{\n    \"user_id\": 1,\n    \"token\": 5,\n    \"title\": \"ad\",\n    \"content\": \"consequatur\",\n    \"images\": \"mollitia\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -313,7 +313,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 4,\n    \"token\": 5,\n    \"advisory_id\": 11,\n    \"order_at\": \"cumque\"\n}"
+                            "raw": "{\n    \"user_id\": 8,\n    \"token\": 20,\n    \"advisory_id\": 19,\n    \"order_at\": \"veritatis\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -341,7 +341,35 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 4,\n    \"token\": 5,\n    \"id\": 2,\n    \"order_at\": \"eos\"\n}"
+                            "raw": "{\n    \"user_id\": 16,\n    \"token\": 4,\n    \"id\": 14,\n    \"order_at\": \"reprehenderit\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/v1\/community\/advisoryDateList",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/community\/advisoryDateList",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
                         },
                         "description": "",
                         "response": []
@@ -459,7 +487,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"cate_id\": 10,\n    \"sort\": \"accusamus\"\n}"
+                            "raw": "{\n    \"cate_id\": 14,\n    \"sort\": \"consectetur\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -487,7 +515,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 3\n}"
+                            "raw": "{\n    \"id\": 7\n}"
                         },
                         "description": "",
                         "response": []
@@ -515,7 +543,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"sort\": \"maiores\"\n}"
+                            "raw": "{\n    \"sort\": \"aliquam\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -543,7 +571,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 16\n}"
+                            "raw": "{\n    \"id\": 8\n}"
                         },
                         "description": "",
                         "response": []
@@ -571,7 +599,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 20,\n    \"token\": 9,\n    \"match_id\": 17\n}"
+                            "raw": "{\n    \"user_id\": 4,\n    \"token\": 15,\n    \"match_id\": 3\n}"
                         },
                         "description": "",
                         "response": []
@@ -599,7 +627,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 10,\n    \"token\": 10,\n    \"record_id\": 1,\n    \"score\": 8\n}"
+                            "raw": "{\n    \"user_id\": 18,\n    \"token\": 19,\n    \"record_id\": 10,\n    \"score\": 18\n}"
                         },
                         "description": "",
                         "response": []
@@ -627,7 +655,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 5,\n    \"token\": 12,\n    \"record_id\": 14\n}"
+                            "raw": "{\n    \"user_id\": 15,\n    \"token\": 2,\n    \"record_id\": 6\n}"
                         },
                         "description": "",
                         "response": []
@@ -683,7 +711,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"cate_id\": 3,\n    \"sort\": \"praesentium\"\n}"
+                            "raw": "{\n    \"cate_id\": 17,\n    \"sort\": \"et\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -711,7 +739,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 17\n}"
+                            "raw": "{\n    \"id\": 3\n}"
                         },
                         "description": "",
                         "response": []
@@ -739,7 +767,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 11,\n    \"token\": 16,\n    \"health_id\": 6\n}"
+                            "raw": "{\n    \"user_id\": 19,\n    \"token\": 4,\n    \"health_id\": 10\n}"
                         },
                         "description": "",
                         "response": []
@@ -767,7 +795,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 6,\n    \"token\": 20,\n    \"record_id\": 16,\n    \"score\": 1\n}"
+                            "raw": "{\n    \"user_id\": 18,\n    \"token\": 11,\n    \"record_id\": 19,\n    \"score\": 16\n}"
                         },
                         "description": "",
                         "response": []
@@ -795,7 +823,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 3,\n    \"token\": 8,\n    \"record_id\": 10\n}"
+                            "raw": "{\n    \"user_id\": 18,\n    \"token\": 19,\n    \"record_id\": 20\n}"
                         },
                         "description": "",
                         "response": []
@@ -823,7 +851,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 12,\n    \"token\": \"est\",\n    \"health_id\": 12\n}"
+                            "raw": "{\n    \"user_id\": 3,\n    \"token\": \"et\",\n    \"health_id\": 10\n}"
                         },
                         "description": "",
                         "response": []
@@ -857,7 +885,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"code\": \"dicta\"\n}"
+                            "raw": "{\n    \"code\": \"non\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -885,7 +913,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"openid\": \"qui\",\n    \"nick\": \"non\",\n    \"avatar\": \"nemo\",\n    \"gender\": 3,\n    \"province\": \"aut\",\n    \"city\": \"nisi\"\n}"
+                            "raw": "{\n    \"openid\": \"sed\",\n    \"nick\": \"ut\",\n    \"avatar\": \"ut\",\n    \"gender\": 8,\n    \"province\": \"sunt\",\n    \"city\": \"eum\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -926,6 +954,34 @@
                             "protocol": "http",
                             "host": "sns.shenruxiang.com\/",
                             "path": "api\/v1\/getPhone",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/v1\/refreshSessionKey",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/refreshSessionKey",
                             "query": []
                         },
                         "method": "POST",
@@ -1031,7 +1087,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"cate_id\": 4\n}"
+                            "raw": "{\n    \"cate_id\": 2\n}"
                         },
                         "description": "",
                         "response": []
@@ -1059,7 +1115,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"day_id\": 11\n}"
+                            "raw": "{\n    \"day_id\": 10\n}"
                         },
                         "description": "",
                         "response": []
@@ -1115,7 +1171,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"game_id\": 3\n}"
+                            "raw": "{\n    \"game_id\": 13\n}"
                         },
                         "description": "",
                         "response": []
@@ -1143,7 +1199,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 9,\n    \"token\": 20,\n    \"game_id\": 11\n}"
+                            "raw": "{\n    \"user_id\": 9,\n    \"token\": 12,\n    \"game_id\": 20\n}"
                         },
                         "description": "",
                         "response": []
@@ -1171,7 +1227,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 2,\n    \"token\": 1,\n    \"record_id\": 4,\n    \"summary\": \"corrupti\"\n}"
+                            "raw": "{\n    \"user_id\": 4,\n    \"token\": 18,\n    \"record_id\": 14,\n    \"summary\": \"ut\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -1205,7 +1261,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 20,\n    \"token\": 14,\n    \"file\": \"nulla\"\n}"
+                            "raw": "{\n    \"user_id\": 7,\n    \"token\": 12,\n    \"file\": \"numquam\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -1233,7 +1289,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 11,\n    \"token\": 1,\n    \"file\": \"sequi\"\n}"
+                            "raw": "{\n    \"user_id\": 13,\n    \"token\": 13,\n    \"file\": \"mollitia\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -1267,7 +1323,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 15,\n    \"token\": 5\n}"
+                            "raw": "{\n    \"user_id\": 18,\n    \"token\": 7\n}"
                         },
                         "description": "",
                         "response": []
@@ -1295,7 +1351,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 9,\n    \"token\": 16,\n    \"nick\": \"aspernatur\",\n    \"sex\": \"ut\",\n    \"avatar\": \"similique\"\n}"
+                            "raw": "{\n    \"user_id\": 7,\n    \"token\": 11,\n    \"nick\": \"qui\",\n    \"sex\": \"consequatur\",\n    \"avatar\": \"esse\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -1323,7 +1379,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 14,\n    \"token\": 9\n}"
+                            "raw": "{\n    \"user_id\": 18,\n    \"token\": 11\n}"
                         },
                         "description": "",
                         "response": []
@@ -1351,14 +1407,14 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 16,\n    \"token\": 2,\n    \"page\": 2\n}"
+                            "raw": "{\n    \"user_id\": 4,\n    \"token\": 14,\n    \"page\": 13\n}"
                         },
                         "description": "",
                         "response": []
                     }
                 },
                 {
-                    "name": "matchRecordList\n\u77e5\u8bc6\u7ade\u8d5b\u81ea\u6d4b\u8bb0\u5f55",
+                    "name": "matchRecordList\n\u77e5\u8bc6\u7ade\u8d5b\u81ea\u6d4b\u8bb0\u5f55\u5217\u8868",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -1379,14 +1435,14 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 1,\n    \"token\": 12,\n    \"page\": 5\n}"
+                            "raw": "{\n    \"user_id\": 8,\n    \"token\": 12,\n    \"page\": 8\n}"
                         },
                         "description": "",
                         "response": []
                     }
                 },
                 {
-                    "name": "healthRecordList\n\u5065\u5eb7\u81ea\u6d4b\u81ea\u6d4b\u8bb0\u5f55",
+                    "name": "healthRecordList\n\u5065\u5eb7\u81ea\u6d4b\u8bb0\u5f55\u5217\u8868",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -1407,7 +1463,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 2,\n    \"token\": 6,\n    \"page\": 18\n}"
+                            "raw": "{\n    \"user_id\": 7,\n    \"token\": 11,\n    \"page\": 6\n}"
                         },
                         "description": "",
                         "response": []
@@ -1435,7 +1491,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 14,\n    \"token\": 5,\n    \"page\": 3\n}"
+                            "raw": "{\n    \"user_id\": 12,\n    \"token\": 15,\n    \"page\": 12\n}"
                         },
                         "description": "",
                         "response": []
@@ -1463,7 +1519,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 8,\n    \"token\": 6,\n    \"page\": 17\n}"
+                            "raw": "{\n    \"user_id\": 18,\n    \"token\": 15,\n    \"page\": 1\n}"
                         },
                         "description": "",
                         "response": []
@@ -1491,7 +1547,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 8,\n    \"token\": 12,\n    \"page\": 1\n}"
+                            "raw": "{\n    \"user_id\": 4,\n    \"token\": 2,\n    \"page\": 11\n}"
                         },
                         "description": "",
                         "response": []
@@ -1519,7 +1575,147 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"user_id\": 1,\n    \"token\": 16,\n    \"page\": 20\n}"
+                            "raw": "{\n    \"user_id\": 15,\n    \"token\": 2,\n    \"page\": 13\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/v1\/user\/userReplyDel",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/user\/userReplyDel",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/v1\/user\/userReplyList",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/user\/userReplyList",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "matchRecordInfo\n\u77e5\u8bc6\u7ade\u8d5b\u81ea\u6d4b\u8bb0\u5f55\u8be6\u60c5",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/user\/matchRecordInfo",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": 6,\n    \"token\": 2,\n    \"record_id\": 19\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "gameRecordInfo\n\u6e38\u620f\u8bb0\u5f55\u8be6\u60c5",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/user\/gameRecordInfo",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": 12,\n    \"token\": 15,\n    \"record_id\": 7\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "healthRecordInfo\n\u5065\u5eb7\u81ea\u6d4b\u8bb0\u5f55\u8be6\u60c5",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "sns.shenruxiang.com\/",
+                            "path": "api\/v1\/user\/healthRecordInfo",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": 1,\n    \"token\": 16,\n    \"record_id\": 18\n}"
                         },
                         "description": "",
                         "response": []

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Model\User\LoginLog;
 use App\Model\User\User;
 use http\Client;
 
@@ -43,15 +44,20 @@ class LoginController extends BaseController
             'required' => '缺少必要的参数',
         ]);
 
-        $userInfo = User::where(['openid' => request('openid')])->first();
+        $openid = request('openid');
+        $userInfo = User::where(['openid' => $openid])->first();
 
-        if(! empty($userInfo)) {
-            return $this->retJson(201, '用户已注册');
+//        if(! empty($userInfo)) {
+//            return $this->retJson(201, '用户已注册');
+//        }
+
+        if(empty($userInfo)) {
+            return $this->retJson(201, '用户未注册');
         }
 
-        $userInfo = User::create([
+        $userInfo = User::where(['openid' => $openid])->update([
             'openid'            => request('openid'),
-            'user_name'         => time() . rand(100, 999),
+//            'user_name'         => time() . rand(100, 999),
             'nick'              => request('nick')? request('nick'):'',
             'avatar'            => request('avatar')? request('avatar'):'',
             'login_time'        => date('Y-m-d H:i:s'),
@@ -62,7 +68,7 @@ class LoginController extends BaseController
             ]
         );
 
-        $userInfo = User::where('id', $userInfo->id)->first();
+        $userInfo = User::where('openid', $openid)->first();
         $userInfo->isTemp = false;
 
         return $this->retData($userInfo);
@@ -105,11 +111,23 @@ class LoginController extends BaseController
         $userInfo = User::where(['openid' => $openid])->first();
 
         if (empty($userInfo)) {
-            return $this->retData([
-                'isTemp'     => true,
-                'openId'     => $openid,
-                'sessionKey' => $sessionKey,
-            ]);
+//            return $this->retData([
+//                'isTemp'     => true,
+//                'openId'     => $openid,
+//                'sessionKey' => $sessionKey,
+//            ]);
+            $userInfo = User::create([
+                    'openid'            => $openid,
+                    'user_name'         => time() . rand(100, 999),
+                    'nick'              => '',
+                    'avatar'            => '',
+                    'login_time'        => date('Y-m-d H:i:s'),
+                    'token'             => md5(md5(request('openid') . time())),
+                    'expire_time'       => time() + 60 * 60 * 24 * 100,
+                    'province'          => '',
+                    'city'              => '',
+                ]
+            );
         }
 
         User::where('id', $userInfo->id)->update([
@@ -119,7 +137,8 @@ class LoginController extends BaseController
         ]);
 
         $userInfo = User::where('id', $userInfo->id)->first();
-        $userInfo->isTemp = false;
+        $userInfo->isTemp     = true;
+        $userInfo->sessionKey = $sessionKey;
 
         return $this->retData($userInfo);
     }
@@ -162,7 +181,7 @@ class LoginController extends BaseController
     public function getPhone()
     {
         $this->validator([
-            'code' => 'required',
+            // 'code' => 'required',
             'openid'=>'required',
             'iv'=>'required',
             'encryptedData'=>'required',
@@ -176,27 +195,88 @@ class LoginController extends BaseController
         }
 
 
-        $test = new WXBizDataCrypt(self::APPID,self::APPID_SECERT);
-
-        $returnCode = $test->decryptData(request('encryptedData'),request('iv'),$data);
+         $test = new WXBizDataCrypt('wx53e535fb5fdd4b8e',$userInfo->session_key);
+        // return $this->retJson(211, stripslashes(request('encryptedData')));
+        $returnCode = $test->decryptData(request('encryptedData'),urldecode(request('iv')),$data);
         if($returnCode != 0){
             return $this->retJson(212, '手机号绑定失败'.$returnCode);
         }
-
-        if($userInfo->phone && $userInfo->phone == $returnCode['purePhoneNumber']){
-            return $this->retJson(213, '手机号已绑定');
+        $wx_user_info = json_decode($data, true);
+        if($userInfo->phone && $userInfo->phone == $wx_user_info['purePhoneNumber']){
+        	 $userInfo = User::where('openid',request('openid'))->first();
+            return $this->retJson(213, '手机号已绑定',$userInfo);
         }
 
-        $res = User::where(['openid' => request('openid')])->update([
-            'phone' => $returnCode['purePhoneNumber'],
+        $res = User::where('openid',request('openid'))->update([
+            'phone' => $wx_user_info['purePhoneNumber'],
         ]);
         if($res){
-            $userInfo = User::where(['openid' => request('openid')])->first();
+            $userInfo = User::where('openid',request('openid'))->first();
             return $this->retJson(0, '绑定成功',$userInfo);
         }else{
             return $this->retJson(214, '绑定失败');
         }
 
+
+    }
+
+    public function refreshSessionKey()
+    {
+        $this->validator([
+            'code' => 'required',
+            'openid'=>'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        $userInfo = User::where('openid',request('openid'))->first();
+        if(empty($userInfo)){
+            return $this->retJson(215, '请重新登录');
+        }
+        $params = [
+            'appid'      => self::APPID,
+            'secret'     => self::APPID_SECERT,
+            'js_code'    => request('code'),
+            'grant_type' => 'authorization_code'
+        ];
+
+        // 拼接url
+        $wxCodeUrl = 'https://api.weixin.qq.com/sns/jscode2session';
+
+        $res = $this->http_query($wxCodeUrl, $params);
+        $res = stripslashes($res);
+        $res = json_decode($res, true);
+
+        if(! empty($res['errcode'])) {
+            return $this->retJson(201, $res['errmsg']);
+        }
+
+        $sessionKey = $res['session_key'];
+
+        $res = User::where('openid',request('openid'))->update([
+            'session_key' =>$sessionKey,
+        ]);
+        if($res){
+            return $this->retJson(216, $sessionKey);
+        }else{
+            return $this->retJson(217, '请重新登录');
+        }
+    }
+
+    public function loginLog()
+    {
+        $this->validator([
+            'user_id' => 'required',
+        ], [
+            'required' => '缺少必要的参数',
+        ]);
+
+        LoginLog::create([
+            'user_id'    => request('user_id'),
+            'login_time' => date('Y-m-d H:i:s')
+        ]);
+
+        return $this->retJson([0, '登陆成功']);
 
     }
 }
